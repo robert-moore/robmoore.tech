@@ -1,13 +1,13 @@
 <template>
   <article
-    class="relative max-w-4xl mx-auto px-4 md:px-8"
+    class="relative max-w-5xl mx-auto px-4 md:px-8"
     itemscope
     itemtype="http://schema.org/BlogPosting"
   >
     <!-- Article Header -->
     <header class="mb-16">
       <h1
-        class="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight"
+        class="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight"
         itemprop="headline"
       >
         {{ title }}
@@ -34,7 +34,11 @@
     <!-- Main content -->
     <div class="content-wrapper">
       <main
-        class="prose prose-lg prose-stone max-w-none font-serif lg:max-w-[calc(100%-16rem)]"
+        class="prose prose-base prose-stone max-w-none font-serif"
+        :class="{
+          'lg:max-w-[52rem]': hasSidenotes,
+          'lg:max-w-[45rem] lg:mx-auto': !hasSidenotes,
+        }"
         itemprop="articleBody"
       >
         <slot />
@@ -48,9 +52,12 @@ interface Props {
   title: string;
   date: string;
   wordCount?: number;
+  hasSidenotes?: boolean;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  hasSidenotes: false,
+});
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
@@ -72,7 +79,7 @@ function formatDate(date: string) {
   --tw-prose-links: theme("colors.blue.700");
   font-family: theme("fontFamily.serif");
   line-height: 1.7;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 /* Add clearfix to ensure proper float behavior */
@@ -116,5 +123,11 @@ function formatDate(date: string) {
   font-style: italic;
   border-left-color: theme("colors.gray.300");
   margin: 2em 0;
+}
+
+/* Adjust sidenote positioning */
+:deep(.sidenote.lg\:sidenote-margin) {
+  margin-right: -18rem;
+  width: 16rem;
 }
 </style>

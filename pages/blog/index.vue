@@ -19,11 +19,11 @@ const { data: posts } = await useAsyncData(() => {
     <div v-else class="space-y-12">
       <article
         v-for="post in posts"
-        :key="post._path"
+        :key="post.path"
         class="border-b border-gray-200 pb-12 last:border-0"
       >
         <h2 class="font-serif text-2xl mb-4">
-          <NuxtLink :to="post._path">
+          <NuxtLink :to="post.path">
             {{ post.title }}
           </NuxtLink>
         </h2>

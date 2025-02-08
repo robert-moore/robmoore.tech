@@ -2,6 +2,7 @@
 title: Sample Post with Sidenotes
 description: An example post demonstrating the use of sidenotes with semantic HTML
 date: 2024-03-20
+hasSidenotes: true
 author: Your Name
 keywords: sidenotes, semantic HTML, accessibility
 ---
