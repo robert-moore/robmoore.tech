@@ -10,7 +10,7 @@
       }"
     >
       <h2 class="font-serif text-lg font-medium text-gray-900 mb-4 lg:pt-16">
-        Contents
+        {{ title }}
       </h2>
       <TocList :toc="toc" :active-id="activeId" @select="scrollToHeading" />
     </div>
@@ -62,7 +62,7 @@
           <div class="sticky top-0 bg-white p-4 border-b">
             <div class="flex justify-between items-center">
               <h2 class="font-serif text-lg font-medium text-gray-900">
-                Contents
+                {{ title }}
               </h2>
               <button
                 type="button"
@@ -104,11 +104,12 @@ interface TocLink {
 
 const props = defineProps<{
   toc: TocLink[];
+  activeId?: string;
+  title: string;
 }>();
 
 const isOpen = ref(false);
 const isSticky = ref(false);
-const activeId = ref<string>();
 
 function scrollToHeading(id: string) {
   const element = document.getElementById(id);
@@ -124,7 +125,7 @@ onMounted(() => {
     (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          activeId.value = entry.target.id;
+          props.activeId = entry.target.id;
         }
       }
     },

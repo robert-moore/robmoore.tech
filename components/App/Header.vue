@@ -1,13 +1,13 @@
 <template>
   <header class="border-b border-gray-200 py-6">
-    <nav class="max-w-3xl mx-auto px-4">
+    <nav class="max-w-6xl mx-auto px-4">
       <div class="flex items-center justify-between">
         <!-- Left side - Site name -->
         <NuxtLink
           to="/"
           class="text-xl font-serif text-gray-800 hover:text-gray-600 transition-colors"
         >
-          Your Name
+          Rob Moore
         </NuxtLink>
 
         <!-- Right side - Navigation -->
