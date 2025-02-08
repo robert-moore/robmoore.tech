@@ -34,14 +34,34 @@
 
 <script setup lang="ts">
 interface Props {
+  /** Whether to always show the sidenote regardless of screen size */
   alwaysShow?: boolean;
+  /** The reference number for the sidenote */
   number?: string | number;
+  /** Whether the sidenote is currently visible (for mobile) */
+  isVisible?: boolean;
 }
 
-withDefaults(defineProps<Props>(), {
+// Define emits before props
+const emit = defineEmits<{
+  "update:visible": [boolean];
+  show: [];
+  hide: [];
+}>();
+
+const props = withDefaults(defineProps<Props>(), {
   alwaysShow: false,
   number: undefined,
+  isVisible: false,
 });
+
+// Watch for visibility changes
+watch(
+  () => props.isVisible,
+  (newVal) => {
+    emit(newVal ? "show" : "hide");
+  }
+);
 
 // Export the component name only
 defineOptions({
@@ -53,6 +73,14 @@ defineOptions({
 .sidenote {
   margin-bottom: 1.5rem;
   position: relative;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Improve performance with transform */
+@media (max-width: 1023px) {
+  .sidenote {
+    will-change: transform, opacity;
+  }
 }
 
 .sidenote-number {

@@ -12,43 +12,63 @@
       <sup>[{{ number }}]</sup>
     </button>
 
-    <!-- Sidenote content with consistent rendering -->
-    <aside
-      :id="`sidenote-${number}`"
-      class="sidenote"
-      :class="{ 'is-active': isActive }"
-      role="note"
-      :aria-labelledby="`sidenote-ref-${number}`"
-    >
-      <span class="sidenote-number" aria-hidden="true">[{{ number }}]</span>
-      <div class="sidenote-content">
-        <slot />
-      </div>
-    </aside>
+    <ClientOnly>
+      <!-- Sidenote content with consistent rendering -->
+      <aside
+        :id="`sidenote-${number}`"
+        class="sidenote"
+        :class="{ 'is-active': isActive }"
+        role="note"
+        :aria-labelledby="`sidenote-ref-${number}`"
+      >
+        <span class="sidenote-number" aria-hidden="true">[{{ number }}]</span>
+        <div class="sidenote-content">
+          <slot />
+        </div>
+      </aside>
+    </ClientOnly>
   </span>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, useSSRContext, watch } from "vue";
 
 interface Props {
   number: string | number;
+  initialActive?: boolean;
+  /** Whether to show the sidenote in mobile view */
+  mobileView?: boolean;
 }
 
-defineProps<Props>();
+// Define emits before props for better organization
+const emit = defineEmits<{
+  "update:active": [boolean];
+  toggle: [boolean];
+}>();
 
-const isActive = ref(false);
-const mounted = ref(false);
-
-onMounted(() => {
-  mounted.value = true;
+const props = withDefaults(defineProps<Props>(), {
+  initialActive: false,
+  mobileView: false,
 });
+
+// Use computed for derived state
+const isActive = ref(props.initialActive);
+
+// Implement v-model support
+watch(
+  () => props.initialActive,
+  (newVal) => {
+    if (newVal !== isActive.value) {
+      isActive.value = newVal;
+    }
+  }
+);
 
 function toggleSidenote(event: Event) {
   event.preventDefault();
-  if (mounted.value) {
-    isActive.value = !isActive.value;
-  }
+  isActive.value = !isActive.value;
+  emit("update:active", isActive.value);
+  emit("toggle", isActive.value);
 }
 
 // Ensure SSR-friendly component name
@@ -80,6 +100,7 @@ defineOptions({
   color: theme("colors.blue.600");
   font-size: 1em;
   line-height: 1;
+  transition: color 0.2s ease;
 }
 
 .reference-marker:hover {
