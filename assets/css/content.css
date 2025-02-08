@@ -1,40 +1,92 @@
 /* Prose Customization */
 .prose {
-  font-family: theme("fontFamily.serif");
+  font-family: "Crimson", Georgia, serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #222;
 }
 
 .prose p {
   margin-bottom: 1.5em;
 }
 
+.prose h1 {
+  font: 48px/48px "Crimson", Georgia, serif;
+  padding: 109px 0 19px 0;
+  position: relative;
+}
+
 .prose h2 {
-  font-weight: 600;
-  font-size: 1.5em;
-  margin-top: 2em;
-  margin-bottom: 1em;
+  font: 600 30px/24px "Crimson", Georgia, serif;
+  margin: 69px 0 0 0;
+  padding-bottom: 3px;
+}
+
+.prose h3 {
+  font: italic 24px/24px "Crimson", Georgia, serif;
+  margin: 71px 0 0 0;
+  padding-bottom: 1px;
 }
 
 .prose a {
+  color: #1481b8;
   text-decoration: none;
-  border-bottom: 1px solid theme("colors.gray.300");
+  border-bottom: 1px solid rgba(20, 129, 184, 0.2);
+  transition: border-color 0.2s ease;
 }
 
 .prose a:hover {
-  border-bottom-color: theme("colors.gray.600");
+  border-bottom-color: #1481b8;
 }
 
 /* Blockquotes */
 .prose blockquote {
-  font-style: normal;
-  border-left: 3px solid theme("colors.gray.300");
-  padding-left: 1.5em;
-  margin-left: 0;
-  color: theme("colors.gray.600");
+  position: relative;
+  margin: 29px 0 31px 0;
+  padding: 0;
+  border: none;
+}
+
+.prose blockquote::before,
+.prose blockquote::after {
+  position: absolute;
+  top: -20px;
+  font: italic 72px "Crimson", Georgia, serif;
+  color: #dee9ed;
+}
+
+.prose blockquote::before {
+  content: "" ";
+  left: -7px;
+}
+
+.prose blockquote::after {
+  content: " "";
+  right: 8px;
+}
+
+.prose blockquote p {
+  margin: 0 48px;
+  font: italic 24px/36px "Crimson", Georgia, serif;
+  color: #5985a6;
 }
 
 /* Code blocks */
 .prose pre {
-  background-color: theme("colors.gray.50");
-  border: 1px solid theme("colors.gray.200");
-  border-radius: 4px;
+  font: normal 13px/20px "Source Code Pro", Menlo, Consolas, Monaco, monospace;
+  background: #faf8f5;
+  border-radius: 3px;
+  padding: 12px;
+  margin: 24px -12px;
+  color: #595959;
+}
+
+/* Inline code */
+.prose code {
+  font-family: "Source Code Pro", Menlo, Consolas, Monaco, monospace;
+  font-size: 0.9em;
+  background: #faf8f5;
+  padding: 1px 4px;
+  border-radius: 2px;
+  color: #595959;
 }

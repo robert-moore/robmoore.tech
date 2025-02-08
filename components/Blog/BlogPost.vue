@@ -12,19 +12,18 @@
     <TableOfContents v-if="hasToc && toc?.length" :toc="toc" />
 
     <!-- Article Header -->
-    <header class="mb-16">
+    <header class="mb-12">
       <h1
-        class="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight"
+        class="font-crimson text-5xl mb-6 leading-tight pt-12 pb-5"
         itemprop="headline"
       >
         {{ title }}
       </h1>
-      <div class="meta text-gray-600 font-serif text-lg">
-        <time
-          :datetime="date"
-          itemprop="datePublished"
-          class="publication-date"
-        >
+      <div
+        class="text-[#7aa0b8] font-source-sans text-sm"
+        itemprop="datePublished"
+      >
+        <time :datetime="date" class="publication-date">
           {{ formatDate(date) }}
         </time>
         <span
@@ -41,7 +40,7 @@
     <!-- Main content -->
     <div class="content-wrapper">
       <main
-        class="prose prose-base prose-stone max-w-none font-serif"
+        class="prose prose-crimson max-w-none text-[#222]"
         :class="{
           'lg:max-w-[52rem]': hasToc || hasSidenotes,
           'lg:max-w-[45rem] lg:mx-auto': !hasToc && !hasSidenotes,
@@ -81,85 +80,47 @@ function formatDate(date: string) {
 </script>
 
 <style scoped>
+/* These styles are better kept in CSS since they deal with layout structure */
 .content-wrapper {
   position: relative;
+  width: 576px;
+  margin: 0 auto;
 }
 
+/* Responsive adjustments */
+@media (max-width: 1344px) {
+  .content-wrapper {
+    width: inherit;
+    margin-right: 336px;
+  }
+}
+
+@media (max-width: 960px) {
+  .content-wrapper {
+    margin: 0;
+  }
+}
+
+/* Base content styles that can't be easily done with Tailwind */
 :deep(.prose) {
-  --tw-prose-body: theme("colors.gray.800");
-  --tw-prose-headings: theme("colors.gray.900");
-  --tw-prose-links: theme("colors.blue.700");
-  font-family: theme("fontFamily.serif");
-  line-height: 1.7;
-  font-size: 1rem;
+  --tw-prose-body: #222;
+  --tw-prose-headings: #222;
+  --tw-prose-links: #1481b8;
+  font-family: "Crimson", Georgia, serif;
+  line-height: 1.5;
+  font-size: 16px;
 }
 
-/* Add clearfix to ensure proper float behavior */
+/* Float behavior needs to stay in CSS */
 .content-wrapper::after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Ensure paragraphs clear sidenotes properly */
-:deep(.prose p) {
-  margin-bottom: 1.5em;
-  hyphens: auto;
-  clear: both;
-}
-
-:deep(.prose h2) {
-  font-size: 1.75em;
-  margin-top: 2.5em;
-  margin-bottom: 1em;
-  font-weight: 600;
-}
-
-:deep(.prose h3) {
-  font-size: 1.5em;
-  margin-top: 2em;
-  font-weight: 600;
-}
-
-:deep(.prose a) {
-  text-decoration: none;
-  border-bottom: 1px solid theme("colors.gray.300");
-  transition: border-color 0.2s ease;
-}
-
-:deep(.prose a:hover) {
-  border-color: theme("colors.blue.700");
-}
-
-:deep(.prose blockquote) {
-  font-style: italic;
-  border-left-color: theme("colors.gray.300");
-  margin: 2em 0;
-}
-
-/* Adjust sidenote positioning */
+/* Complex selectors better kept in CSS */
 :deep(.sidenote.lg\:sidenote-margin) {
   margin-right: -18rem;
   width: 16rem;
-}
-
-/* Base content width */
-.prose {
-  @apply max-w-[45rem] mx-auto;
-}
-
-/* Adjust width when TOC is present */
-.has-toc .prose {
-  @apply lg:max-w-[48rem] lg:ml-auto lg:mr-0;
-}
-
-/* Adjust width when sidenotes are present */
-.has-sidenotes .prose {
-  @apply lg:max-w-[52rem];
-}
-
-/* When both are present */
-.has-toc.has-sidenotes .prose {
-  @apply lg:max-w-[45rem] lg:mx-auto;
 }
 </style>

@@ -33,6 +33,11 @@ module.exports = {
         warning,
         success,
         error,
+        "blog-text": "#222",
+        "blog-link": "#1481b8",
+        "blog-meta": "#7aa0b8",
+        "blog-border": "#dee9ed",
+        "blog-code-bg": "#faf8f5",
       },
       textColor: {
         skin: {
@@ -55,6 +60,8 @@ module.exports = {
         serif: ["Merriweather", "Georgia", "serif"],
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
         mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
+        crimson: ['"Crimson"', "Georgia", "serif"],
+        "source-sans": ['"Source Sans Pro"', "sans-serif"],
       },
       container: {
         center: true,
@@ -65,6 +72,26 @@ module.exports = {
           lg: "4rem",
           xl: "5rem",
           "2xl": "6rem",
+        },
+      },
+      typography: {
+        crimson: {
+          css: {
+            "--tw-prose-body": "#222",
+            "--tw-prose-headings": "#222",
+            "--tw-prose-links": "#1481b8",
+            fontFamily: '"Crimson", Georgia, serif',
+            fontSize: "16px",
+            lineHeight: "1.5",
+            h1: {
+              fontFamily: '"Crimson", Georgia, serif',
+              fontSize: "48px",
+              lineHeight: "48px",
+              paddingTop: "109px",
+              paddingBottom: "19px",
+            },
+            // Add other typography styles...
+          },
         },
       },
     },

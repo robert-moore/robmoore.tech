@@ -9,7 +9,7 @@
         top: isSticky ? '2rem' : 'auto',
       }"
     >
-      <h2 class="font-serif text-lg font-medium text-gray-900 mb-4">
+      <h2 class="font-serif text-lg font-medium text-gray-900 mb-4 lg:pt-16">
         Contents
       </h2>
       <TocList :toc="toc" :active-id="activeId" @select="scrollToHeading" />

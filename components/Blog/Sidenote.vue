@@ -1,17 +1,13 @@
 <template>
   <aside
-    class="sidenote"
+    class="absolute -right-[336px] w-[288px] font-crimson text-sm leading-5 text-[#595959] border-t border-[#dee9ed] py-1"
     role="complementary"
     :aria-labelledby="`sidenote-ref-${number}`"
-    :class="{
-      'border-l-4 border-gray-200 pl-4 py-2 bg-gray-50': true,
-      'lg:sidenote-margin': !alwaysShow,
-    }"
   >
     <!-- Number marker -->
     <span
       v-if="number"
-      class="sidenote-number text-xs font-medium text-gray-500 lg:absolute lg:-left-4"
+      class="sidenote-number absolute -left-4 text-xs font-medium text-gray-500"
       aria-hidden="true"
     >
       <a
@@ -23,10 +19,7 @@
     </span>
 
     <!-- Content -->
-    <div
-      class="sidenote-content text-sm text-gray-600"
-      :id="`sidenote-${number}`"
-    >
+    <div class="my-5 first:mt-1 last:mb-1" :id="`sidenote-${number}`">
       <slot />
     </div>
   </aside>
@@ -70,61 +63,29 @@ defineOptions({
 </script>
 
 <style scoped>
-.sidenote {
-  margin-bottom: 1.5rem;
-  position: relative;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-/* Improve performance with transform */
-@media (max-width: 1023px) {
-  .sidenote {
-    will-change: transform, opacity;
+/* Mobile styles are better kept in CSS */
+@media (max-width: 960px) {
+  aside {
+    position: relative;
+    right: auto;
+    width: auto;
+    border-bottom: solid 1px #dee9ed;
+    margin: 24px 0;
   }
 }
 
-.sidenote-number {
-  display: inline-block;
-  margin-right: 0.5rem;
-  vertical-align: baseline;
-}
-
-.sidenote-content {
-  display: inline;
-}
-
-.sidenote :deep(p) {
-  margin-bottom: 0.75em;
-  display: inline;
-}
-
-.sidenote :deep(p:last-child) {
-  margin-bottom: 0;
-}
-
-/* Desktop layout */
-@media (min-width: 1024px) {
-  .sidenote.lg\:sidenote-margin {
-    float: right;
-    clear: right;
-    width: 14rem;
-    margin-right: -16rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    font-size: 0.875rem;
-    line-height: 1.4;
-    vertical-align: baseline;
+@media (max-width: 580px) {
+  aside {
+    font-size: 15px;
+    line-height: 22px;
   }
+}
 
-  .sidenote-content {
-    display: block;
-  }
-
-  .sidenote :deep(p) {
-    display: block;
-  }
+/* Code styling */
+:deep(code) {
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 1px 2px;
+  background: #faf8f5;
 }
 </style>
