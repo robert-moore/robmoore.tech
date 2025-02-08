@@ -1,0 +1,40 @@
+/* Prose Customization */
+.prose {
+  font-family: theme("fontFamily.serif");
+}
+
+.prose p {
+  margin-bottom: 1.5em;
+}
+
+.prose h2 {
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose a {
+  text-decoration: none;
+  border-bottom: 1px solid theme("colors.gray.300");
+}
+
+.prose a:hover {
+  border-bottom-color: theme("colors.gray.600");
+}
+
+/* Blockquotes */
+.prose blockquote {
+  font-style: normal;
+  border-left: 3px solid theme("colors.gray.300");
+  padding-left: 1.5em;
+  margin-left: 0;
+  color: theme("colors.gray.600");
+}
+
+/* Code blocks */
+.prose pre {
+  background-color: theme("colors.gray.50");
+  border: 1px solid theme("colors.gray.200");
+  border-radius: 4px;
+}
