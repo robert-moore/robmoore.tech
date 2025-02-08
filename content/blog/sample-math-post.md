@@ -4,6 +4,7 @@ description: An example post demonstrating the use of LaTeX
 date: 2024-03-20
 author: Your Name
 keywords: latex, math
+hasToc: true
 ---
 
 This is the main text of the article. It provides an introduction to the topic and sets the stage for the rest of the content. The purpose of this essay is to explore the intricacies of a complex subject, weaving together various threads of thought and analysis to present a comprehensive view.

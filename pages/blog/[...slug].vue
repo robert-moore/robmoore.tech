@@ -11,7 +11,17 @@ interface Post {
   date: string;
   description?: string;
   hasSidenotes?: boolean;
-  body: any;
+  hasToc?: boolean;
+  body: {
+    children: unknown[];
+    toc?: {
+      links: Array<{
+        id: string;
+        text: string;
+        depth: number;
+      }>;
+    };
+  };
 }
 </script>
 
@@ -28,6 +38,8 @@ interface Post {
     :title="post.title"
     :date="post.date"
     :hasSidenotes="post.hasSidenotes"
+    :hasToc="post.hasToc ?? true"
+    :toc="post.body?.toc?.links ?? []"
   >
     <ContentRenderer :value="post" />
   </BlogPost>

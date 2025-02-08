@@ -34,6 +34,11 @@ export default defineNuxtConfig({
         },
       },
     },
+    documentDriven: true,
+    toc: {
+      depth: 3,
+      searchDepth: 3,
+    },
   },
   experimental: {
     componentIslands: true,

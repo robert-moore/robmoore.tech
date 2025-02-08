@@ -1,9 +1,16 @@
 <template>
   <article
     class="relative max-w-5xl mx-auto px-4 md:px-8"
+    :class="{
+      'has-toc': hasToc && toc?.length,
+      'has-sidenotes': hasSidenotes,
+    }"
     itemscope
     itemtype="http://schema.org/BlogPosting"
   >
+    <!-- Table of Contents -->
+    <TableOfContents v-if="hasToc && toc?.length" :toc="toc" />
+
     <!-- Article Header -->
     <header class="mb-16">
       <h1
@@ -36,8 +43,8 @@
       <main
         class="prose prose-base prose-stone max-w-none font-serif"
         :class="{
-          'lg:max-w-[52rem]': hasSidenotes,
-          'lg:max-w-[45rem] lg:mx-auto': !hasSidenotes,
+          'lg:max-w-[52rem]': hasToc || hasSidenotes,
+          'lg:max-w-[45rem] lg:mx-auto': !hasToc && !hasSidenotes,
         }"
         itemprop="articleBody"
       >
@@ -48,15 +55,20 @@
 </template>
 
 <script setup lang="ts">
+import TableOfContents from "./TableOfContents.vue";
+
 interface Props {
   title: string;
   date: string;
   wordCount?: number;
   hasSidenotes?: boolean;
+  hasToc?: boolean;
+  toc?: Array<{ id: string; text: string; depth: number }>;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   hasSidenotes: false,
+  hasToc: true,
 });
 
 function formatDate(date: string) {
@@ -129,5 +141,25 @@ function formatDate(date: string) {
 :deep(.sidenote.lg\:sidenote-margin) {
   margin-right: -18rem;
   width: 16rem;
+}
+
+/* Base content width */
+.prose {
+  @apply max-w-[45rem] mx-auto;
+}
+
+/* Adjust width when TOC is present */
+.has-toc .prose {
+  @apply lg:max-w-[48rem] lg:ml-auto lg:mr-0;
+}
+
+/* Adjust width when sidenotes are present */
+.has-sidenotes .prose {
+  @apply lg:max-w-[52rem];
+}
+
+/* When both are present */
+.has-toc.has-sidenotes .prose {
+  @apply lg:max-w-[45rem] lg:mx-auto;
 }
 </style>
