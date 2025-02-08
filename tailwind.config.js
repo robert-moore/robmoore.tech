@@ -52,9 +52,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
         serif: ["Merriweather", "Georgia", "serif"],
-        mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
       container: {
         center: true,
@@ -69,11 +69,54 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
   plugins: [
-    require("@tailwindcss/typography"),
+    require("@tailwindcss/typography")({
+      modifiers: ["lg", "xl"],
+      theme: {
+        DEFAULT: {
+          css: {
+            color: colors.gray[800],
+            a: {
+              color: colors.blue[700],
+              "&:hover": {
+                color: colors.blue[800],
+              },
+            },
+            h1: {
+              color: colors.gray[900],
+              fontWeight: "600",
+            },
+            "h2, h3, h4": {
+              color: colors.gray[900],
+              fontWeight: "600",
+              marginTop: "2.5em",
+            },
+            pre: {
+              backgroundColor: colors.gray[50],
+              color: colors.gray[800],
+            },
+            code: {
+              backgroundColor: colors.gray[100],
+              borderRadius: "0.25rem",
+              padding: "0.2em 0.4em",
+              fontSize: "0.875em",
+              "&::before": {
+                content: '""',
+              },
+              "&::after": {
+                content: '""',
+              },
+            },
+            blockquote: {
+              fontStyle: "italic",
+              borderLeftColor: colors.gray[300],
+              marginTop: "2em",
+              marginBottom: "2em",
+            },
+          },
+        },
+      },
+    }),
     require("@tailwindcss/aspect-ratio"),
   ],
 };
