@@ -14,7 +14,10 @@
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.16",
+    "katex": "^0.16.21",
     "nuxt": "^3.15.4",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "vue": "latest",
     "vue-router": "latest"
   }
