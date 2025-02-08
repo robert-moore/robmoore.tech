@@ -3,8 +3,8 @@
     <!-- Reference marker with proper ARIA relationship -->
     <button
       type="button"
-      :id="`ref-${number}`"
-      :aria-controls="`note-${number}`"
+      :id="`sidenote-ref-${number}`"
+      :aria-controls="`sidenote-${number}`"
       :aria-expanded="isActive"
       class="reference-marker"
       @click="toggleSidenote"
@@ -12,15 +12,15 @@
       <sup>[{{ number }}]</sup>
     </button>
 
-    <!-- Sidenote content -->
+    <!-- Sidenote content with consistent rendering -->
     <aside
-      :id="`note-${number}`"
+      :id="`sidenote-${number}`"
       class="sidenote"
       :class="{ 'is-active': isActive }"
       role="note"
-      :aria-labelledby="`ref-${number}`"
+      :aria-labelledby="`sidenote-ref-${number}`"
     >
-      <span class="sidenote-number" aria-hidden="true"> [{{ number }}] </span>
+      <span class="sidenote-number" aria-hidden="true">[{{ number }}]</span>
       <div class="sidenote-content">
         <slot />
       </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 interface Props {
   number: string | number;
@@ -38,11 +38,24 @@ interface Props {
 defineProps<Props>();
 
 const isActive = ref(false);
+const mounted = ref(false);
+
+onMounted(() => {
+  mounted.value = true;
+});
 
 function toggleSidenote(event: Event) {
   event.preventDefault();
-  isActive.value = !isActive.value;
+  if (mounted.value) {
+    isActive.value = !isActive.value;
+  }
 }
+
+// Ensure SSR-friendly component name
+defineOptions({
+  name: "SidenoteRef",
+  inheritAttrs: false,
+});
 </script>
 
 <style scoped>

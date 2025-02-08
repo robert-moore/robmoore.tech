@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
   css: ["katex/dist/katex.min.css"],
   content: {
+    renderer: {
+      alias: {
+        SidenoteRef: "SidenoteRef",
+        Sidenote: "Sidenote",
+      },
+    },
     build: {
       markdown: {
         highlight: {

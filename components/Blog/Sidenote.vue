@@ -42,6 +42,11 @@ withDefaults(defineProps<Props>(), {
   alwaysShow: false,
   number: undefined,
 });
+
+// Export the component name only
+defineOptions({
+  name: "Sidenote",
+});
 </script>
 
 <style scoped>
