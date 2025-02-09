@@ -11,6 +11,7 @@ export default defineContentConfig({
         date: z.string(),
         hasSidenotes: z.boolean().optional(),
         hasToc: z.boolean().optional(),
+        showNumbers: z.boolean().optional(),
         tags: z.array(z.string()).optional(),
         draft: z.boolean().optional(),
       }),

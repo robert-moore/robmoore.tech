@@ -12,6 +12,7 @@ interface Post {
   description?: string;
   hasSidenotes?: boolean;
   hasToc?: boolean;
+  showNumbers?: boolean;
   body: {
     children: unknown[];
     toc?: {
@@ -23,6 +24,10 @@ interface Post {
     };
   };
 }
+
+definePageMeta({
+  layout: "blog",
+});
 </script>
 
 <template>
@@ -39,6 +44,7 @@ interface Post {
     :date="post.date"
     :hasSidenotes="post.hasSidenotes"
     :hasToc="post.hasToc ?? true"
+    :showNumbers="post.showNumbers"
     :toc="post.body?.toc?.links ?? []"
   >
     <ContentRenderer :value="post" />

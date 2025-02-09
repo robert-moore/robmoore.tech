@@ -82,7 +82,12 @@ module.exports = {
             "--tw-prose-links": "#1481b8",
             fontFamily: '"Crimson", Georgia, serif',
             fontSize: "18px",
-            lineHeight: "1.6",
+            lineHeight: "1.5",
+            maxWidth: "42rem",
+            p: {
+              marginTop: "1.25rem",
+              marginBottom: "1.25rem",
+            },
             h1: {
               fontFamily: '"Crimson", Georgia, serif',
               fontSize: "3rem",
