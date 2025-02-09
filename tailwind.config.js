@@ -82,7 +82,7 @@ module.exports = {
               "--tw-prose-headings": "#222",
               "--tw-prose-links": "#1481b8",
               fontFamily: theme("fontFamily.serif"),
-              fontSize: "1rem",
+              fontSize: "1.125rem",
               lineHeight: "1.5",
               maxWidth: "42rem",
               p: {
