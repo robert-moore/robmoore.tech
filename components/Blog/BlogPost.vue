@@ -25,7 +25,7 @@
         <!-- Article Header -->
         <header ref="header" class="mb-16">
           <h1
-            class="font-crimson text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
+            class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
             itemprop="headline"
           >
             {{ title }}
@@ -33,14 +33,14 @@
               class="absolute bottom-[-2px] left-0 w-24 h-[3px] bg-blog-link"
             ></span>
           </h1>
-          <div class="text-blog-meta font-crimson text-lg italic">
+          <div class="text-blog-meta font-serif text-lg italic">
             <time :datetime="date">{{ formatDate(date) }}</time>
             <span v-if="wordCount" class="ml-6"> {{ wordCount }} words </span>
           </div>
         </header>
 
         <!-- Main Content -->
-        <main class="prose prose-crimson max-w-none" itemprop="articleBody">
+        <main class="prose max-w-none font-serif" itemprop="articleBody">
           <slot />
         </main>
       </div>
@@ -58,6 +58,8 @@
 <script setup lang="ts">
 import TableOfContents from "./TableOfContents.vue";
 import { onMounted, ref, onUnmounted, provide } from "vue";
+// Import the article-specific CSS reset
+import "../blog-post.css";
 
 interface Props {
   title: string;
@@ -107,11 +109,11 @@ const sectionObserver = ref<IntersectionObserver>();
 function setupIntersectionObserver() {
   sectionObserver.value = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         if (entry.isIntersecting) {
           activeSection.value = entry.target.id;
         }
-      });
+      }
     },
     {
       // Larger top margin to trigger earlier when scrolling down
@@ -122,7 +124,9 @@ function setupIntersectionObserver() {
 
   // Only observe h2 and h3 elements that have IDs
   const headings = document.querySelectorAll("h2[id], h3[id]");
-  headings.forEach((heading) => sectionObserver.value?.observe(heading));
+  for (const heading of headings) {
+    sectionObserver.value?.observe(heading);
+  }
 }
 
 onMounted(() => {
@@ -151,13 +155,27 @@ onMounted(() => {
         sectionCount++;
         subsectionCount = 0;
         const small = document.createElement("small");
-        small.classList.add("section-number");
+        small.classList.add(
+          "text-gray-200",
+          "text-[1.4em]",
+          "font-bold",
+          "px-3",
+          "leading-tight",
+          "font-serif"
+        );
         small.textContent = ` ${formatSectionNumber(sectionCount)}`;
         heading.appendChild(small);
       } else if (heading.tagName === "H30") {
         subsectionCount++;
         const small = document.createElement("small");
-        small.classList.add("section-number");
+        small.classList.add(
+          "text-gray-200",
+          "text-[1.4em]",
+          "font-bold",
+          "px-3",
+          "leading-tight",
+          "font-serif"
+        );
         small.textContent = ` ${formatSectionNumber(
           sectionCount,
           subsectionCount
@@ -177,48 +195,3 @@ onUnmounted(() => {
 // Provide hasSidenotes to child components
 provide("hasSidenotes", props.hasSidenotes);
 </script>
-
-<style scoped>
-:deep(.prose) {
-  counter-reset: section subsection;
-}
-
-:deep(.prose h2) {
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid theme("colors.gray.200");
-  font-family: theme("fontFamily.crimson");
-  color: theme("colors.gray.800");
-}
-
-:deep(.prose h3) {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  font-family: theme("fontFamily.crimson");
-  color: theme("colors.gray.700");
-}
-
-:deep(.section-number) {
-  color: theme("colors.gray.200");
-  font-size: 1.4em;
-  font-weight: 700;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  line-height: 0.8;
-  font-family: theme("fontFamily.serif");
-}
-
-:deep(.sidenote.xl\:sidenote-margin) {
-  width: 280px;
-  margin-right: 0;
-}
-
-/* Mobile styles */
-@media (max-width: 1279px) {
-  :deep(.sidenote.xl\:sidenote-margin) {
-    margin-right: -18rem;
-    width: 16rem;
-  }
-}
-</style>

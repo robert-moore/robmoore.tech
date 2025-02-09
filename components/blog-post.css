@@ -1,0 +1,6 @@
+/* components/blog-post.css */
+
+/* Article-specific styles for blog articles */
+.prose {
+  counter-reset: section subsection;
+}
