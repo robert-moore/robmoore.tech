@@ -2,7 +2,7 @@
 title: Sample Post with LaTeX
 description: An example post demonstrating the use of LaTeX
 date: 2024-03-20
-author: Your Name
+author: Robert Moore
 keywords: latex, math
 hasToc: true
 ---

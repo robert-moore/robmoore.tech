@@ -84,7 +84,7 @@ module.exports = {
               fontFamily: theme("fontFamily.serif"),
               fontSize: "1.125rem",
               lineHeight: "1.5",
-              maxWidth: "42rem",
+              maxWidth: "46rem",
               p: {
                 marginTop: "1.5rem",
                 marginBottom: "1.5rem",
@@ -118,6 +118,15 @@ module.exports = {
                   fontWeight: "800",
                   color: "#222",
                   whiteSpace: "nowrap",
+                },
+                "& .header-number": {
+                  fontSize: "3rem",
+                  fontWeight: "800",
+                  color: theme("colors.gray.200"),
+                  whiteSpace: "nowrap",
+                  lineHeight: "0.8rem",
+                  paddingRight: "1rem",
+                  zIndex: "0",
                 },
                 "& a": {
                   color: "#222",

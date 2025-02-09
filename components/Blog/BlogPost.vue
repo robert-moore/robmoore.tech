@@ -3,9 +3,9 @@
     <div
       class="xl:grid xl:gap-12"
       :class="{
-        'xl:grid-cols-[220px_minmax(0,840px)_220px]': hasToc && hasSidenotes,
-        'xl:grid-cols-[160px_minmax(0,840px)]': hasToc && !hasSidenotes,
-        'xl:grid-cols-[minmax(0,840px)_160px]': !hasToc && hasSidenotes,
+        'xl:grid-cols-[240px_minmax(0,840px)_220px]': hasToc && hasSidenotes,
+        'xl:grid-cols-[240px_minmax(0,840px)]': hasToc && !hasSidenotes,
+        'xl:grid-cols-[100px_minmax(0,840px)_220px]': !hasToc && hasSidenotes,
         'xl:grid-cols-[minmax(0,840px)]': !hasToc && !hasSidenotes,
       }"
     >
@@ -19,11 +19,12 @@
           />
         </div>
       </aside>
+      <div v-else class="hidden xl:block"></div>
 
       <!-- Main Content -->
       <div>
         <!-- Article Header -->
-        <header ref="header" class="mb-16">
+        <header ref="header" class="mb-10">
           <h1
             class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
             itemprop="headline"
@@ -40,7 +41,7 @@
         </header>
 
         <!-- Main Content -->
-        <main class="prose max-w-none font-serif" itemprop="articleBody">
+        <main class="prose" itemprop="articleBody">
           <slot />
         </main>
       </div>
@@ -155,31 +156,8 @@ onMounted(() => {
         sectionCount++;
         subsectionCount = 0;
         const small = document.createElement("small");
-        small.classList.add(
-          "text-gray-200",
-          "text-[1.4em]",
-          "font-bold",
-          "px-3",
-          "leading-tight",
-          "font-serif"
-        );
+        small.classList.add("header-number");
         small.textContent = ` ${formatSectionNumber(sectionCount)}`;
-        heading.appendChild(small);
-      } else if (heading.tagName === "H30") {
-        subsectionCount++;
-        const small = document.createElement("small");
-        small.classList.add(
-          "text-gray-200",
-          "text-[1.4em]",
-          "font-bold",
-          "px-3",
-          "leading-tight",
-          "font-serif"
-        );
-        small.textContent = ` ${formatSectionNumber(
-          sectionCount,
-          subsectionCount
-        )}`;
         heading.appendChild(small);
       }
     }
