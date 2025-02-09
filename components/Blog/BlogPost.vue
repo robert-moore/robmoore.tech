@@ -4,7 +4,11 @@
       <!-- ToC -->
       <aside v-if="hasToc && toc?.length" class="hidden lg:block">
         <div class="sticky top-2 mt-[9.5rem]">
-          <TableOfContents :toc="toc" :title="title" />
+          <TableOfContents
+            :toc="toc"
+            :title="title"
+            :active-id="activeSection"
+          />
         </div>
       </aside>
       <div v-else class="lg:block" />
@@ -46,7 +50,7 @@
 
 <script setup lang="ts">
 import TableOfContents from "./TableOfContents.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, onUnmounted } from "vue";
 
 interface Props {
   title: string;
@@ -86,40 +90,76 @@ function formatSectionNumber(section: number, subsection?: number) {
 
 const header = ref<HTMLElement | null>(null);
 const isHeaderInView = ref(true);
+const activeSection = ref<string>();
 
-// Watch for heading elements and add numbers
-onMounted(() => {
-  if (!props.showNumbers) return;
+// Create refs for our observers so we can clean them up
+const headerObserver = ref<IntersectionObserver>();
+const sectionObserver = ref<IntersectionObserver>();
 
-  const mainContent = document.querySelector(".prose");
-  if (!mainContent) return;
-
-  const headings = mainContent.querySelectorAll("h2, h3");
-  for (const heading of headings) {
-    if (heading.tagName === "H2") {
-      sectionCount++;
-      subsectionCount = 0;
-      const small = document.createElement("small");
-      small.textContent = formatSectionNumber(sectionCount);
-      heading.appendChild(small);
-    } else if (heading.tagName === "H3") {
-      subsectionCount++;
-      const small = document.createElement("small");
-      small.textContent = formatSectionNumber(sectionCount, subsectionCount);
-      heading.appendChild(small);
+// Setup section observer
+function setupIntersectionObserver() {
+  sectionObserver.value = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id;
+        }
+      });
+    },
+    {
+      // Larger top margin to trigger earlier when scrolling down
+      rootMargin: "-100px 0px -80% 0px",
+      threshold: [0, 1],
     }
-  }
+  );
 
-  // Header visibility observer
+  // Only observe h2 and h3 elements that have IDs
+  const headings = document.querySelectorAll("h2[id], h3[id]");
+  headings.forEach((heading) => sectionObserver.value?.observe(heading));
+}
+
+onMounted(() => {
+  // Setup section observer for TOC
+  setupIntersectionObserver();
+
+  // Setup header observer
   if (header.value) {
-    const observer = new IntersectionObserver(
+    headerObserver.value = new IntersectionObserver(
       ([entry]) => {
         isHeaderInView.value = entry.isIntersecting;
       },
       { threshold: 0 }
     );
-    observer.observe(header.value);
+    headerObserver.value.observe(header.value);
   }
+
+  // Handle section numbering if enabled
+  if (props.showNumbers) {
+    const mainContent = document.querySelector(".prose");
+    if (!mainContent) return;
+
+    const headings = mainContent.querySelectorAll("h2, h3");
+    for (const heading of headings) {
+      if (heading.tagName === "H2") {
+        sectionCount++;
+        subsectionCount = 0;
+        const small = document.createElement("small");
+        small.textContent = formatSectionNumber(sectionCount);
+        heading.appendChild(small);
+      } else if (heading.tagName === "H3") {
+        subsectionCount++;
+        const small = document.createElement("small");
+        small.textContent = formatSectionNumber(sectionCount, subsectionCount);
+        heading.appendChild(small);
+      }
+    }
+  }
+});
+
+// Cleanup observers
+onUnmounted(() => {
+  headerObserver.value?.disconnect();
+  sectionObserver.value?.disconnect();
 });
 </script>
 

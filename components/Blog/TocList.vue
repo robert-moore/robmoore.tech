@@ -11,18 +11,22 @@
     >
       <a
         :href="`#${link.id}`"
-        class="block py-1 text-gray-600 hover:text-gray-900 transition-colors relative pl-4"
+        class="block relative pl-4 font-medium transition-colors py-1.5"
         :class="{
           'text-sm': link.depth === 2,
           'text-[13px]': link.depth === 3,
           'text-xs': link.depth === 4,
-          'text-blue-600 before:h-4': activeId === link.id,
+          'text-blue-600': activeId === link.id,
+          'text-gray-400 hover:text-gray-600': activeId !== link.id,
         }"
         @click.prevent="$emit('select', link.id)"
       >
-        <span
-          class="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-blue-600 transition-all"
-          :class="{ 'h-4': activeId === link.id }"
+        <div
+          class="absolute left-0 top-[0.5em] bottom-[0.5em] w-[2px] bg-blue-600 transition-transform duration-200"
+          :style="{
+            transform: activeId === link.id ? 'none' : 'translateX(-100%)',
+            opacity: activeId === link.id ? 0.8 : 0,
+          }"
         />
         {{ link.text }}
       </a>

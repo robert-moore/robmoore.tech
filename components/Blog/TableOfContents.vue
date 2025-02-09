@@ -5,7 +5,7 @@
       <h2 class="font-serif text-lg font-medium text-gray-900 mb-4">
         {{ title }}
       </h2>
-      <TocList :toc="toc" :active-id="activeId" @select="scrollToHeading" />
+      <TocList :toc="toc" :active-id="activeId" @select="handleSelect" />
     </div>
 
     <!-- Mobile ToC -->
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="p-4">
-          <TocList :toc="toc" :active-id="activeId" @select="scrollToHeading" />
+          <TocList :toc="toc" :active-id="activeId" @select="handleSelect" />
         </div>
       </div>
     </Teleport>
@@ -64,16 +64,17 @@ import TocList from "./TocList.vue";
 
 defineProps<{
   toc: Array<{ id: string; text: string; depth: number }>;
+  title?: string;
   activeId?: string;
-  title: string;
 }>();
 
 const isOpen = ref(false);
 
-function scrollToHeading(id: string) {
+function handleSelect(id: string) {
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: "smooth" });
+    // Close mobile menu after selection
     isOpen.value = false;
   }
 }
