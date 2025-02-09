@@ -1,8 +1,16 @@
 <template>
-  <article class="max-w-screen-2xl mx-auto px-4 md:px-8">
-    <div class="lg:grid lg:grid-cols-[220px_minmax(0,840px)_220px] lg:gap-12">
+  <article class="max-w-screen-md xl:max-w-screen-2xl mx-auto px-4 md:px-8">
+    <div
+      class="xl:grid xl:gap-12"
+      :class="{
+        'xl:grid-cols-[220px_minmax(0,840px)_220px]': hasToc && hasSidenotes,
+        'xl:grid-cols-[160px_minmax(0,840px)]': hasToc && !hasSidenotes,
+        'xl:grid-cols-[minmax(0,840px)_160px]': !hasToc && hasSidenotes,
+        'xl:grid-cols-[minmax(0,840px)]': !hasToc && !hasSidenotes,
+      }"
+    >
       <!-- ToC -->
-      <aside v-if="hasToc && toc?.length" class="hidden lg:block">
+      <aside v-if="hasToc && toc?.length" class="hidden xl:block">
         <div class="sticky top-2 mt-[9.5rem]">
           <TableOfContents
             :toc="toc"
@@ -11,8 +19,8 @@
           />
         </div>
       </aside>
-      <div v-else class="lg:block" />
 
+      <!-- Main Content -->
       <div>
         <!-- Article Header -->
         <header ref="header" class="mb-16">
@@ -38,19 +46,18 @@
       </div>
 
       <!-- Sidenotes -->
-      <aside v-if="hasSidenotes" class="hidden lg:block">
+      <aside v-if="hasSidenotes" class="hidden xl:block">
         <div class="sticky top-2 mt-[9.5rem]">
           <!-- Sidenotes will flow here -->
         </div>
       </aside>
-      <div v-else class="lg:block" />
     </div>
   </article>
 </template>
 
 <script setup lang="ts">
 import TableOfContents from "./TableOfContents.vue";
-import { onMounted, ref, onUnmounted } from "vue";
+import { onMounted, ref, onUnmounted, provide } from "vue";
 
 interface Props {
   title: string;
@@ -144,12 +151,17 @@ onMounted(() => {
         sectionCount++;
         subsectionCount = 0;
         const small = document.createElement("small");
-        small.textContent = formatSectionNumber(sectionCount);
+        small.classList.add("section-number");
+        small.textContent = ` ${formatSectionNumber(sectionCount)}`;
         heading.appendChild(small);
       } else if (heading.tagName === "H3") {
         subsectionCount++;
         const small = document.createElement("small");
-        small.textContent = formatSectionNumber(sectionCount, subsectionCount);
+        small.classList.add("section-number");
+        small.textContent = ` ${formatSectionNumber(
+          sectionCount,
+          subsectionCount
+        )}`;
         heading.appendChild(small);
       }
     }
@@ -161,6 +173,9 @@ onUnmounted(() => {
   headerObserver.value?.disconnect();
   sectionObserver.value?.disconnect();
 });
+
+// Provide hasSidenotes to child components
+provide("hasSidenotes", props.hasSidenotes);
 </script>
 
 <style scoped>
@@ -168,14 +183,39 @@ onUnmounted(() => {
   counter-reset: section subsection;
 }
 
-:deep(.sidenote.lg\:sidenote-margin) {
+:deep(.prose h2) {
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid theme("colors.gray.200");
+  font-family: theme("fontFamily.crimson");
+  color: theme("colors.gray.800");
+}
+
+:deep(.prose h3) {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: theme("fontFamily.crimson");
+  color: theme("colors.gray.700");
+}
+
+:deep(.section-number) {
+  color: theme("colors.gray.400");
+  font-size: 0.85em;
+  font-weight: normal;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-family: theme("fontFamily.sans");
+}
+
+:deep(.sidenote.xl\:sidenote-margin) {
   width: 280px;
   margin-right: 0;
 }
 
 /* Mobile styles */
-@media (max-width: 1344px) {
-  :deep(.sidenote.lg\:sidenote-margin) {
+@media (max-width: 1279px) {
+  :deep(.sidenote.xl\:sidenote-margin) {
     margin-right: -18rem;
     width: 16rem;
   }

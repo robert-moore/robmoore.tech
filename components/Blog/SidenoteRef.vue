@@ -13,8 +13,9 @@
     </button>
 
     <ClientOnly>
-      <!-- Sidenote content with consistent rendering -->
+      <!-- Only render sidenote content if sidenotes are enabled -->
       <aside
+        v-if="hasSidenotes"
         :id="`sidenote-${number}`"
         class="sidenote"
         :class="{ 'is-active': isActive }"
@@ -31,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, useSSRContext, watch } from "vue";
+import { ref, onMounted, useSSRContext, watch, inject } from "vue";
 
 interface Props {
   number: string | number;
@@ -39,6 +40,9 @@ interface Props {
   /** Whether to show the sidenote in mobile view */
   mobileView?: boolean;
 }
+
+// Inject hasSidenotes from parent BlogPost component
+const hasSidenotes = inject("hasSidenotes", false);
 
 // Define emits before props for better organization
 const emit = defineEmits<{
@@ -157,7 +161,7 @@ defineOptions({
 }
 
 /* Desktop layout */
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .reference-marker {
     cursor: default;
   }
@@ -177,7 +181,7 @@ defineOptions({
     float: right;
     clear: right;
     width: 14rem;
-    margin-right: -16rem;
+    margin-right: -16.5rem;
   }
 
   .sidenote-number {
