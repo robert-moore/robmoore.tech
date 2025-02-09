@@ -11,7 +11,11 @@
     >
       <a
         :href="`#${link.id}`"
-        class="block relative pl-4 font-medium transition-colors py-1.5"
+        class="block relative pl-4 font-medium transition-colors"
+        :style="{
+          paddingTop: '0.1rem',
+          paddingBottom: '0.1rem',
+        }"
         :class="{
           'text-sm': link.depth === 2,
           'text-[13px]': link.depth === 3,

@@ -1,21 +1,27 @@
 <template>
-  <header class="border-b border-gray-200 py-6">
-    <nav class="max-w-6xl mx-auto px-4">
+  <header class="border-b border-blog-border py-6 bg-white">
+    <nav class="max-w-screen-2xl mx-auto px-4 md:px-8">
       <div class="flex items-center justify-between">
-        <!-- Left side - Site name -->
+        <!-- Site name - more prominent and refined -->
         <NuxtLink
           to="/"
-          class="text-xl font-serif text-gray-800 hover:text-gray-600 transition-colors"
+          class="font-crimson text-2xl text-blog-text hover:text-blog-link transition-colors tracking-tight"
         >
           Rob Moore
         </NuxtLink>
 
-        <!-- Right side - Navigation -->
-        <div class="space-x-8 font-serif text-gray-700">
-          <NuxtLink to="/blog" class="hover:text-gray-900 transition-colors">
+        <!-- Navigation - simplified and elegant -->
+        <div class="space-x-12 font-crimson text-lg">
+          <NuxtLink
+            to="/blog"
+            class="text-blog-meta hover:text-blog-link transition-colors"
+          >
             Essays
           </NuxtLink>
-          <NuxtLink to="/about" class="hover:text-gray-900 transition-colors">
+          <NuxtLink
+            to="/about"
+            class="text-blog-meta hover:text-blog-link transition-colors"
+          >
             About
           </NuxtLink>
         </div>
@@ -25,11 +31,26 @@
 </template>
 
 <script setup lang="ts">
-// No reactive logic needed for this minimal header
+defineOptions({
+  name: "Header",
+});
 </script>
 
 <style scoped>
 .router-link-active {
-  @apply text-gray-900 font-medium;
+  @apply text-blog-text;
+  position: relative;
+}
+
+/* Subtle underline for active link */
+.router-link-active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: theme("colors.blog-link");
+  opacity: 0.3;
 }
 </style>

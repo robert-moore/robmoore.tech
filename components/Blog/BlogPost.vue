@@ -154,7 +154,7 @@ onMounted(() => {
         small.classList.add("section-number");
         small.textContent = ` ${formatSectionNumber(sectionCount)}`;
         heading.appendChild(small);
-      } else if (heading.tagName === "H3") {
+      } else if (heading.tagName === "H30") {
         subsectionCount++;
         const small = document.createElement("small");
         small.classList.add("section-number");
@@ -184,7 +184,7 @@ provide("hasSidenotes", props.hasSidenotes);
 }
 
 :deep(.prose h2) {
-  margin-top: 3.5rem;
+  margin-top: 3rem;
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid theme("colors.gray.200");
@@ -200,12 +200,13 @@ provide("hasSidenotes", props.hasSidenotes);
 }
 
 :deep(.section-number) {
-  color: theme("colors.gray.400");
-  font-size: 0.85em;
-  font-weight: normal;
+  color: theme("colors.gray.200");
+  font-size: 1.4em;
+  font-weight: 700;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  font-family: theme("fontFamily.sans");
+  line-height: 0.8;
+  font-family: theme("fontFamily.serif");
 }
 
 :deep(.sidenote.xl\:sidenote-margin) {

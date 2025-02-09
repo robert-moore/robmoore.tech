@@ -85,8 +85,8 @@ module.exports = {
             lineHeight: "1.5",
             maxWidth: "42rem",
             p: {
-              marginTop: "1.25rem",
-              marginBottom: "1.25rem",
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
             },
             h1: {
               fontFamily: '"Crimson", Georgia, serif',
