@@ -20,7 +20,7 @@
           'text-sm': link.depth === 2,
           'text-[13px]': link.depth === 3,
           'text-xs': link.depth === 4,
-          'text-blue-600': activeId === link.id,
+          'text-brand-500': activeId === link.id,
           'text-gray-400 hover:text-gray-600': activeId !== link.id,
         }"
         @click.prevent="$emit('select', link.id)"
@@ -77,12 +77,12 @@ defineEmits<{
   transform: translateY(-50%);
   width: 2px;
   height: 0;
-  background-color: theme("colors.blue.600");
+  background-color: theme("colors.brand.500");
   transition: height 0.2s ease;
 }
 
 .is-active .toc-link {
-  color: theme("colors.blue.600");
+  color: theme("colors.brand.500");
 }
 
 .is-active .toc-link::before {

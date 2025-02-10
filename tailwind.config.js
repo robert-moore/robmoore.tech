@@ -33,6 +33,18 @@ module.exports = {
         warning,
         success,
         error,
+        brand: {
+          50: "#e1eff7",
+          100: "#b3d4e8",
+          200: "#80b7d7",
+          300: "#4d9ac6",
+          400: "#2683b8",
+          500: "#1481b8",
+          600: "#1270a2",
+          700: "#10608b",
+          800: "#0d5074",
+          900: "#083d55",
+        },
         "blog-text": "#222",
         "blog-link": "#1481b8",
         "blog-meta": "#7aa0b8",
@@ -194,12 +206,12 @@ module.exports = {
                 },
               },
               a: {
-                color: "#1481b8",
+                color: theme("colors.brand.500"),
                 textDecoration: "none",
-                borderBottom: "1px solid rgba(20, 129, 184, 0.2)",
+                borderBottom: `1px solid ${theme("colors.brand.200")}`,
                 transition: "border-color 0.2s ease",
                 "&:hover": {
-                  borderBottomColor: "#1481b8",
+                  borderBottomColor: theme("colors.brand.500"),
                 },
               },
               blockquote: {
@@ -255,29 +267,29 @@ module.exports = {
       modifiers: ["lg", "xl"],
       theme: {
         DEFAULT: {
-          css: {
-            color: colors.gray[800],
+          css: (theme) => ({
+            color: theme("colors.gray.800"),
             a: {
-              color: colors.blue[700],
+              color: theme("colors.brand.500"),
               "&:hover": {
-                color: colors.blue[800],
+                color: theme("colors.brand.600"),
               },
             },
             h1: {
-              color: colors.gray[900],
+              color: theme("colors.gray.900"),
               fontWeight: "600",
             },
             "h2, h3, h4": {
-              color: colors.gray[900],
+              color: theme("colors.gray.900"),
               fontWeight: "600",
               marginTop: "2.5em",
             },
             pre: {
-              backgroundColor: colors.gray[50],
-              color: colors.gray[800],
+              backgroundColor: theme("colors.gray.50"),
+              color: theme("colors.gray.800"),
             },
             code: {
-              backgroundColor: colors.gray[100],
+              backgroundColor: theme("colors.gray.100"),
               borderRadius: "0.25rem",
               padding: "0.2em 0.4em",
               fontSize: "0.875em",
@@ -290,11 +302,11 @@ module.exports = {
             },
             blockquote: {
               fontStyle: "italic",
-              borderLeftColor: colors.gray[300],
+              borderLeftColor: theme("colors.gray.300"),
               marginTop: "2em",
               marginBottom: "2em",
             },
-          },
+          }),
         },
       },
     }),
