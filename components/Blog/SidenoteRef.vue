@@ -180,8 +180,8 @@ defineOptions({
     position: relative;
     float: right;
     clear: right;
-    width: 14rem;
-    margin-right: -16.5rem;
+    width: 15rem;
+    margin-right: -19.5rem;
   }
 
   .sidenote-number {

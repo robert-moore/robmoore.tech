@@ -16,6 +16,12 @@ The "Lindy Coefficient" is a proposed mathematical framework that extends and qu
 
 At its core, the Lindy Coefficient ($L$) quantifies how an entity's past survival predicts its future longevity<SidenoteRef number="2">This definition assumes a linear relationship between age and remaining lifespan. While reality may be more complex, this linear approximation proves useful for practical applications and initial analysis.</SidenoteRef>. The basic mathematical relationship is:
 
+<p>For more information on the Lindy effect, you can visit <a href="https://en.wikipedia.org/wiki/Lindy_effect">this Wikipedia page</a>.</p>
+
+<blockquote>
+  "The future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age. The Lindy effect suggests that the longer something has survived, the longer it is likely to continue to survive."
+</blockquote>
+
 $$
 \text{Expected Remaining Lifespan} = L × \text{Current Age}
 $$

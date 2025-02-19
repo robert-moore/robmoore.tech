@@ -31,10 +31,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div
-    v-if="config.public.dev"
-    class="bg-gray-100 p-4 mb-8 rounded text-sm font-mono"
-  >
+  <div v-if="config.public.dev" class="p-4 mb-8 rounded text-sm font-mono">
     <pre>{{ post }}</pre>
   </div>
 

@@ -1,25 +1,16 @@
 <template>
   <aside
-    class="absolute -right-[336px] w-[288px] font-crimson text-sm leading-5 text-gray-500 border-t border-[#dee9ed] py-1"
+    class="absolute"
     role="complementary"
     :aria-labelledby="`sidenote-ref-${number}`"
   >
     <!-- Number marker -->
-    <span
-      v-if="number"
-      class="sidenote-number absolute -left-4 text-xs font-medium text-gray-500"
-      aria-hidden="true"
-    >
-      <a
-        :href="`#sidenote-ref-${number}`"
-        class="no-underline hover:text-gray-700"
-      >
-        [{{ number }}]
-      </a>
+    <span v-if="number" class="sidenote-number" aria-hidden="true">
+      <a :href="`#sidenote-ref-${number}`" class=""> [{{ number }}] </a>
     </span>
 
     <!-- Content -->
-    <div class="my-5 first:mt-1 last:mb-1" :id="`sidenote-${number}`">
+    <div class="" :id="`sidenote-${number}`">
       <slot />
     </div>
   </aside>

@@ -1,12 +1,12 @@
 <template>
-  <article class="max-w-screen-md xl:max-w-screen-2xl mx-auto px-4 md:px-8">
+  <article class="mx-auto px-4 md:px-8">
     <div
       class="xl:grid xl:gap-12"
       :class="{
-        'xl:grid-cols-[240px_minmax(0,840px)_220px]': hasToc && hasSidenotes,
-        'xl:grid-cols-[240px_minmax(0,840px)]': hasToc && !hasSidenotes,
-        'xl:grid-cols-[100px_minmax(0,840px)_220px]': !hasToc && hasSidenotes,
-        'xl:grid-cols-[minmax(0,840px)]': !hasToc && !hasSidenotes,
+        'xl:grid-cols-[240px_minmax(0,880px)_220px]': hasToc && hasSidenotes,
+        'xl:grid-cols-[240px_minmax(0,880px)]': hasToc && !hasSidenotes,
+        'xl:grid-cols-[100px_minmax(0,880px)_220px]': !hasToc && hasSidenotes,
+        'xl:grid-cols-[minmax(0,880px)]': !hasToc && !hasSidenotes,
       }"
     >
       <!-- ToC -->
@@ -24,7 +24,7 @@
       <!-- Main Content -->
       <div>
         <!-- Article Header -->
-        <header ref="header" class="mb-10">
+        <header ref="header" class="mb-10 px-8">
           <h1
             class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
             itemprop="headline"
@@ -41,7 +41,10 @@
         </header>
 
         <!-- Main Content -->
-        <main class="prose" itemprop="articleBody">
+        <main
+          class="xl:px-8 xl:border-x prose-h2:-mx-[2rem] prose-h2:px-[2rem] xl:border-gray-200 hyphens-auto prose-orange prose prose-hr:my-10 prose-hr:md:-mx-[2rem] prose-hr:md:w-[calc(100%+4rem)] dark:prose-hr:border-slate-700 prose-p:font-serif prose-pre:leading-[1.15rem] prose-pre:text-[0.9rem]"
+          itemprop="articleBody"
+        >
           <slot />
         </main>
       </div>

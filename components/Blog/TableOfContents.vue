@@ -2,7 +2,7 @@
   <nav aria-label="Table of Contents">
     <!-- Desktop ToC -->
     <div class="hidden lg:block">
-      <h2 class="font-serif text-lg font-semibold text-gray-900 mb-4">
+      <h2 class="font-sans text-lg font-semibold text-gray-900 mb-4">
         {{ title }}
       </h2>
       <TocList :toc="toc" :active-id="activeId" @select="handleSelect" />

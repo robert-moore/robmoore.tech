@@ -21,7 +21,7 @@
           'text-[13px]': link.depth === 3,
           'text-xs': link.depth === 4,
           'text-brand-500': activeId === link.id,
-          'text-gray-500 hover:text-gray-700': activeId !== link.id,
+          'text-gray-600 hover:text-gray-800': activeId !== link.id,
         }"
         @click.prevent="$emit('select', link.id)"
       >
