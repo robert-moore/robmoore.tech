@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="absolute -right-[336px] w-[288px] font-crimson text-sm leading-5 text-[#595959] border-t border-[#dee9ed] py-1"
+    class="absolute -right-[336px] w-[288px] font-crimson text-sm leading-5 text-gray-500 border-t border-[#dee9ed] py-1"
     role="complementary"
     :aria-labelledby="`sidenote-ref-${number}`"
   >

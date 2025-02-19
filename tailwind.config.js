@@ -50,6 +50,7 @@ module.exports = {
         "blog-meta": "#7aa0b8",
         "blog-border": "#dee9ed",
         "blog-code-bg": "#faf8f5",
+        "background-color": "#ffffff",
       },
       textColor: {
         skin: {
@@ -70,8 +71,8 @@ module.exports = {
       },
       fontFamily: {
         serif: ["Charter", "Georgia", "serif"],
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
-        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
+        sans: ["SF Pro Text", "Inter", ...defaultTheme.fontFamily.sans],
+        mono: ["SF Mono", "JetBrains Mono", ...defaultTheme.fontFamily.mono],
         "source-sans": ['"Source Sans Pro"', "sans-serif"],
       },
       container: {

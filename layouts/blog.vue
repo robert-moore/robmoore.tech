@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white flex flex-col">
+  <div class="min-h-screen flex flex-col">
     <Header />
     <main class="w-full flex-grow py-8 max-w-screen-2xl container">
       <slot />

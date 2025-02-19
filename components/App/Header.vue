@@ -1,5 +1,5 @@
 <template>
-  <header class="border-b border-blog-border py-6 bg-white">
+  <header class="border-b border-blog-border py-6">
     <nav class="max-w-screen-2xl mx-auto px-4 md:px-8">
       <div class="flex items-center justify-between">
         <!-- Site name - more prominent and refined -->

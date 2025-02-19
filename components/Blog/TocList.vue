@@ -1,12 +1,12 @@
 <template>
-  <ul class="space-y-2">
+  <ul class="space-y-2 font-sans pt-2">
     <li
       v-for="link in toc"
       :key="link.id"
       :class="{
         'pl-0': link.depth === 2,
-        'pl-4': link.depth === 3,
         'pl-6': link.depth === 4,
+        'pl-4': link.depth === 3,
       }"
     >
       <a
@@ -21,7 +21,7 @@
           'text-[13px]': link.depth === 3,
           'text-xs': link.depth === 4,
           'text-brand-500': activeId === link.id,
-          'text-gray-400 hover:text-gray-600': activeId !== link.id,
+          'text-gray-500 hover:text-gray-700': activeId !== link.id,
         }"
         @click.prevent="$emit('select', link.id)"
       >
