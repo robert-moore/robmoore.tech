@@ -55,7 +55,7 @@ definePageMeta({
           >, a founder and software engineer focused on building great products.
         </p>
         <p
-          class="prose antialiased mx-auto max-w-[740px] mt-8 font-sans font-medium leading-relaxed text-lg"
+          class="prose antialiased mx-auto max-w-[740px] mt-10 font-sans font-medium leading-relaxed text-xl"
         >
           I co-founded <a href="https://churnkey.co">Churnkey</a> and
           <a href="https://wavve.co">Wavve</a>, write about
@@ -66,9 +66,9 @@ definePageMeta({
     </div>
 
     <!-- Startups Section -->
-    <div class="border-b px-12 py-16 dark:border-slate-700 md:px-20 lg:px-28">
+    <div class="border-b px-12 py-8 dark:border-slate-700 md:px-20 lg:px-28">
       <div
-        class="hyphens-auto max-w-none prose prose-lg dark:prose-invert prose-a:border-b prose-a:border-slate-500 prose-a:font-sans prose-a:leading-tight prose-a:no-underline prose-a:text-[0.92rem] hover:prose-a:border-b-slate-200"
+        class="hyphens-auto max-w-none dark:prose-invert prose-a:border-b prose-a:border-slate-500 prose-a:font-sans prose-a:leading-tight prose-a:no-underline prose-a:text-[0.92rem] hover:prose-a:border-b-slate-200"
       >
         <div
           class="flex flex-col gap-4 justify-center md:flex-row md:gap-10 lg:gap-16"

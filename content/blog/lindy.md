@@ -19,8 +19,8 @@ At its core, the Lindy Coefficient ($L$) quantifies how an entity's past surviva
 
 <p>For more information on the Lindy effect, you can visit <a href="https://en.wikipedia.org/wiki/Lindy_effect">this Wikipedia page</a>.</p>
 
-<blockquote>
-  "The future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age. The Lindy effect suggests that the longer something has survived, the longer it is likely to continue to survive."
+<blockquote class="px-12 text-center py-8">
+  The future life expectancy of some non-perishable things, like a technology or an idea, is proportional to their current age. The Lindy effect suggests that the longer something has survived, the longer it is likely to continue to survive.
 </blockquote>
 
 $$

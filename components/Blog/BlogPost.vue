@@ -1,7 +1,7 @@
 <template>
   <article class="mx-auto px-4 md:px-8">
     <div
-      class="xl:grid gap-1 2xl:gap-4"
+      class="xl:grid gap-1 2xl:gap-5"
       :class="{
         'xl:grid-cols-[220px_minmax(0,880px)_220px]': hasToc && hasSidenotes,
         'xl:grid-cols-[220px_minmax(0,880px)_100px]': hasToc && !hasSidenotes,
@@ -24,7 +24,7 @@
       <!-- Main Content -->
       <div>
         <!-- Article Header -->
-        <header ref="header" class="mb-10 px-8">
+        <header ref="header" class="mb-10 xl:px-8">
           <h1
             class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
             itemprop="headline"

@@ -24,7 +24,7 @@
       >
         <span class="sidenote-number" aria-hidden="true">[{{ number }}]</span>
         <div
-          class="sidenote-content text-gray-600 font-sans text-[0.85rem] tracking-wide"
+          class="sidenote-content text-gray-600 font-sans text-[0.85rem] tracking-[0.01em] font-[450]"
         >
           <slot />
         </div>
@@ -133,8 +133,9 @@ defineOptions({
   display: none;
   margin: 1rem 0;
   padding: 0.75rem 1rem;
-  background: theme("colors.gray.50");
-  border-left: 3px solid theme("colors.gray.200");
+  background: theme("colors.blue.50");
+  mix-blend-mode: multiply;
+  border-left: 3px solid theme("colors.blue.200");
   font-size: 0.92rem;
   line-height: 1.5;
   color: theme("colors.gray.600");

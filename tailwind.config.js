@@ -303,12 +303,6 @@ module.exports = {
               borderRadius: "0.25rem",
               padding: "0.2em 0.4em",
               fontSize: "0.875em",
-              "&::before": {
-                content: '""',
-              },
-              "&::after": {
-                content: '""',
-              },
             },
             blockquote: {
               fontStyle: "italic",

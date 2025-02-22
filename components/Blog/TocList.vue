@@ -11,7 +11,7 @@
     >
       <a
         :href="`#${link.id}`"
-        class="block relative pl-4 font-medium transition-colors"
+        class="block relative pl-4 font-[450] transition-colors"
         :style="{
           paddingTop: '0.1rem',
           paddingBottom: '0.1rem',
