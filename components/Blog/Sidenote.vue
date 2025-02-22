@@ -43,7 +43,11 @@ const props = withDefaults(defineProps<Props>(), {
 watch(
   () => props.isVisible,
   (newVal) => {
-    emit(newVal ? "show" : "hide");
+    if (newVal) {
+      emit("show");
+    } else {
+      emit("hide");
+    }
   }
 );
 

@@ -70,7 +70,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ["ui-serif", "serif"],
+        serif: ["Georgia", "ui-serif", "serif"],
         sans: ["Inter Var", ...defaultTheme.fontFamily.sans],
         mono: ["SF Mono", "JetBrains Mono", ...defaultTheme.fontFamily.mono],
         "source-sans": ['"Source Sans Pro"', "sans-serif"],
