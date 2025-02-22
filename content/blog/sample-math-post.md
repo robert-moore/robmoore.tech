@@ -7,6 +7,7 @@ keywords: latex, math
 hasToc: true
 tags:
   - math
+  - philosophy
 ---
 
 This is the main text of the article. It provides an introduction to the topic and sets the stage for the rest of the content. The purpose of this essay is to explore the intricacies of a complex subject, weaving together various threads of thought and analysis to present a comprehensive view.
