@@ -70,10 +70,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ["Georgia", "ui-serif", "serif"],
-        sans: ["Inter Var", ...defaultTheme.fontFamily.sans],
-        mono: ["SF Mono", "JetBrains Mono", ...defaultTheme.fontFamily.mono],
-        "source-sans": ['"Source Sans Pro"', "sans-serif"],
+        serif: "ct, sans-serif",
+        sans: "'Source Sans 3', sans-serif",
+        mono: "SF Mono, JetBrains Mono, sans-serif",
       },
       container: {
         center: true,
@@ -87,7 +86,7 @@ module.exports = {
         },
       },
       typography: (theme) => {
-        const serif = theme("fontFamily.serif").join(", ");
+        const serif = theme("fontFamily.serif");
         return {
           DEFAULT: {
             css: {
@@ -98,6 +97,11 @@ module.exports = {
               fontSize: "18px",
               lineHeight: "32px",
               maxWidth: "50rem",
+              strong: {
+                fontFamily: theme("fontFamily.sans"),
+                fontWeight: "550",
+                letterSpacing: "0.02em",
+              },
               p: {
                 marginTop: "1.5rem",
                 marginBottom: "1.5rem",
@@ -116,7 +120,8 @@ module.exports = {
                 fontFamily: `${theme("fontFamily.sans")} !important`,
                 fontSize: "1.6rem",
                 lineHeight: "1.5",
-                fontWeight: "650 !important",
+                fontWeight: "600 !important",
+                letterSpacing: "0.0em",
                 marginBottom: "1.5rem",
                 marginTop: "2.5rem",
                 paddingTop: "1.75rem",
@@ -130,13 +135,13 @@ module.exports = {
                   fontFamily: theme("fontFamily.serif"),
                   fontSize: "1.375rem",
                   fontWeight: "800",
-                  color: "#222",
+                  color: theme("colors.gray.400"),
                   whiteSpace: "nowrap",
                 },
                 "& .header-number": {
                   fontSize: "3rem",
                   fontWeight: "800",
-                  color: theme("colors.gray.400"),
+                  color: theme("colors.gray.300"),
                   whiteSpace: "nowrap",
                   lineHeight: "1rem",
                   paddingRight: "1rem",
@@ -144,7 +149,7 @@ module.exports = {
                   zIndex: "0",
                 },
                 "& a": {
-                  color: "#222",
+                  color: theme("colors.gray.700"),
                   textDecoration: "none",
                   borderBottom: "none",
                   fontWeight: "inherit",

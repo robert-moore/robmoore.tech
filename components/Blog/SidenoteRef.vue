@@ -23,7 +23,9 @@
         :aria-labelledby="`sidenote-ref-${number}`"
       >
         <span class="sidenote-number" aria-hidden="true">[{{ number }}]</span>
-        <div class="sidenote-content text-gray-900">
+        <div
+          class="sidenote-content text-gray-600 font-sans text-[0.85rem] tracking-wide"
+        >
           <slot />
         </div>
       </aside>
@@ -135,7 +137,7 @@ defineOptions({
   border-left: 3px solid theme("colors.gray.200");
   font-size: 0.92rem;
   line-height: 1.5;
-  color: theme("colors.gray.700");
+  color: theme("colors.gray.600");
 
   /* Animation properties */
   transition: opacity 0.2s ease, transform 0.2s ease;

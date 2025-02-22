@@ -51,11 +51,11 @@ definePageMeta({
             class="text-blog-link font-sans font-semibold border-b-4 border-blog-link"
             href="https://twitter.com/yourusername"
             rel="me"
-            >Rob Moore</a
+            >@robmoore</a
           >, a founder and software engineer focused on building great products.
         </p>
         <p
-          class="prose font-medium mx-auto max-w-[740px] mt-8 font-sans leading-relaxed text-lg"
+          class="prose antialiased mx-auto max-w-[740px] mt-8 font-sans font-medium leading-relaxed text-lg"
         >
           I co-founded <a href="https://churnkey.co">Churnkey</a> and
           <a href="https://wavve.co">Wavve</a>, write about
@@ -77,14 +77,14 @@ definePageMeta({
           <div class="flex-1 flex-grow pb-12 md:pb-0 lg:max-w-[21rem]">
             <h2 class="font-serif mt-0 text-xl mb-4">Churnkey</h2>
             <p
-              class="font-sans mt-0 text-[0.9rem] text-gray-600 dark:text-gray-300"
+              class="font-sans mt-0 text-[1rem] text-gray-700 dark:text-gray-300"
             >
               Churnkey helps SaaS companies reduce churn through smart
               cancellation flows and automated retention campaigns.
             </p>
             <a
               href="https://churnkey.co"
-              class="inline-block text-blog-link hover:text-blog-link/80 transition-colors"
+              class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors"
             >
               Visit Churnkey →
             </a>
@@ -94,14 +94,14 @@ definePageMeta({
           <div class="flex-1 flex-grow pb-12 md:pb-0 lg:max-w-[21rem]">
             <h2 class="font-serif mt-0 text-xl mb-4">Wavve</h2>
             <p
-              class="font-sans mt-0 text-[0.9rem] text-gray-600 dark:text-gray-300"
+              class="font-sans mt-0 text-[1rem] text-gray-700 dark:text-gray-300"
             >
               Wavve helps podcasters and content creators turn their audio
               content into engaging social videos.
             </p>
             <a
               href="https://wavve.co"
-              class="inline-block text-blog-link hover:text-blog-link/80 transition-colors"
+              class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors"
             >
               Visit Wavve →
             </a>
@@ -111,14 +111,14 @@ definePageMeta({
           <div class="flex-1 flex-grow lg:max-w-[21rem]">
             <h2 class="font-serif mt-0 text-xl mb-4">PerThirtySix</h2>
             <p
-              class="font-sans mt-0 text-[0.9rem] text-gray-600 dark:text-gray-300"
+              class="font-sans mt-0 text-[1rem] text-gray-700 dark:text-gray-300"
             >
               A side project exploring sports data visualization and statistics,
               focusing on making complex data accessible and engaging.
             </p>
             <a
               href="https://perthirtysix.com"
-              class="inline-block text-blog-link hover:text-blog-link/80 transition-colors"
+              class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors"
             >
               Visit PerThirtySix →
             </a>

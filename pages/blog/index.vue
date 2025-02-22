@@ -126,14 +126,6 @@ function formatDate(dateString: string): string {
 </template>
 
 <style>
-/* Base styles */
-html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  @apply text-gray-900;
-}
-
 /* Hover animations */
 .group {
   transition: all 0.2s ease;

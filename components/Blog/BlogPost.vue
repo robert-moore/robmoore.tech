@@ -1,10 +1,10 @@
 <template>
   <article class="mx-auto px-4 md:px-8">
     <div
-      class="xl:grid xl:gap-12"
+      class="xl:grid gap-1 2xl:gap-4"
       :class="{
-        'xl:grid-cols-[240px_minmax(0,880px)_220px]': hasToc && hasSidenotes,
-        'xl:grid-cols-[240px_minmax(0,880px)]': hasToc && !hasSidenotes,
+        'xl:grid-cols-[220px_minmax(0,880px)_220px]': hasToc && hasSidenotes,
+        'xl:grid-cols-[220px_minmax(0,880px)_100px]': hasToc && !hasSidenotes,
         'xl:grid-cols-[100px_minmax(0,880px)_220px]': !hasToc && hasSidenotes,
         'xl:grid-cols-[minmax(0,880px)]': !hasToc && !hasSidenotes,
       }"
