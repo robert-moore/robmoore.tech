@@ -31,7 +31,7 @@
         <header ref="header" class="mb-8 xl:px-8">
           <div class="space-y-5">
             <h1
-              class="font-sans text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
+              class="font-sans text-4xl md:text-5xl font-[550] tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
               itemprop="headline"
             >
               {{ title }}

@@ -34,7 +34,7 @@
       >
         <div class="p-4 border-b">
           <div class="flex justify-between items-center">
-            <h2 class="font-serif text-lg font-medium text-gray-900">
+            <h2 class="font-sans text-lg font-medium text-gray-900">
               {{ title }}
             </h2>
             <button
