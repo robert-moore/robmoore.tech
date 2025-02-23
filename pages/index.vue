@@ -149,12 +149,9 @@ definePageMeta({
         Writing
       </h2>
       <PostList :posts="recentPosts" :show-descriptions="true" />
-      <a
-        href="/posts"
-        class="inline-block mt-12 text-primary-500 hover:text-primary-600 transition-colors"
-      >
-        View all posts →
-      </a>
+      <p class="mt-6">
+        <a href="/posts"> View all posts → </a>
+      </p>
     </section>
   </div>
 </template>

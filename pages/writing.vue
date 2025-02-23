@@ -81,16 +81,19 @@ function formatDate(dateString: string): string {
     <!-- Date view -->
     <div v-if="!showByTags" class="space-y-8">
       <article v-for="post in posts" :key="post.path" class="group">
-        <a :href="post.path" class="block space-y-1.5">
-          <time class="text-sm font-mono text-gray-500 dark:text-gray-400">
-            {{ formatDate(post.date) }}
-          </time>
-
-          <h2
-            class="font-sans text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
-          >
-            {{ post.title }}
-          </h2>
+        <a :href="post.path" class="block space-y-2">
+          <div class="flex items-baseline justify-between gap-4">
+            <h2
+              class="font-sans text-base font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
+            >
+              {{ post.title }}
+            </h2>
+            <time
+              class="text-sm font-mono text-gray-400 dark:text-gray-500 whitespace-nowrap"
+            >
+              {{ formatDate(post.date) }}
+            </time>
+          </div>
 
           <p
             v-if="post.description"
@@ -121,7 +124,7 @@ function formatDate(dateString: string): string {
               class="flex items-baseline justify-between gap-4"
             >
               <span
-                class="text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
+                class="font-sans text-base font-medium text-gray-800 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
               >
                 {{ post.title }}
               </span>
