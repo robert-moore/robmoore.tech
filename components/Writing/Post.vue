@@ -9,8 +9,12 @@
         'xl:grid-cols-[minmax(0,720px)]': !hasToc && !hasSidenotes,
       }"
     >
-      <!-- ToC -->
-      <aside v-if="hasToc && toc?.length" class="hidden xl:block">
+      <!-- Navigation -->
+      <nav
+        v-if="hasToc && toc?.length"
+        class="hidden xl:block"
+        aria-label="Table of Contents"
+      >
         <div class="sticky top-2 mt-[9.5rem]">
           <TableOfContents
             :toc="toc"
@@ -18,39 +22,83 @@
             :active-id="activeSection"
           />
         </div>
-      </aside>
+      </nav>
       <div v-else class="hidden xl:block"></div>
 
       <!-- Main Content -->
       <div>
-        <!-- Post Header -->
-        <header ref="header" class="mb-10 xl:px-8">
-          <h1
-            class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b relative"
-            itemprop="headline"
-          >
-            {{ title }}
-            <span
-              class="absolute bottom-[-2px] left-0 w-24 h-[3px] bg-primary-500"
-            ></span>
-          </h1>
-          <div class="font-serif text-lg italic">
-            <time :datetime="date">{{ formatDate(date) }}</time>
-            <span v-if="wordCount" class="ml-6"> {{ wordCount }} words </span>
+        <!-- Article Header -->
+        <header ref="header" class="mb-8 xl:px-8">
+          <div class="space-y-5">
+            <h1
+              class="font-sans text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
+              itemprop="headline"
+            >
+              {{ title }}
+            </h1>
+
+            <div class="flex flex-col gap-4">
+              <!-- Meta info -->
+              <div
+                class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 font-mono"
+              >
+                <time :datetime="date" itemprop="datePublished">
+                  {{ formatDate(date) }}
+                </time>
+                <span
+                  v-if="wordCount"
+                  class="flex items-center before:content-['•'] before:mr-6"
+                  itemprop="wordCount"
+                >
+                  {{ wordCount }} words
+                </span>
+              </div>
+
+              <!-- Tags -->
+              <div
+                v-if="tags?.length"
+                class="flex flex-wrap gap-2"
+                itemprop="keywords"
+              >
+                <span
+                  v-for="tag in tags"
+                  :key="tag"
+                  class="px-3 py-1.5 text-xs font-mono text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 rounded-full border border-gray-100 dark:border-gray-800"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
           </div>
         </header>
 
-        <!-- Main Content -->
-        <main
-          class="xl:px-8 xl:border-x prose-a:no-underline prose-h2:-mx-[2rem] prose-h2:px-[2rem] xl:border-gray-200 hyphens-auto prose prose-hr:my-10 prose-hr:md:-mx-[2rem] prose-hr:md:w-[calc(100%+4rem)]"
-          itemprop="postBody"
+        <!-- Article Content -->
+        <div
+          :class="[
+            'xl:px-8',
+            {
+              'xl:border-l': hasToc,
+              'xl:border-r': hasSidenotes,
+              'xl:border-gray-200 dark:xl:border-gray-800':
+                hasToc || hasSidenotes,
+            },
+          ]"
+          itemprop="articleBody"
         >
-          <slot />
-        </main>
+          <main
+            class="prose prose-a:no-underline prose-h2:-mx-[2rem] prose-h2:px-[2rem] hyphens-auto prose-hr:my-10 prose-hr:md:-mx-[2rem] prose-hr:md:w-[calc(100%+4rem)]"
+          >
+            <slot />
+          </main>
+        </div>
       </div>
 
-      <!-- Sidenotes -->
-      <aside v-if="hasSidenotes" class="hidden xl:block">
+      <!-- Complementary Content -->
+      <aside
+        v-if="hasSidenotes"
+        class="hidden xl:block"
+        aria-label="Article Notes"
+      >
         <div class="sticky top-2 mt-[9.5rem]">
           <!-- Sidenotes will flow here -->
         </div>
@@ -72,6 +120,7 @@ interface Props {
   hasToc?: boolean;
   showNumbers?: boolean;
   toc?: Array<{ id: string; text: string; depth: number }>;
+  tags?: string[];
 }
 
 const props = withDefaults(defineProps<Props>(), {

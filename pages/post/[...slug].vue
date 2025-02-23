@@ -16,10 +16,12 @@ definePageMeta({
     v-if="post"
     :title="post.title"
     :date="post.date"
+    :tags="post.tags"
     :hasSidenotes="post.hasSidenotes"
     :hasToc="post.hasToc ?? true"
     :showNumbers="post.showNumbers"
     :toc="post.body?.toc?.links ?? []"
+    :wordCount="post.wordCount"
   >
     <ContentRenderer :value="post" />
   </Post>
