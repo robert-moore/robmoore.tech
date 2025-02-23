@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { BlogPost } from "~/types/blog";
+import type { Post } from "~/types/post";
 
 interface Props {
   title: string;
-  posts: BlogPost[];
+  posts: Post[];
   showDescriptions?: boolean;
 }
 

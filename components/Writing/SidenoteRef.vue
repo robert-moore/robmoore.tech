@@ -43,7 +43,7 @@ interface Props {
   mobileView?: boolean;
 }
 
-// Inject hasSidenotes from parent BlogPost component
+// Inject hasSidenotes from parent Post component
 const hasSidenotes = inject("hasSidenotes", false);
 
 // Define emits before props for better organization

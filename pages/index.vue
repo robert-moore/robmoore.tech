@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { useBlogPosts } from "~/composables/useBlogPosts";
 import { computed } from "vue";
-import BlogPostSection from "~/components/BlogPostSection.vue";
+import { usePosts } from "~/composables/usePosts";
+import PostList from "~/components/Writing/PostList.vue";
+import StartupCard from "~/components/Home/StartupCard.vue";
 
 // Blog posts
-const { fetchPosts, groupByTags } = useBlogPosts();
+const { fetchPosts, groupByTags } = usePosts();
 const { data: posts } = await fetchPosts();
 
 // Filter posts by category
@@ -15,8 +16,6 @@ const philosophyPosts = computed(() =>
 const techPosts = computed(() =>
   (postsByTag.value.get("tech") ?? []).slice(0, 5)
 );
-
-console.log(philosophyPosts.value);
 
 // SEO metadata
 useSeoMeta({
@@ -48,10 +47,10 @@ definePageMeta({
         >
           I'm
           <a
-            class="text-blog-link font-sans font-semibold border-b-4 border-blog-link"
+            class="text-blog-link font-sans font-semibold"
             href="https://twitter.com/yourusername"
             rel="me"
-            >@robmoore</a
+            >@<span class="underline underline-offset-4 mr-1">robmoore</span></a
           >, a founder and software engineer focused on building great products.
         </p>
         <p
@@ -59,7 +58,7 @@ definePageMeta({
         >
           I co-founded <a href="https://churnkey.co">Churnkey</a> and
           <a href="https://wavve.co">Wavve</a>, write about
-          <a href="/blog">philosophy and technology</a>, and build
+          <a href="/posts">philosophy and technology</a>, and build
           <a href="https://perthirtysix.com">data visualizations for sports</a>.
         </p>
       </div>
@@ -68,62 +67,25 @@ definePageMeta({
     <!-- Startups Section -->
     <div class="border-b px-12 py-8 dark:border-slate-700 md:px-20 lg:px-28">
       <div
-        class="hyphens-auto max-w-none dark:prose-invert prose-a:border-b prose-a:border-slate-500 prose-a:font-sans prose-a:leading-tight prose-a:no-underline prose-a:text-[0.92rem] hover:prose-a:border-b-slate-200"
+        class="flex flex-col gap-4 justify-center md:flex-row md:gap-10 lg:gap-16"
       >
-        <div
-          class="flex flex-col gap-4 justify-center md:flex-row md:gap-10 lg:gap-16"
-        >
-          <!-- Churnkey -->
-          <div class="flex-1 flex-grow pb-12 md:pb-0 lg:max-w-[21rem]">
-            <h2 class="font-serif mt-0 text-xl mb-4">Churnkey</h2>
-            <p
-              class="font-sans mt-0 text-[1rem] text-gray-700 dark:text-gray-300"
-            >
-              Churnkey helps SaaS companies reduce churn through smart
-              cancellation flows and automated retention campaigns.
-            </p>
-            <a
-              href="https://churnkey.co"
-              class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors"
-            >
-              Visit Churnkey →
-            </a>
-          </div>
+        <StartupCard
+          title="Churnkey"
+          description="Churnkey helps SaaS companies reduce churn through smart cancellation flows and automated retention campaigns."
+          url="https://churnkey.co"
+        />
 
-          <!-- Wavve -->
-          <div class="flex-1 flex-grow pb-12 md:pb-0 lg:max-w-[21rem]">
-            <h2 class="font-serif mt-0 text-xl mb-4">Wavve</h2>
-            <p
-              class="font-sans mt-0 text-[1rem] text-gray-700 dark:text-gray-300"
-            >
-              Wavve helps podcasters and content creators turn their audio
-              content into engaging social videos.
-            </p>
-            <a
-              href="https://wavve.co"
-              class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors"
-            >
-              Visit Wavve →
-            </a>
-          </div>
+        <StartupCard
+          title="Wavve"
+          description="Wavve helps podcasters and content creators turn their audio content into engaging social videos."
+          url="https://wavve.co"
+        />
 
-          <!-- PerThirtySix -->
-          <div class="flex-1 flex-grow lg:max-w-[21rem]">
-            <h2 class="font-serif mt-0 text-xl mb-4">PerThirtySix</h2>
-            <p
-              class="font-sans mt-0 text-[1rem] text-gray-700 dark:text-gray-300"
-            >
-              A side project exploring sports data visualization and statistics,
-              focusing on making complex data accessible and engaging.
-            </p>
-            <a
-              href="https://perthirtysix.com"
-              class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors"
-            >
-              Visit PerThirtySix →
-            </a>
-          </div>
-        </div>
+        <StartupCard
+          title="PerThirtySix"
+          description="A side project exploring sports data visualization and statistics, focusing on making complex data accessible and engaging."
+          url="https://perthirtysix.com"
+        />
       </div>
     </div>
 
@@ -134,12 +96,12 @@ definePageMeta({
         <div
           class="flex flex-col gap-4 justify-center md:flex-row md:gap-10 lg:gap-16"
         >
-          <BlogPostSection
+          <PostList
             title="Philosophy"
             :posts="philosophyPosts"
             :show-descriptions="true"
           />
-          <BlogPostSection title="Technology" :posts="techPosts" />
+          <PostList title="Technology" :posts="techPosts" />
         </div>
       </div>
     </div>

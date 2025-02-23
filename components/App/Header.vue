@@ -13,10 +13,10 @@
         <!-- Navigation - simplified and elegant -->
         <div class="space-x-12 font-crimson text-lg">
           <NuxtLink
-            to="/blog"
+            to="/writing"
             class="text-blog-meta hover:text-blog-link transition-colors"
           >
-            Essays
+            Writing
           </NuxtLink>
           <NuxtLink
             to="/about"

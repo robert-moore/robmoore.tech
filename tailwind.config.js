@@ -94,13 +94,13 @@ module.exports = {
               "--tw-prose-headings": "#222",
               "--tw-prose-links": "#1481b8",
               fontFamily: theme("fontFamily.serif"),
-              fontSize: "18px",
-              lineHeight: "32px",
+              // fontSize: "16px",
+              // lineHeight: "32px",
+              lineHeight: "1.7778",
               maxWidth: "50rem",
               strong: {
                 fontFamily: theme("fontFamily.sans"),
                 fontWeight: "550",
-                letterSpacing: "0.02em",
               },
               p: {
                 marginTop: "1.5rem",

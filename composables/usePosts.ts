@@ -1,6 +1,6 @@
 import { useAsyncData } from "#imports";
 
-export interface BlogPost {
+export interface Post {
   title: string;
   path: string;
   date: string;
@@ -8,17 +8,17 @@ export interface BlogPost {
   tags?: string[];
 }
 
-export function useBlogPosts() {
+export function usePosts() {
   const fetchPosts = () =>
-    useAsyncData("blog-posts", () =>
-      queryCollection("blog")
+    useAsyncData("posts", () =>
+      queryCollection("post")
         .select("title", "path", "date", "description", "tags")
         .order("date", "DESC")
         .all()
     );
 
-  const groupByTags = (posts: BlogPost[]) => {
-    const grouped = new Map<string, BlogPost[]>();
+  const groupByTags = (posts: Post[]) => {
+    const grouped = new Map<string, Post[]>();
 
     for (const post of posts) {
       for (const tag of post.tags ?? []) {

@@ -1,7 +1,7 @@
 <template>
   <article class="mx-auto px-4 md:px-8">
     <div
-      class="xl:grid gap-1 2xl:gap-5"
+      class="xl:grid gap-1 md:gap-4 2xl:gap-5"
       :class="{
         'xl:grid-cols-[220px_minmax(0,880px)_220px]': hasToc && hasSidenotes,
         'xl:grid-cols-[220px_minmax(0,880px)_100px]': hasToc && !hasSidenotes,
@@ -23,7 +23,7 @@
 
       <!-- Main Content -->
       <div>
-        <!-- Article Header -->
+        <!-- Post Header -->
         <header ref="header" class="mb-10 xl:px-8">
           <h1
             class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
@@ -43,7 +43,7 @@
         <!-- Main Content -->
         <main
           class="xl:px-8 xl:border-x prose-h2:-mx-[2rem] prose-h2:px-[2rem] xl:border-gray-200 hyphens-auto prose-orange prose prose-hr:my-10 prose-hr:md:-mx-[2rem] prose-hr:md:w-[calc(100%+4rem)] dark:prose-hr:border-slate-700 prose-p:font-serif prose-pre:leading-[1.15rem] prose-pre:text-[0.9rem]"
-          itemprop="articleBody"
+          itemprop="postBody"
         >
           <slot />
         </main>
@@ -62,8 +62,7 @@
 <script setup lang="ts">
 import TableOfContents from "./TableOfContents.vue";
 import { onMounted, ref, onUnmounted, provide } from "vue";
-// Import the article-specific CSS reset
-import "../blog-post.css";
+import "./post.css";
 
 interface Props {
   title: string;

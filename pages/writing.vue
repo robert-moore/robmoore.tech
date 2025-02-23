@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 const { data: posts } = await useAsyncData(() => {
-  return queryCollection("blog")
+  return queryCollection("post")
     .select("title", "path", "id", "date", "description", "tags")
     .order("date", "DESC")
     .all();
 });
 
-interface BlogPost {
+interface Post {
   title: string;
   path: string;
   id: string;
@@ -19,7 +19,7 @@ const showByTags = ref(false);
 
 // Group posts by tags
 const postsByTag = computed(() => {
-  const grouped = new Map<string, BlogPost[]>();
+  const grouped = new Map<string, Post[]>();
 
   for (const post of posts.value ?? []) {
     for (const tag of post.tags ?? []) {
@@ -65,7 +65,7 @@ function formatDate(dateString: string): string {
 
     <!-- Date view -->
     <div v-if="!showByTags" class="space-y-8">
-      <article v-for="post in posts" :key="post.path" class="group">
+      <post v-for="post in posts" :key="post.path" class="group">
         <a :href="post.path" class="block hover:no-underline">
           <div class="text-sm text-gray-500 font-mono mb-1">
             {{ formatDate(post.date) }}
@@ -81,7 +81,7 @@ function formatDate(dateString: string): string {
             {{ post.description }}
           </p>
         </a>
-      </article>
+      </post>
     </div>
 
     <!-- Tags view -->

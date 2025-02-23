@@ -1,0 +1,4 @@
+/* Post-specific styles for blog posts */
+.prose {
+  counter-reset: section subsection;
+}
