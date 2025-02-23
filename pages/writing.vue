@@ -77,6 +77,11 @@ function formatDate(dateString: string): string {
               class="font-sans text-base font-medium text-gray-900 group-hover:text-gray-600 transition-colors"
             >
               {{ post.title }}
+              <span
+                class="inline-block ml-1 text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                aria-hidden="true"
+                >→</span
+              >
             </h2>
             <time class="text-sm font-mono text-gray-400 whitespace-nowrap">
               {{ formatDate(post.date) }}
@@ -113,6 +118,11 @@ function formatDate(dateString: string): string {
                 class="font-sans text-base font-medium text-gray-800 group-hover:text-gray-600 transition-colors"
               >
                 {{ post.title }}
+                <span
+                  class="inline-block ml-1 text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                  aria-hidden="true"
+                  >→</span
+                >
               </span>
               <time class="text-sm font-mono text-gray-400 whitespace-nowrap">
                 {{ formatDate(post.date) }}
