@@ -2,7 +2,6 @@
 import type { Post } from "~/types/post";
 
 interface Props {
-  title: string;
   posts: Post[];
   showDescriptions?: boolean;
 }
@@ -22,22 +21,30 @@ function formatDate(date: string) {
 </script>
 
 <template>
-  <div class="flex-1 flex-grow pb-12 md:pb-0 lg:max-w-[21rem]">
-    <h3 class="font-serif mt-0 text-xl mb-4">{{ title }}</h3>
-    <ul class="mb-0 list-none">
-      <li v-for="post in posts" :key="post.path" class="last:mb-0 list-none">
-        <a :href="post.path">{{ post.title }}</a>
-        <span
-          class="font-sans italic pl-2 text-[#6b7280] text-[0.7rem] dark:text-[#9ca3af]"
-          >{{ formatDate(post.date) }}</span
-        >
+  <ul class="space-y-8">
+    <li v-for="post in posts" :key="post.path">
+      <article>
+        <div class="flex items-baseline justify-between gap-2">
+          <a
+            :href="post.path"
+            class="text-lg font-medium hover:text-primary-500 transition-colors"
+          >
+            {{ post.title }}
+          </a>
+          <time
+            :datetime="post.date"
+            class="text-sm tabular-nums text-slate-500 dark:text-slate-400"
+          >
+            {{ formatDate(post.date) }}
+          </time>
+        </div>
         <p
           v-if="showDescriptions"
-          class="font-sans mt-0.5 text-gray-600 text-base"
+          class="mt-2 text-slate-600 dark:text-slate-300 leading-relaxed"
         >
           {{ post.description }}
         </p>
-      </li>
-    </ul>
-  </div>
+      </article>
+    </li>
+  </ul>
 </template>

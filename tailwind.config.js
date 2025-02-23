@@ -165,11 +165,6 @@ module.exports = {
                 },
               },
             },
-            "h1, h2, h3, h4": {
-              color: textColors.primary,
-              fontWeight: "600",
-              marginTop: "2.5em",
-            },
 
             // Links within paragraphs
             "p > a": {
