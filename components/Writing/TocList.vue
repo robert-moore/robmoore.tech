@@ -77,12 +77,12 @@ defineEmits<{
   transform: translateY(-50%);
   width: 2px;
   height: 0;
-  background-color: theme("colors.brand.500");
+  background-color: theme("colors.primary.500");
   transition: height 0.2s ease;
 }
 
 .is-active .toc-link {
-  color: theme("colors.brand.500");
+  color: theme("colors.primary.500");
 }
 
 .is-active .toc-link::before {

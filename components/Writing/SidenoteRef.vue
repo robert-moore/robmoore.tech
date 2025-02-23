@@ -103,18 +103,18 @@ defineOptions({
   cursor: pointer;
 
   /* Custom styles */
-  color: theme("colors.brand.500");
+  color: theme("colors.primary.500");
   font-size: 1em;
   line-height: 1;
   transition: color 0.2s ease;
 }
 
 .reference-marker:hover {
-  color: theme("colors.brand.600");
+  color: theme("colors.primary.600");
 }
 
 .reference-marker:focus-visible {
-  outline: 2px solid theme("colors.brand.500");
+  outline: 2px solid theme("colors.primary.500");
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -155,7 +155,7 @@ defineOptions({
 .sidenote-number {
   display: inline-block;
   margin-right: 0.5rem;
-  color: theme("colors.brand.500");
+  color: theme("colors.primary.500");
   font-weight: 500;
 }
 

@@ -2,7 +2,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content", "@nuxt/fonts"],
-  css: ["katex/dist/katex.min.css", "~/assets/css/fonts.css"],
+  css: [
+    "katex/dist/katex.min.css",
+    "~/assets/css/fonts.css",
+    "~/assets/css/global.scss",
+  ],
   fonts: {
     families: [
       { name: "ct", provider: "none" },

@@ -47,19 +47,25 @@ definePageMeta({
         >
           I'm
           <a
-            class="text-blog-link font-sans font-semibold"
-            href="https://twitter.com/yourusername"
+            class="font-sans font-semibold no-fancy-underline text-primary-500"
+            href="https://twitter.com/robmoo_re"
+            target="_blank"
             rel="me"
             >@<span class="underline underline-offset-4 mr-1">robmoore</span></a
           >, a founder and software engineer focused on building great products.
         </p>
         <p
-          class="prose antialiased mx-auto max-w-[740px] mt-10 font-sans font-medium leading-relaxed text-xl"
+          class="antialiased mx-auto max-w-[740px] mt-10 font-sans font-medium leading-relaxed text-xl"
         >
-          I co-founded <a href="https://churnkey.co">Churnkey</a> and
-          <a href="https://wavve.co">Wavve</a>, write about
-          <a href="/posts">philosophy and technology</a>, and build
-          <a href="https://perthirtysix.com">data visualizations for sports</a>.
+          I co-founded
+          <a class="fancy-underline" href="https://churnkey.co">Churnkey</a> and
+          <a class="fancy-underline" href="https://wavve.co">Wavve</a>, write
+          about
+          <a class="fancy-underline" href="/posts">philosophy and technology</a
+          >, and build
+          <a class="fancy-underline" href="https://perthirtysix.com"
+            >data visualizations for sports</a
+          >.
         </p>
       </div>
     </div>

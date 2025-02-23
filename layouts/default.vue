@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen antialiased flex flex-col bg-[#f6f5e9] bg-no-repeat bg-gradient-to-br from-[#f6f5e9] to-[#faf8fa] dark:bg-slate-800 dark:from-slate-800 dark:to-slate-950"
+    class="min-h-screen antialiased flex flex-col dark:bg-slate-800 dark:from-slate-800 dark:to-slate-950"
   >
     <Header />
     <main class="flex-grow">

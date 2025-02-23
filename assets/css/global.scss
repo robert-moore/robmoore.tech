@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p > a:not(.no-fancy-underline),
+  .fancy-underline {
+    @apply relative text-primary-500 font-medium hover:text-primary-400 transition-colors no-underline;
+
+    &::after {
+      content: "";
+      @apply absolute left-0 bottom-0 h-[2px] bg-primary-500 w-0 transition-all duration-300;
+      /* Start with width: 0 */
+    }
+
+    &:hover::after {
+      @apply w-full; /* Expand to full width on hover */
+    }
+  }
+}

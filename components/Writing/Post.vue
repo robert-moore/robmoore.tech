@@ -3,10 +3,10 @@
     <div
       class="xl:grid gap-1 md:gap-4 2xl:gap-5"
       :class="{
-        'xl:grid-cols-[220px_minmax(0,880px)_220px]': hasToc && hasSidenotes,
-        'xl:grid-cols-[220px_minmax(0,880px)_100px]': hasToc && !hasSidenotes,
-        'xl:grid-cols-[100px_minmax(0,880px)_220px]': !hasToc && hasSidenotes,
-        'xl:grid-cols-[minmax(0,880px)]': !hasToc && !hasSidenotes,
+        'xl:grid-cols-[220px_minmax(0,720px)_220px]': hasToc && hasSidenotes,
+        'xl:grid-cols-[220px_minmax(0,720px)_100px]': hasToc && !hasSidenotes,
+        'xl:grid-cols-[100px_minmax(0,720px)_220px]': !hasToc && hasSidenotes,
+        'xl:grid-cols-[minmax(0,720px)]': !hasToc && !hasSidenotes,
       }"
     >
       <!-- ToC -->
@@ -26,15 +26,15 @@
         <!-- Post Header -->
         <header ref="header" class="mb-10 xl:px-8">
           <h1
-            class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b border-blog-border relative"
+            class="font-serif text-[3.5rem] leading-tight mb-8 pb-4 border-b relative"
             itemprop="headline"
           >
             {{ title }}
             <span
-              class="absolute bottom-[-2px] left-0 w-24 h-[3px] bg-blog-link"
+              class="absolute bottom-[-2px] left-0 w-24 h-[3px] bg-primary-500"
             ></span>
           </h1>
-          <div class="text-blog-meta font-serif text-lg italic">
+          <div class="font-serif text-lg italic">
             <time :datetime="date">{{ formatDate(date) }}</time>
             <span v-if="wordCount" class="ml-6"> {{ wordCount }} words </span>
           </div>
@@ -42,7 +42,7 @@
 
         <!-- Main Content -->
         <main
-          class="xl:px-8 xl:border-x prose-h2:-mx-[2rem] prose-h2:px-[2rem] xl:border-gray-200 hyphens-auto prose-orange prose prose-hr:my-10 prose-hr:md:-mx-[2rem] prose-hr:md:w-[calc(100%+4rem)] dark:prose-hr:border-slate-700 prose-p:font-serif prose-pre:leading-[1.15rem] prose-pre:text-[0.9rem]"
+          class="xl:px-8 xl:border-x prose-a:no-underline prose-h2:-mx-[2rem] prose-h2:px-[2rem] xl:border-gray-200 hyphens-auto prose prose-hr:my-10 prose-hr:md:-mx-[2rem] prose-hr:md:w-[calc(100%+4rem)]"
           itemprop="postBody"
         >
           <slot />

@@ -14,10 +14,7 @@ defineProps<Props>();
     <p class="mt-0 text-[1rem] text-gray-700 dark:text-gray-300">
       {{ description }}
     </p>
-    <a
-      :href="url"
-      class="inline-block text-blog-link font-semibold hover:text-blog-link/80 transition-colors mt-2"
-    >
+    <a :href="url" class="fancy-underline mt-3 inline-block">
       Visit {{ title }} →
     </a>
   </div>
