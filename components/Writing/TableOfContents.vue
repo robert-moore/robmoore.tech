@@ -12,7 +12,7 @@
     <Teleport to="body">
       <button
         type="button"
-        class="fixed lg:hidden bottom-6 right-6 z-[100] bg-white rounded-full shadow-lg p-3 text-gray-600 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        class="fixed lg:hidden bottom-6 right-6 z-[100] bg-white rounded-full shadow-lg p-3 text-gray-600 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2"
         @click="isOpen = !isOpen"
         aria-label="Toggle table of contents"
         :aria-expanded="isOpen"
