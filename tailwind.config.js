@@ -26,8 +26,8 @@ const themeColors = {
 
 // Define semantic text colors
 const textColors = {
-  primary: colors.gray[900],
-  secondary: colors.gray[600],
+  primary: colors.slate[900],
+  secondary: colors.slate[600],
   muted: "#7aa0b8",
   link: themeColors.primary[500],
 };
@@ -35,13 +35,13 @@ const textColors = {
 // Define semantic background colors
 const backgroundColors = {
   primary: colors.white,
-  secondary: colors.gray[50],
+  secondary: colors.slate[50],
   code: "#faf8f5",
 };
 
 // Define border colors
 const borderColors = {
-  primary: colors.gray[200],
+  primary: colors.slate[200],
   secondary: "#dee9ed",
 };
 
@@ -63,6 +63,7 @@ module.exports = {
       },
       colors: {
         ...themeColors,
+        gray: colors.slate,
       },
       fontFamily: {
         serif: "ct, sans-serif",

@@ -31,7 +31,7 @@
         <header ref="header" class="mb-8 xl:px-8">
           <div class="space-y-5">
             <h1
-              class="font-sans text-4xl md:text-5xl font-[550] tracking-tight text-gray-900 dark:text-gray-100 leading-tight"
+              class="font-sans text-4xl md:text-5xl font-[550] tracking-tight text-gray-900 leading-tight"
               itemprop="headline"
             >
               {{ title }}
@@ -40,7 +40,7 @@
             <div class="flex flex-col gap-4">
               <!-- Meta info -->
               <div
-                class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 font-mono"
+                class="flex items-center gap-6 text-sm text-gray-500 font-mono"
               >
                 <time :datetime="date" itemprop="datePublished">
                   {{ formatDate(date) }}
@@ -63,7 +63,7 @@
                 <span
                   v-for="tag in tags"
                   :key="tag"
-                  class="px-3 py-1.5 text-xs font-mono text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800/50 rounded-full border border-gray-100 dark:border-gray-800"
+                  class="px-3 py-1.5 text-xs font-mono text-gray-600 bg-gray-50 rounded-full border border-gray-100"
                 >
                   {{ tag }}
                 </span>
@@ -79,8 +79,7 @@
             {
               'xl:border-l': hasToc,
               'xl:border-r': hasSidenotes,
-              'xl:border-gray-200 dark:xl:border-gray-800':
-                hasToc || hasSidenotes,
+              'xl:border-gray-200': hasToc || hasSidenotes,
             },
           ]"
           itemprop="articleBody"

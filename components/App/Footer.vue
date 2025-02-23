@@ -1,19 +1,19 @@
 <template>
-  <footer class="border-t border-gray-100 dark:border-gray-800 py-8 mt-16">
+  <footer class="border-t border-gray-100 py-8 mt-16">
     <div class="max-w-screen-2xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:justify-between gap-8">
         <!-- Left side - Copyright -->
-        <div class="font-sans text-sm text-gray-600 dark:text-gray-400">
+        <div class="font-sans text-sm text-gray-600">
           <p>© {{ currentYear }} Robert Moore</p>
         </div>
 
         <!-- Center - Social Links -->
-        <div class="flex items-center gap-6 text-gray-600 dark:text-gray-400">
+        <div class="flex items-center gap-6 text-gray-600">
           <a
             href="https://twitter.com/robmoo_re"
             target="_blank"
             rel="me"
-            class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            class="group flex items-center gap-1.5 hover:text-gray-900 transition-colors"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -27,7 +27,7 @@
             href="https://linkedin.com/in/yourusername"
             target="_blank"
             rel="me"
-            class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            class="group flex items-center gap-1.5 hover:text-gray-900 transition-colors"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -41,7 +41,7 @@
             href="https://github.com/yourusername"
             target="_blank"
             rel="me"
-            class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            class="group flex items-center gap-1.5 hover:text-gray-900 transition-colors"
           >
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -53,24 +53,19 @@
         </div>
 
         <!-- Right side - Links -->
-        <div
-          class="flex items-center gap-6 font-sans text-sm text-gray-600 dark:text-gray-400"
-        >
-          <NuxtLink
-            to="/rss.xml"
-            class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-          >
+        <div class="flex items-center gap-6 font-sans text-sm text-gray-600">
+          <NuxtLink to="/rss.xml" class="hover:text-gray-900 transition-colors">
             RSS
           </NuxtLink>
           <NuxtLink
             to="/sitemap.xml"
-            class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            class="hover:text-gray-900 transition-colors"
           >
             Sitemap
           </NuxtLink>
           <a
             href="mailto:your@email.com"
-            class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            class="hover:text-gray-900 transition-colors"
           >
             Email
           </a>

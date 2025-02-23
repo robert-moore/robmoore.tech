@@ -23,28 +23,33 @@ function formatDate(date: string) {
 <template>
   <ul class="space-y-8">
     <li v-for="post in posts" :key="post.path">
-      <article>
-        <div class="flex items-baseline justify-between gap-2">
-          <a
-            :href="post.path"
-            class="text-lg font-medium hover:text-primary-500 transition-colors"
+      <a :href="post.path" class="block group">
+        <article>
+          <div class="flex items-baseline justify-between gap-2">
+            <h3
+              class="text-lg font-medium group-hover:text-primary-500 transition-colors"
+            >
+              {{ post.title }}
+              <span
+                class="inline-block ml-1 text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                aria-hidden="true"
+                >→</span
+              >
+            </h3>
+            <time
+              :datetime="post.date"
+              class="text-sm tabular-nums text-gray-500 group-hover:text-gray-900 transition-colors"
+            >
+              {{ formatDate(post.date) }}
+            </time>
+          </div>
+          <p
+            class="mt-2 text-gray-600 group-hover:text-gray-900 transition-colors"
           >
-            {{ post.title }}
-          </a>
-          <time
-            :datetime="post.date"
-            class="text-sm tabular-nums text-slate-500 dark:text-slate-400"
-          >
-            {{ formatDate(post.date) }}
-          </time>
-        </div>
-        <p
-          v-if="showDescriptions"
-          class="mt-2 text-slate-600 dark:text-slate-300 leading-relaxed"
-        >
-          {{ post.description }}
-        </p>
-      </article>
+            {{ post.description }}
+          </p>
+        </article>
+      </a>
     </li>
   </ul>
 </template>

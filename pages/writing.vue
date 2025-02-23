@@ -42,19 +42,13 @@ function formatDate(dateString: string): string {
 <template>
   <div class="max-w-3xl mx-auto px-6">
     <div class="pt-12 pb-8">
-      <h1
-        class="font-sans text-2xl font-medium text-gray-900 dark:text-gray-100 mb-6"
-      >
-        Writing
-      </h1>
+      <h1 class="font-sans text-2xl font-medium text-gray-900 mb-6">Writing</h1>
 
       <div class="flex gap-4 mb-8">
         <button
           class="text-sm font-medium transition-colors"
           :class="
-            !showByTags
-              ? 'text-gray-900 dark:text-gray-100'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+            !showByTags ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           "
           @click="showByTags = false"
         >
@@ -63,9 +57,7 @@ function formatDate(dateString: string): string {
         <button
           class="text-sm font-medium transition-colors"
           :class="
-            showByTags
-              ? 'text-gray-900 dark:text-gray-100'
-              : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+            showByTags ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           "
           @click="showByTags = true"
         >
@@ -74,9 +66,7 @@ function formatDate(dateString: string): string {
       </div>
     </div>
 
-    <div v-if="!posts?.length" class="text-gray-500 dark:text-gray-400">
-      No posts found
-    </div>
+    <div v-if="!posts?.length" class="text-gray-500">No posts found</div>
 
     <!-- Date view -->
     <div v-if="!showByTags" class="space-y-8">
@@ -84,20 +74,18 @@ function formatDate(dateString: string): string {
         <a :href="post.path" class="block space-y-2">
           <div class="flex items-baseline justify-between gap-4">
             <h2
-              class="font-sans text-base font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
+              class="font-sans text-base font-medium text-gray-900 group-hover:text-gray-600 transition-colors"
             >
               {{ post.title }}
             </h2>
-            <time
-              class="text-sm font-mono text-gray-400 dark:text-gray-500 whitespace-nowrap"
-            >
+            <time class="text-sm font-mono text-gray-400 whitespace-nowrap">
               {{ formatDate(post.date) }}
             </time>
           </div>
 
           <p
             v-if="post.description"
-            class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
+            class="text-gray-600 text-sm leading-relaxed"
           >
             {{ post.description }}
           </p>
@@ -109,12 +97,10 @@ function formatDate(dateString: string): string {
     <div v-else class="space-y-12">
       <div v-for="[tag, tagPosts] in [...postsByTag]" :key="tag">
         <div class="flex items-baseline gap-3 mb-4">
-          <h3
-            class="font-mono text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500"
-          >
+          <h3 class="font-mono text-xs uppercase tracking-wider text-gray-400">
             {{ tag }}
           </h3>
-          <div class="h-px flex-1 bg-gray-100 dark:bg-gray-800"></div>
+          <div class="h-px flex-1 bg-gray-100"></div>
         </div>
 
         <ul class="space-y-3">
@@ -124,13 +110,11 @@ function formatDate(dateString: string): string {
               class="flex items-baseline justify-between gap-4"
             >
               <span
-                class="font-sans text-base font-medium text-gray-800 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
+                class="font-sans text-base font-medium text-gray-800 group-hover:text-gray-600 transition-colors"
               >
                 {{ post.title }}
               </span>
-              <time
-                class="text-sm font-mono text-gray-400 dark:text-gray-500 whitespace-nowrap"
-              >
+              <time class="text-sm font-mono text-gray-400 whitespace-nowrap">
                 {{ formatDate(post.date) }}
               </time>
             </a>
