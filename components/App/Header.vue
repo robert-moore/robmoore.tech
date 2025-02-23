@@ -1,21 +1,29 @@
 <template>
-  <header class="py-6">
-    <nav class="max-w-screen-2xl mx-auto px-4 md:px-8">
+  <header class="py-6 border-b border-gray-100 dark:border-gray-800">
+    <nav class="max-w-screen-2xl mx-auto px-6">
       <div class="flex items-center justify-between">
-        <!-- Site name - more prominent and refined -->
+        <!-- Site name - modern sans-serif -->
         <NuxtLink
           to="/"
-          class="no-underline font-crimson text-2xl transition-colors tracking-tight"
+          class="no-underline font-sans text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100 hover:text-gray-600 transition-colors"
         >
           Rob Moore
         </NuxtLink>
 
-        <!-- Navigation - simplified and elegant -->
-        <div class="space-x-12 font-crimson text-lg">
-          <NuxtLink to="/writing" class="no-underline transition-colors">
+        <!-- Navigation - clean and minimal -->
+        <div class="flex items-center space-x-8">
+          <NuxtLink
+            to="/writing"
+            class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+          >
             Writing
           </NuxtLink>
-          <NuxtLink to="/about" class="transition-colors"> About </NuxtLink>
+          <NuxtLink
+            to="/about"
+            class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+          >
+            About
+          </NuxtLink>
         </div>
       </div>
     </nav>
@@ -30,16 +38,6 @@ defineOptions({
 
 <style scoped>
 .router-link-active {
-  @apply relative;
-}
-
-/* Subtle underline for active link */
-.router-link-active::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
+  @apply text-gray-900 dark:text-gray-100;
 }
 </style>

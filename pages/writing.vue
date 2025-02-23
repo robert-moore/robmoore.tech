@@ -20,7 +20,6 @@ const showByTags = ref(false);
 // Group posts by tags
 const postsByTag = computed(() => {
   const grouped = new Map<string, Post[]>();
-
   for (const post of posts.value ?? []) {
     for (const tag of post.tags ?? []) {
       if (!grouped.has(tag)) {
@@ -29,104 +28,117 @@ const postsByTag = computed(() => {
       grouped.get(tag)?.push(post);
     }
   }
-
   return grouped;
 });
 
 function formatDate(dateString: string): string {
-  return new Date(dateString).toISOString().split("T")[0];
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+  });
 }
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto px-4">
-    <div class="mb-12">
-      <h1 class="text-2xl font-normal mb-8">all writing</h1>
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="pt-12 pb-8">
+      <h1
+        class="font-sans text-2xl font-medium text-gray-900 dark:text-gray-100 mb-6"
+      >
+        Writing
+      </h1>
 
       <div class="flex gap-4 mb-8">
         <button
-          class="text-gray-800 hover:text-gray-600"
-          :class="{ 'text-gray-500': showByTags }"
+          class="text-sm font-medium transition-colors"
+          :class="
+            !showByTags
+              ? 'text-gray-900 dark:text-gray-100'
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+          "
           @click="showByTags = false"
         >
-          sort by date posted
+          By Date
         </button>
         <button
-          class="text-gray-500 hover:text-gray-600"
-          :class="{ 'text-gray-800': showByTags }"
+          class="text-sm font-medium transition-colors"
+          :class="
+            showByTags
+              ? 'text-gray-900 dark:text-gray-100'
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100'
+          "
           @click="showByTags = true"
         >
-          sort by concept
+          By Topic
         </button>
       </div>
     </div>
 
-    <div v-if="!posts?.length" class="text-gray-600">No posts found</div>
+    <div v-if="!posts?.length" class="text-gray-500 dark:text-gray-400">
+      No posts found
+    </div>
 
     <!-- Date view -->
     <div v-if="!showByTags" class="space-y-8">
-      <post v-for="post in posts" :key="post.path" class="group">
-        <a :href="post.path" class="block hover:no-underline">
-          <div class="text-sm text-gray-500 font-mono mb-1">
+      <article v-for="post in posts" :key="post.path" class="group">
+        <a :href="post.path" class="block space-y-1.5">
+          <time class="text-sm font-mono text-gray-500 dark:text-gray-400">
             {{ formatDate(post.date) }}
-          </div>
+          </time>
 
           <h2
-            class="text-lg font-normal text-gray-900 group-hover:text-blue-700 mb-1"
+            class="font-sans text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
           >
             {{ post.title }}
           </h2>
 
-          <p v-if="post.description" class="text-gray-600 text-sm">
+          <p
+            v-if="post.description"
+            class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
+          >
             {{ post.description }}
           </p>
         </a>
-      </post>
+      </article>
     </div>
 
     <!-- Tags view -->
-    <div v-else class="flex gap-12">
-      <div class="flex-1 space-y-8">
-        <div
-          v-for="[tag, tagPosts] in [...postsByTag].slice(
-            0,
-            Math.ceil(postsByTag.size / 2)
-          )"
-          :key="tag"
-        >
-          <h3 class="font-medium mb-2">{{ tag }}</h3>
-          <ul class="space-y-2">
-            <li v-for="post in tagPosts" :key="post.path">
-              <a :href="post.path" class="text-gray-800 hover:text-blue-700">
-                {{ post.title }}
-              </a>
-            </li>
-          </ul>
+    <div v-else class="space-y-12">
+      <div v-for="[tag, tagPosts] in [...postsByTag]" :key="tag">
+        <div class="flex items-baseline gap-3 mb-4">
+          <h3
+            class="font-mono text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500"
+          >
+            {{ tag }}
+          </h3>
+          <div class="h-px flex-1 bg-gray-100 dark:bg-gray-800"></div>
         </div>
-      </div>
-      <div class="flex-1 space-y-8">
-        <div
-          v-for="[tag, tagPosts] in [...postsByTag].slice(
-            Math.ceil(postsByTag.size / 2)
-          )"
-          :key="tag"
-        >
-          <h3 class="font-medium mb-2">{{ tag }}</h3>
-          <ul class="space-y-2">
-            <li v-for="post in tagPosts" :key="post.path">
-              <a :href="post.path" class="text-gray-800 hover:text-blue-700">
+
+        <ul class="space-y-3">
+          <li v-for="post in tagPosts" :key="post.path" class="group">
+            <a
+              :href="post.path"
+              class="flex items-baseline justify-between gap-4"
+            >
+              <span
+                class="text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
+              >
                 {{ post.title }}
-              </a>
-            </li>
-          </ul>
-        </div>
+              </span>
+              <time
+                class="text-sm font-mono text-gray-400 dark:text-gray-500 whitespace-nowrap"
+              >
+                {{ formatDate(post.date) }}
+              </time>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
-<style>
-/* Hover animations */
+<style scoped>
 .group {
   transition: all 0.2s ease;
 }
