@@ -60,13 +60,14 @@
                 class="flex flex-wrap gap-2"
                 itemprop="keywords"
               >
-                <span
+                <NuxtLink
                   v-for="tag in tags"
                   :key="tag"
-                  class="px-3 py-1.5 text-xs font-mono text-gray-600 bg-gray-50 rounded-full border border-gray-100"
+                  :to="getTagUrl(tag)"
+                  class="px-3 py-1.5 text-xs font-mono text-gray-600 bg-gray-50 rounded-full border border-gray-100 hover:bg-gray-100 transition-colors"
                 >
                   {{ tag }}
-                </span>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -110,6 +111,7 @@
 import TableOfContents from "./TableOfContents.vue";
 import { onMounted, ref, onUnmounted, provide } from "vue";
 import "./post.css";
+import { useRouter } from "#app";
 
 interface Props {
   title: string;
@@ -222,4 +224,8 @@ onUnmounted(() => {
 
 // Provide hasSidenotes to child components
 provide("hasSidenotes", props.hasSidenotes);
+
+function getTagUrl(tag: string) {
+  return `/writing?view=tags&tag=${encodeURIComponent(tag)}`;
+}
 </script>

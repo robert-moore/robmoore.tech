@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { ref, computed, onMounted, watch, nextTick } from "vue";
+import { useRoute, useRouter } from "#app";
+
 const { data: posts } = await useAsyncData(() => {
   return queryCollection("post")
     .select("title", "path", "id", "date", "description", "tags")
@@ -15,7 +18,11 @@ interface Post {
   tags?: string[];
 }
 
-const showByTags = ref(false);
+const route = useRoute();
+const router = useRouter();
+
+const showByTags = computed(() => route.query.view === "tags");
+const selectedTag = computed(() => route.query.tag as string | undefined);
 
 // Group posts by tags
 const postsByTag = computed(() => {
@@ -37,6 +44,56 @@ function formatDate(dateString: string): string {
     month: "long",
   });
 }
+
+// Handle tag view toggling
+function toggleView(showTags: boolean) {
+  const query = showTags ? { view: "tags" } : undefined;
+  router.replace({ query });
+}
+
+// Enhance scroll handling with highlight animation
+function scrollToTag(tag: string | undefined) {
+  if (!tag) return;
+
+  // Wait for DOM update and tag view to be active
+  nextTick(async () => {
+    // Give time for view switch if needed
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    const tagElement = document.querySelector(`[data-tag="${tag}"]`);
+    if (tagElement) {
+      tagElement.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      // Add highlight animation class
+      tagElement.classList.add("highlight-tag");
+      // Remove class after animation
+      setTimeout(() => {
+        tagElement.classList.remove("highlight-tag");
+      }, 2000);
+    }
+  });
+}
+
+// Update the watch to handle view switching properly
+watch(selectedTag, (newTag) => {
+  if (newTag) {
+    // First switch to tags view if needed
+    if (!showByTags.value) {
+      toggleView(true);
+    }
+    // Then scroll after a brief delay
+    setTimeout(() => {
+      scrollToTag(newTag);
+    }, 100);
+  }
+});
+
+// Initial load handling
+onMounted(() => {
+  if (selectedTag.value) {
+    scrollToTag(selectedTag.value);
+  }
+});
 </script>
 
 <template>
@@ -50,7 +107,7 @@ function formatDate(dateString: string): string {
           :class="
             !showByTags ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           "
-          @click="showByTags = false"
+          @click="toggleView(false)"
         >
           By Date
         </button>
@@ -59,7 +116,7 @@ function formatDate(dateString: string): string {
           :class="
             showByTags ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'
           "
-          @click="showByTags = true"
+          @click="toggleView(true)"
         >
           By Topic
         </button>
@@ -100,7 +157,12 @@ function formatDate(dateString: string): string {
 
     <!-- Tags view -->
     <div v-else class="space-y-12">
-      <div v-for="[tag, tagPosts] in [...postsByTag]" :key="tag">
+      <div
+        v-for="[tag, tagPosts] in [...postsByTag]"
+        :key="tag"
+        :data-tag="tag"
+        class="rounded-lg"
+      >
         <div class="flex items-baseline gap-3 mb-4">
           <h3 class="font-mono text-xs uppercase tracking-wider text-gray-400">
             {{ tag }}
@@ -138,5 +200,36 @@ function formatDate(dateString: string): string {
 <style scoped>
 .group {
   transition: all 0.2s ease;
+}
+
+/* Add highlight animation */
+@keyframes highlightTag {
+  0% {
+    box-shadow: inset 0 0 0 2px transparent;
+  }
+  15% {
+    box-shadow: inset 0 0 0 2px rgba(17, 24, 39, 0.08);
+  }
+  60% {
+    box-shadow: inset 0 0 0 2px rgba(17, 24, 39, 0.04);
+  }
+  100% {
+    box-shadow: inset 0 0 0 2px transparent;
+  }
+}
+
+.highlight-tag {
+  animation: highlightTag 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0.75rem;
+  transform-origin: center;
+}
+
+/* Add padding to tag sections for better highlight appearance */
+[data-tag] {
+  padding: 1.25rem;
+  margin: -1.25rem;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  isolation: isolate;
 }
 </style>
