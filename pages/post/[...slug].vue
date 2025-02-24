@@ -17,9 +17,9 @@ definePageMeta({
     :title="post.title"
     :date="post.date"
     :tags="post.tags"
-    :hasSidenotes="post.hasSidenotes"
-    :hasToc="post.hasToc ?? true"
-    :showNumbers="post.showNumbers"
+    :showSidenotes="post.showSidenotes"
+    :showToc="post.showToc ?? true"
+    :showHeaderNumbers="post.showHeaderNumbers"
     :toc="post.body?.toc?.links ?? []"
     :wordCount="post.wordCount"
   >

@@ -4,7 +4,7 @@ description: An example post demonstrating the use of LaTeX
 date: 2024-03-20
 author: Robert Moore
 keywords: latex, math
-hasToc: true
+showToc: true
 tags:
   - math
   - philosophy

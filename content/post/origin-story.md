@@ -2,8 +2,8 @@
 title: Origin Story
 description: A measure of the expected remaining lifespan of non-perishable entities
 date: 2025-02-09
-hasToc: true
-showNumbers: true
+showToc: true
+showHeaderNumbers: true
 tags:
   - lindy
   - math

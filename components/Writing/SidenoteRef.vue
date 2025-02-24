@@ -15,7 +15,7 @@
     <ClientOnly>
       <!-- Only render sidenote content if sidenotes are enabled -->
       <aside
-        v-if="hasSidenotes"
+        v-if="showSidenotes"
         :id="`sidenote-${number}`"
         class="sidenote"
         :class="{ 'is-active': isActive }"
@@ -43,8 +43,8 @@ interface Props {
   mobileView?: boolean;
 }
 
-// Inject hasSidenotes from parent Post component
-const hasSidenotes = inject("hasSidenotes", false);
+// Inject showSidenotes from parent Post component
+const showSidenotes = inject("showSidenotes", false);
 
 // Define emits before props for better organization
 const emit = defineEmits<{

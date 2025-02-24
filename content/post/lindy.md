@@ -2,9 +2,9 @@
 title: Lindy Coefficient
 description: A measure of the expected remaining lifespan of non-perishable entities
 date: 2025-02-09
-hasToc: true
-hasSidenotes: true
-showNumbers: true
+showToc: true
+showSidenotes: true
+showHeaderNumbers: true
 tags:
   - lindy
   - math

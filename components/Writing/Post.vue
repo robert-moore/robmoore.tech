@@ -3,15 +3,15 @@
     <div
       class="xl:grid gap-1 md:gap-4 2xl:gap-5"
       :class="{
-        'xl:grid-cols-[220px_minmax(0,720px)_220px]': hasToc && hasSidenotes,
-        'xl:grid-cols-[220px_minmax(0,720px)_100px]': hasToc && !hasSidenotes,
-        'xl:grid-cols-[100px_minmax(0,720px)_220px]': !hasToc && hasSidenotes,
-        'xl:grid-cols-[minmax(0,720px)]': !hasToc && !hasSidenotes,
+        'xl:grid-cols-[220px_minmax(0,720px)_220px]': showToc && showSidenotes,
+        'xl:grid-cols-[220px_minmax(0,720px)_100px]': showToc && !showSidenotes,
+        'xl:grid-cols-[100px_minmax(0,720px)_220px]': !showToc && showSidenotes,
+        'xl:grid-cols-[minmax(0,720px)]': !showToc && !showSidenotes,
       }"
     >
       <!-- Navigation -->
       <nav
-        v-if="hasToc && toc?.length"
+        v-if="showToc && toc?.length"
         class="hidden xl:block"
         aria-label="Table of Contents"
       >
@@ -78,9 +78,9 @@
           :class="[
             'xl:px-8',
             {
-              'xl:border-l': hasToc,
-              'xl:border-r': hasSidenotes,
-              'xl:border-gray-200': hasToc || hasSidenotes,
+              'xl:border-l': showToc,
+              'xl:border-r': showSidenotes,
+              'xl:border-gray-200': showToc || showSidenotes,
             },
           ]"
           itemprop="articleBody"
@@ -95,7 +95,7 @@
 
       <!-- Complementary Content -->
       <aside
-        v-if="hasSidenotes"
+        v-if="showSidenotes"
         class="hidden xl:block"
         aria-label="Article Notes"
       >
@@ -117,17 +117,17 @@ interface Props {
   title: string;
   date: string;
   wordCount?: number;
-  hasSidenotes?: boolean;
-  hasToc?: boolean;
-  showNumbers?: boolean;
+  showSidenotes?: boolean;
+  showToc?: boolean;
+  showHeaderNumbers?: boolean;
   toc?: Array<{ id: string; text: string; depth: number }>;
   tags?: string[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  hasSidenotes: false,
-  hasToc: true,
-  showNumbers: false,
+  showSidenotes: false,
+  showToc: true,
+  showHeaderNumbers: false,
 });
 
 function formatDate(date: string) {
@@ -198,7 +198,7 @@ onMounted(() => {
   }
 
   // Handle section numbering if enabled
-  if (props.showNumbers) {
+  if (props.showHeaderNumbers) {
     const mainContent = document.querySelector(".prose");
     if (!mainContent) return;
 
@@ -222,8 +222,8 @@ onUnmounted(() => {
   sectionObserver.value?.disconnect();
 });
 
-// Provide hasSidenotes to child components
-provide("hasSidenotes", props.hasSidenotes);
+// Provide showSidenotes to child components
+provide("showSidenotes", props.showSidenotes);
 
 function getTagUrl(tag: string) {
   return `/writing?view=tags&tag=${encodeURIComponent(tag)}`;
