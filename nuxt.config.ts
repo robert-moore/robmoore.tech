@@ -20,12 +20,13 @@ export default defineNuxtConfig({
   },
   sitemap: {
     enabled: true,
-    excludeRules: ["/private/*"],
+    urls: [], // Will be auto-populated
+    exclude: ["/private/*"],
   },
   robots: {
     enabled: true,
-    sitemap: true,
-    indexable: true,
+    sitemap: "/sitemap.xml",
+    disallow: ["/private/*"],
   },
   seo: {
     enabled: true,
@@ -52,6 +53,10 @@ export default defineNuxtConfig({
   },
   linkChecker: {
     enabled: true,
+    excludeLinks: [
+      "/rss.xml", // Exclude until we implement RSS
+      "/private/*",
+    ],
   },
   // end @nuxtjs/seo
   app: {
