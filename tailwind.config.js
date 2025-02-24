@@ -143,7 +143,7 @@ module.exports = {
                 zIndex: "0",
               },
               "& a": {
-                color: theme("colors.gray.700"),
+                color: theme("colors.gray.800"),
                 textDecoration: "none",
                 borderBottom: "none",
                 fontWeight: "inherit",
@@ -165,6 +165,14 @@ module.exports = {
                   color: theme("colors.gray.200"),
                 },
               },
+            },
+            h3: {
+              fontFamily: theme("fontFamily.sans"),
+              color: theme("colors.gray.700"),
+              fontSize: "1.15rem",
+              lineHeight: "1.5",
+              fontWeight: "650",
+              marginTop: "3rem",
             },
 
             // Links within paragraphs

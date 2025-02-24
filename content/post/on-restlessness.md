@@ -26,7 +26,7 @@ So, how do we make the most of our time and find the right balance between explo
 
 ![a ship at sea](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7edb9e1-051b-44f5-b0d0-25b82ca408d2_2304x1024.png "a ship at sea")
 
-### Some Old Advice on Restlessness
+## Some Old Advice on Restlessness
 
 First, let’s pay a visit to Epictetus, who has some direct advice on the topic. With regards to not achieving what we have set out for ourselves, he says this:
 
@@ -52,13 +52,13 @@ In my opinion, the advice on this dilemma is largely one-sided because our human
 
 ![a neuroscience research lab](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1a0b5da0-69ec-4860-865f-4374532ccd9b_2304x1024.png "a neuroscience research lab")
 
-### Neuroscience on Restlessness
+## Neuroscience on Restlessness
 
 **The multi-arm bandit problem**
 
 _Exploration vs exploitation_ is a problem that has been scientifically addressed by game theory, machine learning, and neuroscience. The basic premise is that we can gain rewards by exploiting known advantages, but we do so at the opportunity cost of exploring for potentially larger advantages. The formulated game we’ll be looking at is called “the multi-arm bandit problem”. The problem gets its name from a scenario where a gambler is playing on multiple slot machines, but I’ll use a common example of where the problem exists in practice: Facebook ads.
 
-**The scenario:** We have 3 versions of an ad and $100 to spend running them on Facebook. We want to find out which ad drives the most clicks, but because of our limited budget, we also want to be running the one that is more likely to perform better (exploit) while we’re trying to figure it out (explore). For illustrations sake, let’s say we spend the first $20 evenly across all 3 ad variants, showing each one to 1,000 random FB accounts. We get the following results:
+**The scenario:** We have 3 versions of an ad and \$100 to spend running them on Facebook. We want to find out which ad drives the most clicks, but because of our limited budget, we also want to be running the one that is more likely to perform better (exploit) while we’re trying to figure it out (explore). For illustrations sake, let’s say we spend the first $20 evenly across all 3 ad variants, showing each one to 1,000 random FB accounts. We get the following results:
 
 [](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3348b17-d090-4d5a-8125-f61bd938f2b4_1660x590.png)
 
@@ -72,7 +72,7 @@ The theoretically optimal agent for this problem performs Bayesian inference in 
 
 In life, which is far more complex than Facebook advertising, some Project C which sees minimal payoff in the early stages could lead to massive payoffs in the longer term. But our intuition leads us astray, telling us to stop pouring resources into after a very small sample size Working on a new project for a weekend, getting no where with it, and calling it quits if you don’t see massive traction is a predictably bad strategy. Let’s try to do better.
 
-### In Practice
+## In Practice
 
 Exploration vs exploitation is a spectrum. There is no right answer for every situation. We don’t want to become stubborn and spend too much time on dead ends, but we also can’t jump from thing to thing without digging in at a deeper level.
 
@@ -80,7 +80,7 @@ What we can glean from the words of Seneca and Socrates and Epictetus, as well a
 
 Following the advice of Epictetus, I looked back at the projects and goals I set for myself over the past 4 years, reviewing if I had a tendency to stick with things long past the point of diminishing returns, or if I have a tendency to get restless and move on. My ad hoc historical reflection showed a clear pattern of restless jumping about. In practice, I had a tendency to stop working on things because (i) the next step was not obvious, (ii) the payoff was not guaranteed, or (iii) I was uncertain I could achieve the desired end goal.
 
-#### Love the process
+### Love the process
 
 There is a hidden trick for pushing through the low-reward early stages of projects or learning new skills. Loving the process.
 
@@ -90,7 +90,7 @@ We must acknowledge that partial achievement is still achievement. **We often mo
 
 So, start writing a book; if you finish that’s great. If not, you’ve better distilled your own thoughts and become a better write. While we didn’t hit the exact goal we set, it can still be a partial success - we have to work to believe this. **Weekly reflection and recognition of your learnings and progress provides the immediate rewards our minds crave to continue investing resources.**
 
-#### Sequential, not in parallel
+### Sequential, not in parallel
 
 A typical scenario: some given Sunday I’m hit with a burst of motivation and decide that in the next 6 weeks I’m going to get my life together like I never have before. I’m going to run three times a week and do yoga every evening and write four chapters of a new book and learn how to use Blender.
 
@@ -102,7 +102,7 @@ My tendency to jump onto new projects comes from a fear that I’ll be missing o
 
 Give yourself permission to spend adequate time and dedicate all free resources to a single specific goal. Sure, you won’t become a novel-writing-oil-painting-influencer with a six pack by the end of the month, but that wasn’t going to happen anyway. When you’re committing to something that you have struggled in the past to stick with, don’t spread yourself too thin. One at a time.
 
-#### Good Bones
+### Good Bones
 
 We have an urgency to start new, buy a new dishwasher instead of fix and clean the old one. It’s interesting, however, that people who understand the inner workings of something, whether it be cars or houses or computers, will fix things instead of buying new. They understand nothing is perfect, but knowing it well will allow you to fix what is wrong.
 

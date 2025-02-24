@@ -29,7 +29,7 @@
       <div>
         <!-- Article Header -->
         <header ref="header" class="mb-8 xl:px-6">
-          <div class="space-y-5">
+          <div class="space-y-4">
             <h1
               class="font-sans text-4xl md:text-5xl font-[550] tracking-tight text-gray-900"
               itemprop="headline"
@@ -74,7 +74,7 @@
               <!-- Tags -->
               <div
                 v-if="tags?.length"
-                class="mt-4 flex flex-wrap gap-2"
+                class="-ml-1 mt-1 flex flex-wrap gap-2"
                 itemprop="keywords"
               >
                 <NuxtLink
