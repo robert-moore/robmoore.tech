@@ -40,14 +40,31 @@
             <div class="flex flex-col gap-4 pl-2">
               <!-- Meta info -->
               <div
-                class="flex items-center gap-6 text-sm text-gray-500 font-mono"
+                class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-mono"
               >
-                <time :datetime="date" itemprop="datePublished">
+                <!-- Publication date -->
+                <time
+                  :datetime="publishDate"
+                  itemprop="datePublished"
+                  class="text-gray-500"
+                >
                   {{ formatDate(date) }}
                 </time>
+
+                <!-- Modified date - only show if meaningfully different -->
+                <time
+                  v-if="showModifiedDate && modifiedDate"
+                  :datetime="modifiedDate"
+                  itemprop="dateModified"
+                  class="flex items-center text-gray-400 before:content-['•'] before:mr-6 before:text-gray-300"
+                >
+                  Updated {{ formatDate(modifiedDate) }}
+                </time>
+
+                <!-- Word count -->
                 <span
                   v-if="wordCount"
-                  class="flex items-center before:content-['•'] before:mr-6"
+                  class="flex items-center text-gray-400 before:content-['•'] before:mr-6 before:text-gray-300"
                   itemprop="wordCount"
                 >
                   {{ wordCount }} words
@@ -57,14 +74,14 @@
               <!-- Tags -->
               <div
                 v-if="tags?.length"
-                class="flex flex-wrap gap-2"
+                class="mt-4 flex flex-wrap gap-2"
                 itemprop="keywords"
               >
                 <NuxtLink
                   v-for="tag in tags"
                   :key="tag"
                   :to="getTagUrl(tag)"
-                  class="px-3 py-1.5 text-xs font-mono text-gray-600 bg-gray-50 rounded-full border border-gray-100 hover:bg-gray-100 transition-colors"
+                  class="px-3 py-1 text-xs font-mono text-gray-500 bg-gray-50 rounded-full border border-gray-100 hover:bg-gray-100 hover:text-gray-600 transition-colors duration-200"
                 >
                   {{ tag }}
                 </NuxtLink>
@@ -109,19 +126,25 @@
 
 <script setup lang="ts">
 import TableOfContents from "./TableOfContents.vue";
-import { onMounted, ref, onUnmounted, provide } from "vue";
+import { onMounted, ref, onUnmounted, provide, computed } from "vue";
 import "./post.css";
 import { useRouter } from "#app";
+import { defineArticle } from "nuxt-schema-org/schema";
+import { useSchemaOrg } from "#imports";
+import { useSiteMetadata } from "~/composables/useSiteMetadata";
 
 interface Props {
   title: string;
   date: string;
+  modifiedDate?: string;
   wordCount?: number;
   showSidenotes?: boolean;
   showToc?: boolean;
   showHeaderNumbers?: boolean;
   toc?: Array<{ id: string; text: string; depth: number }>;
   tags?: string[];
+  description?: string;
+  image?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -130,10 +153,56 @@ const props = withDefaults(defineProps<Props>(), {
   showHeaderNumbers: false,
 });
 
+// Format dates for display and SEO
+const publishDate = computed(() => new Date(props.date).toISOString());
+const modifiedDate = computed(() =>
+  props.modifiedDate ? new Date(props.modifiedDate).toISOString() : undefined
+);
+
+// Only show modified date if it's different and later than publish date
+const showModifiedDate = computed(() => {
+  if (!props.modifiedDate) return false;
+  const modified = new Date(props.modifiedDate);
+  const published = new Date(props.date);
+  return modified > published;
+});
+
+// Compute canonical URL
+const route = useRoute();
+const canonicalUrl = computed(() => {
+  const baseUrl = "https://robmoore.tech";
+  return `${baseUrl}${route.path}`;
+});
+
+// Use the site metadata composable for SEO
+useSiteMetadata({
+  title: props.title,
+  description: props.description,
+  image: props.image,
+  type: "article",
+  publishedTime: publishDate.value,
+  modifiedTime: modifiedDate.value,
+  tags: props.tags,
+});
+
+// Use schema.org
+useSchemaOrg([
+  defineArticle({
+    headline: props.title,
+    description: props.description,
+    image: props.image,
+    datePublished: publishDate.value,
+    dateModified: modifiedDate.value,
+    wordCount: props.wordCount,
+    keywords: props.tags,
+  }),
+]);
+
+// Format dates for display
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
   });
 }

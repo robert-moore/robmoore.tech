@@ -1,10 +1,32 @@
 <script setup lang="ts">
-// SEO metadata
-useSeoMeta({
-  title: "About - Rob Moore",
+import { useSiteMetadata } from "~/composables/useSiteMetadata";
+import { definePerson } from "nuxt-schema-org/schema";
+import { useSchemaOrg } from "#imports";
+
+useSiteMetadata({
+  title: "About",
   description:
     "Software engineer and founder building products at the intersection of technology and user experience.",
+  type: "website",
 });
+
+useSchemaOrg([
+  definePerson({
+    name: "Rob Moore",
+    jobTitle: "Software Engineer & Founder",
+    worksFor: {
+      "@type": "Organization",
+      name: "Churnkey",
+      url: "https://churnkey.co",
+    },
+    url: "https://robmoore.tech",
+    sameAs: [
+      "https://github.com/robert-moore",
+      "https://twitter.com/robmoo_re",
+      "https://linkedin.com/in/rob-moore",
+    ],
+  }),
+]);
 
 definePageMeta({
   layout: "default",

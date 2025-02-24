@@ -4,6 +4,9 @@ import { usePosts } from "~/composables/usePosts";
 import PostList from "~/components/Writing/PostList.vue";
 import StartupCard from "~/components/Home/StartupCard.vue";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/vue/24/outline";
+import { useSiteMetadata } from "~/composables/useSiteMetadata";
+import { defineWebSite, defineWebPage } from "nuxt-schema-org/schema";
+import { useSchemaOrg } from "#imports";
 
 // Blog posts
 const { fetchPosts, groupByTags } = usePosts();
@@ -11,11 +14,15 @@ const { data: posts } = await fetchPosts();
 const recentPosts = computed(() => (posts.value ?? []).slice(0, 5));
 
 // SEO metadata
-useSeoMeta({
-  title: "Rob Moore - Founder & Engineer",
-  description:
-    "Building products, writing about philosophy and technology, and visualizing sports data.",
-});
+useSiteMetadata(); // Uses defaults for homepage
+
+useSchemaOrg([
+  defineWebPage({
+    name: "Rob Moore - Software Engineer & Founder",
+    description:
+      "Building products, writing about philosophy and technology, and visualizing sports data.",
+  }),
+]);
 
 definePageMeta({
   layout: "default",
