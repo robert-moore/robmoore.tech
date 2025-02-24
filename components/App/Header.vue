@@ -46,6 +46,12 @@
               />
             </span>
           </a>
+          <NuxtLink
+            to="/data-vis"
+            class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            Data Vis
+          </NuxtLink>
         </div>
       </div>
     </nav>

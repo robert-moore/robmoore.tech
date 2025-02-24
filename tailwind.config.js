@@ -85,7 +85,7 @@ module.exports = {
         DEFAULT: {
           css: {
             color: textColors.primary,
-            maxWidth: "46rem",
+            maxWidth: "42rem",
             lineHeight: "1.7778",
             fontFamily: theme("fontFamily.serif"),
             // Text elements
