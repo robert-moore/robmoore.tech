@@ -6,10 +6,6 @@ showToc: true
 showHeaderNumbers: true
 tags:
   - practical philosophy
-  - make your world smaller
-  - multi-arm bandit
-  - neuroscience
-  - explore vs exploit
 ---
 
 I’ve spent the better part of the last 4 years living in England. With regards to culture, the Northeastern United States, where I’m from, and England are probably 90% similar. Most of the differences are in funny little things that occasionally pop up but have no real impact on day to day life.

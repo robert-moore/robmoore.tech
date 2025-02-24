@@ -1,12 +1,11 @@
 ---
-title: Origin Story
-description: A measure of the expected remaining lifespan of non-perishable entities
-date: 2025-02-09
+title: A Practical Philosophy
+description: A venture into Stoicism, Socratic questioning, and neuroscience
+date: 2022-08-14
 showToc: true
 showHeaderNumbers: true
 tags:
-  - lindy
-  - math
+  - practical philosophy
 ---
 
 [](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F55591ad6-0c78-4ed5-a968-5fee821240ea_1920x768.jpeg)
@@ -41,8 +40,6 @@ This is not to say that reading Aurelius’ and Seneca’s writings flipped a sw
 Marcus Aurelius and Seneca were my entry point into the uncannily insightful world which can be unveiled by reading the thoughts of the world’s best minds from hundreds or thousands of years ago. As I began reading them daily, it fascinated me how relevant the writing was to our modern world. It gave me a sense of perspective which isn’t possible unless you step outside the invisible silo of thought that encompasses everyone alive today in our narrow time in history.
 
 I laugh reading some of the lines from Seneca and Epictetus and Hume more than I ever have reading a fiction book. I get giddy with excitement when they better articulate the exact thought that’s been abstractly floating around in my head for years. When I’m reading these historic minds, I feel a sense of perspective and connection to centuries past. A connection I’ve never felt at museums looking at lifeless historic artifacts. In a world where things feel like they’re changing faster than ever, reading these minds struggle against the same problems can bring a deep sense of peace that our world is more the same than it is different.
-
-**This next 52 weeks will be a quest to combine the greatest minds our species has produced with the scientific knowledge they didn’t have the privilege to study. To flood old lines of inquisition which dried up too soon with new data. It will explore how we can provide perspective and long-term thinking in a world of hot takes, and adventure into how we can better understand our own minds to become calmer and wiser selves.**
 
 [](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F634811e2-dc95-4ec0-bbc7-558a8f03938c_2048x1024.jpeg)
 
@@ -95,9 +92,3 @@ To date, the biggest breakthroughs on how our brains work have come as the resul
 **Before Newton “discovered” gravity, Kepler created his three laws of planetary motion. Without knowing the why, he was able to predict the future through observation alone. Similarly, by introspecting our own thoughts and behavior, we can chart out general patterns and start to understand how we think more clearly - all before science uncovers the precise mechanisms of our brains.**
 
 Our biases, our misspellings, our miscalculations - they all provide valuable data points into our how our brains work. Organized scientific research on this topic, often dubbed “behavioral economics”, gives us new data sets to work with. Combined with the latest neuroscience research, we’re in a better position than ever to try to uncover, or at least theorize on, the “secret springs” of our minds.
-
-## Thank you.
-
-Thank you for reading. Please consider subscribing if you’d like to receive weekly issues directly to your inbox.
-
-Thanks for reading A Practical Philosophy! Subscribe for free to receive new posts and support my work.
