@@ -52,7 +52,7 @@ Unfortunately, social media is not the truth-seeking machine it sometimes makes 
 
 **“You must either imitate or loathe the world. But both courses are to be avoided; you should not copy the bad simply because they are many, nor should you hate the crowd”.** He continues, “Associate with those who will make a better man of you. Welcome those whom you yourself can improve. The process is mutual; for men learn while they teach.”
 
-#### For Creators
+### For Creators
 
 For anyone who writes or creates content, this last proclamation alludes to a critical mindset shift. It is natural to feel an increasing pressure to create for the many. Shallow, flashy content which appeals to the less than thoughtful mobs and drives in more views. Instead, **create for the perceptive. Compose for the patient. Write for the thoughtful.**
 
