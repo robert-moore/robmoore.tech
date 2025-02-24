@@ -52,7 +52,7 @@ definePageMeta({
           href="https://wavve.co"
           >Wavve</a
         >, write about
-        <a class="text-primary-500 hover:text-primary-600" href="/posts"
+        <a class="text-primary-500 hover:text-primary-600" href="/writing"
           >philosophy and technology</a
         >, and build
         <a
@@ -148,7 +148,7 @@ definePageMeta({
       </h2>
       <PostList :posts="recentPosts" :show-descriptions="true" />
       <p class="mt-6">
-        <a href="/posts"> View all posts → </a>
+        <a href="/writing"> View all posts → </a>
       </p>
     </section>
   </div>
