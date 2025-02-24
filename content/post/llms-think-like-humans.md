@@ -58,8 +58,6 @@ I believe the next big Copilot advancement will be incorporating the broader con
 
 _For the non-developer, pull requests are a chunk of code changes to be made all related to a particular feature. I would open up a PR to create the defensive shot chart._
 
-Enjoying what you’re reading?
-
 ## Emerging LLM Use Cases
 
 Copilot, which is built on top of a version of the GPT-4 model, gives one very specific application for this big recent step in AI technology. The variant is called Codex, and is specific to coding, a very particular form of language filled with technical syntax and finely articulated structure. In general, though, GPT-4 is a generative text model for human language as we speak it and write it on an everyday basis. Generative meaning that, given a prompt or pre-text, outputting the likely subsequent text.
