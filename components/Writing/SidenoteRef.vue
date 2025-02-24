@@ -103,25 +103,25 @@ defineOptions({
   cursor: pointer;
 
   /* Custom styles */
-  color: theme("colors.primary.500");
-  font-size: 1em;
+  color: theme("colors.gray.600");
+  font-size: 0.9em;
   line-height: 1;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .reference-marker:hover {
-  color: theme("colors.primary.600");
+  color: theme("colors.gray.800");
 }
 
 .reference-marker:focus-visible {
-  outline: 2px solid theme("colors.primary.500");
+  outline: 1px solid theme("colors.gray.600");
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .reference-marker sup {
   font-size: 0.75em;
-  font-weight: 500;
+  font-weight: 400;
   vertical-align: baseline;
   position: relative;
   top: -0.4em;
@@ -131,17 +131,16 @@ defineOptions({
 .sidenote {
   /* Mobile styles */
   display: none;
-  margin: 1rem 0;
-  padding: 0.75rem 1rem;
-  background: theme("colors.blue.50");
-  mix-blend-mode: multiply;
-  border-left: 3px solid theme("colors.blue.200");
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: theme("colors.gray.600");
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  background: theme("colors.gray.50");
+  border-left: 1px solid theme("colors.gray.200");
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: theme("colors.gray.500");
 
   /* Animation properties */
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   transform: translateY(-0.25rem);
 }
@@ -155,8 +154,10 @@ defineOptions({
 .sidenote-number {
   display: inline-block;
   margin-right: 0.5rem;
-  color: theme("colors.primary.500");
-  font-weight: 500;
+  @apply font-sans;
+  color: theme("colors.gray.600");
+  font-weight: 400;
+  font-size: 0.875rem;
 }
 
 .sidenote-content {
@@ -183,13 +184,21 @@ defineOptions({
     position: relative;
     float: right;
     clear: right;
-    width: 15rem;
-    margin-right: -19.5rem;
+    width: 16rem;
+    margin-right: -20rem;
+    font-size: 0.8rem;
+    color: theme("colors.gray.400");
+    transition: color 0.2s ease;
+  }
+
+  .sidenote:hover {
+    color: theme("colors.gray.600");
   }
 
   .sidenote-number {
     position: absolute;
-    left: -1.5rem;
+    left: -1.25rem;
+    font-size: 0.75rem;
   }
 
   .sidenote-content {

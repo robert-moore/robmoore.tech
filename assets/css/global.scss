@@ -4,6 +4,7 @@
 
 @layer base {
   p > a:not(.no-fancy-underline),
+  .footnotes li a:not(.data-footnote-backref),
   .fancy-underline {
     @apply relative text-primary-500 font-medium transition-all duration-300 no-underline;
     background-image: linear-gradient(
@@ -21,6 +22,22 @@
     }
   }
 
+  .footnotes .data-footnote-backref {
+    @apply text-primary-500 no-underline transition-colors duration-300;
+
+    &:hover {
+      @apply text-primary-400;
+    }
+  }
+
+  .prose sup > a {
+    @apply text-primary-500 no-underline transition-colors duration-300;
+
+    &:hover {
+      @apply text-primary-400;
+    }
+  }
+
   h1 {
     @apply text-gray-900;
   }
@@ -35,5 +52,13 @@
 
   h4 {
     @apply text-gray-600;
+  }
+
+  [data-footnote-ref]::before {
+    content: "[";
+  }
+
+  [data-footnote-ref]::after {
+    content: "]";
   }
 }

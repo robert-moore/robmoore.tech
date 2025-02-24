@@ -28,16 +28,16 @@
       <!-- Main Content -->
       <div>
         <!-- Article Header -->
-        <header ref="header" class="mb-8 xl:px-8">
+        <header ref="header" class="mb-8 xl:px-6">
           <div class="space-y-5">
             <h1
-              class="font-sans text-4xl md:text-5xl font-[550] tracking-tight text-gray-900 leading-tight"
+              class="font-sans text-4xl md:text-5xl font-[550] tracking-tight text-gray-900"
               itemprop="headline"
             >
               {{ title }}
             </h1>
 
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 pl-2">
               <!-- Meta info -->
               <div
                 class="flex items-center gap-6 text-sm text-gray-500 font-mono"

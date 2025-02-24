@@ -156,7 +156,7 @@ onMounted(() => {
     </div>
 
     <!-- Tags view -->
-    <div v-else class="space-y-12">
+    <div v-else class="space-y-4">
       <div
         v-for="[tag, tagPosts] in [...postsByTag]"
         :key="tag"
