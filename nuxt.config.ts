@@ -7,15 +7,15 @@ export default defineNuxtConfig({
     "~/assets/css/fonts.css",
     "~/assets/css/global.scss",
   ],
-  fonts: {
-    families: [
-      { name: "ct", provider: "none" },
-      {
-        name: "Source Sans 3",
-        provider: "google",
-        weights: ["400", "500", "600", "700"],
-      },
-    ],
+  app: {
+    head: {
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap",
+        },
+      ],
+    },
   },
   content: {
     renderer: {

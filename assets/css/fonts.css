@@ -1,19 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-
+/* Custom font faces */
 @font-face {
   font-family: "ct";
   src: url("/fonts/ct/regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: "ct";
   src: url("/fonts/ct/italic.woff2") format("woff2");
   font-style: italic;
+  font-weight: normal;
 }
 
 @font-face {
   font-family: "ct";
   src: url("/fonts/ct/bold.woff2") format("woff2");
+  font-style: normal;
   font-weight: bold;
 }
 
@@ -22,8 +25,4 @@
   src: url("/fonts/ct/bold_italic.woff2") format("woff2");
   font-style: italic;
   font-weight: bold;
-}
-
-strong {
-  font-family: "Open Sans", sans-serif;
 }
