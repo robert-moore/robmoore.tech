@@ -3,7 +3,7 @@
     <!-- Desktop ToC -->
     <div class="hidden lg:block">
       <h2 class="font-sans text-lg font-semibold text-gray-900 mb-4">
-        {{ title }}
+        {{ title?.split(":")[0] }}
       </h2>
       <TocList :toc="toc" :active-id="activeId" @select="handleSelect" />
     </div>
@@ -35,7 +35,7 @@
         <div class="p-4 border-b">
           <div class="flex justify-between items-center">
             <h2 class="font-sans text-lg font-medium text-gray-900">
-              {{ title }}
+              {{ title?.split(":")[0] }}
             </h2>
             <button
               type="button"

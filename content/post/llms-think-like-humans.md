@@ -22,7 +22,7 @@ It's difficult to distribute credit precisely. While _Attention is All You Need_
 
 See how quickly things gain traction and escalate seemingly out of nowhere. **Those powers really don’t matter, until they do. It’s quite possible that transformers + a 10x scale in model size and training data size is now driving us into the next echelon of machine learning models.** Change is no longer incremental.
 
-## 6 Months of Daily Work with GPT-3
+## 6 Months with GPT-3
 
 As a software engineer, I’ve always been frustrated at how long it takes to go from a fully thought-out concept to a finished implementation. It simply takes too long to write down and wire up code between different components and architectures and systems, even when you have a very precise idea of what needs to be done.
 
@@ -60,11 +60,13 @@ _For the non-developer, pull requests are a chunk of code changes to be made all
 
 Enjoying what you’re reading?
 
-## Emerging GPT-4 Use Cases
+## Emerging LLM Use Cases
 
 Copilot, which is built on top of a version of the GPT-4 model, gives one very specific application for this big recent step in AI technology. The variant is called Codex, and is specific to coding, a very particular form of language filled with technical syntax and finely articulated structure. In general, though, GPT-4 is a generative text model for human language as we speak it and write it on an everyday basis. Generative meaning that, given a prompt or pre-text, outputting the likely subsequent text.
 
-In my opinion, the effectiveness of GPT-4 and our fascination with its results tells us just as much about ourselves as it does the models. Even before GPT-4, generative text models have always “outkicked their coverage” - seeming to be ahead of their time in comparison their other machine learning counterparts. RNNs quickly attracted the label of being "unreasonably effective".[2](#footnote-2) I think this arises from three factors.
+In my opinion, the effectiveness of GPT-4 and our fascination with its results tells us just as much about ourselves as it does the models. Even before GPT-4, generative text models have always “outkicked their coverage” - seeming to be ahead of their time in comparison their other machine learning counterparts. RNNs quickly attracted the label of being "unreasonably effective".[^rnn] I think this arises from three factors.
+
+[^rnn]: [The Unreasonable Effectiveness of RNNs](https://karpathy.ai/2015/05/21/rnn-effectiveness/)
 
 **I.** First, word-by-word generative output is a whole lot **closer to how we speak and write than we think** at first glance. Text generation is something we do every day, but hardly think of it as such. When we speak, we very rarely know the full sentence before we speak it. We know roughly where we want to end up, but in large part speaking, and writing, is us taking a little stroll around our neurons and mental models and blurting out what _feels_ like the _right_ thing to say. It’s hardly a fully conscious effort; it’s based in large part on subconscious intuition. This is to say, the neural net models used to generate language word-by-word may pretty closely map to how we generate text in our own brains.
 
@@ -80,7 +82,9 @@ The upside to next-sentence generative applications like these is primarily help
 
 With better prompt engineering, I think there will be a _second wave_ of more interesting applications. We know that this massive GPT-4 model carries a ton of information, and we’re likely only scratching the surface. I think we can do a lot better than fill in the blank for marketing copy.
 
-In my opinion, the discovery of this second wave of applications has already been kickstarted with ChatGPT, an interactive variant of GPT-4 released directly from OpenAI in November 2022. Within a month of its release, ChatGPT quickly turned into a $100,000/day experiment[3](#footnote-3). The interactive nature of ChatGPT, as well as its approachability with the general public is the perfect storm needed for prompt discovery - a crowdsourced effort to figure out what types of questions we can ask the model and receive _unreasonably effective_ responses.
+In my opinion, the discovery of this second wave of applications has already been kickstarted with ChatGPT, an interactive variant of GPT-4 released directly from OpenAI in November 2022. Within a month of its release, ChatGPT quickly turned into a $100,000/day experiment.[^chatgpt-success] The interactive nature of ChatGPT, as well as its approachability with the general public is the perfect storm needed for prompt discovery - a crowdsourced effort to figure out what types of questions we can ask the model and receive _unreasonably effective_ responses.
+
+[^chatgpt-success]: [ChatGPT is a $100,000/day experiment](https://www.ciocoverage.com/openais-chatgpt-reportedly-costs-100000-a-day-to-run/)
 
 Hunch: OpenAI’s primary goal with ChatGPT is crowdsourcing prompt engineering - finding out what its massive language model is truly capable of.
 
@@ -92,7 +96,7 @@ What exactly GPT-4 is capable of is still an open question, but my hunches on wh
 4.  Knowledge synthesis
 5.  Knowledge creation. Tell us what the model has inferred without being told directly
 
-## The Effects on Society
+## Societal Impact
 
 For society, and for humanity, the latest strides in AI technology are significant. Like the password security challenge where the importance of letters 1-6 is negligible, but 7-12 are everything, we may just be entering the second echelon of traction. The timing and outcome of these future steps is still to be seen. I think, however, the overall impact in terms of employment and unemployment is fairly predictable and can be prepared for as such. The distribution of value contribution will become increasingly stretched out and long-tailed. Next generation AI will create yet another lever allowing those that can make use of it to produce far more value. But this dynamic is nothing new. Simply the next iteration in an ongoing trend where skilled knowledge work is greatly rewarded. Whether or not AI is the breaking straw, I believe it will push us toward some necessary changes so that we can continue to exist as a society resembling how we know it today, if indeed that is our preferred outcome. A universal basic income. Increased pay for manual labor tasks like cleaners and farmers. More approachable entry points to careers and more predictable career trajectories. Hopefully a paradigm shift in the higher education system and credentialing.
 

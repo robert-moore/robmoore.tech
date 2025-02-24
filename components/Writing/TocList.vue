@@ -1,32 +1,29 @@
 <template>
-  <ul class="space-y-2 font-sans pt-2 pr-2">
+  <ul class="space-y-2 font-sans pt-2 pr-2 antialiased">
     <li
       v-for="link in toc"
       :key="link.id"
       :class="{
         'pl-0': link.depth === 2,
-        'pl-6': link.depth === 4,
-        'pl-4': link.depth === 3,
+        'pl-2': link.depth === 3,
+        'pl-4': link.depth === 4,
       }"
     >
       <a
         :href="`#${link.id}`"
-        class="block relative pl-4 font-[450] transition-colors tracking-[0.005em]"
+        class="block pl-2 relative font-[450] transition-colors tracking-[0.005em] text-[13px] leading-4"
         :style="{
           paddingTop: '0.1rem',
           paddingBottom: '0.1rem',
         }"
         :class="{
-          'text-sm': link.depth === 2,
-          'text-[13px]': link.depth === 3,
-          'text-xs': link.depth === 4,
           'text-primary-500': activeId === link.id,
-          'text-gray-500 hover:text-gray-800': activeId !== link.id,
+          'text-gray-700 hover:text-gray-900': activeId !== link.id,
         }"
         @click.prevent="$emit('select', link.id)"
       >
         <div
-          class="absolute left-0 top-[0.5em] bottom-[0.5em] w-[2px] bg-primary-500 transition-transform duration-200"
+          class="absolute left-0 top-[0.2em] bottom-[0.2em] w-[2px] bg-primary-500 transition-transform duration-200"
           :style="{
             transform: activeId === link.id ? 'none' : 'translateX(-100%)',
             opacity: activeId === link.id ? 0.8 : 0,
