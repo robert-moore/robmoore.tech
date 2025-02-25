@@ -18,6 +18,12 @@
           >
             Writing
           </NuxtLink>
+          <NuxtLink
+            to="/data-vis"
+            class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            Data Vis
+          </NuxtLink>
           <a
             href="https://perthirtysix.com"
             target="_blank"
@@ -46,12 +52,6 @@
               />
             </span>
           </a>
-          <NuxtLink
-            to="/data-vis"
-            class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            Data Vis
-          </NuxtLink>
         </div>
       </div>
     </nav>
