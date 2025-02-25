@@ -41,8 +41,6 @@ This new era demands a different kind of engineering discipline. The challenge i
 4.  **Build for Understanding**  
     Documentation isn't optional anymore – it's your lifeline. When code can be generated in seconds, the limiting factor becomes comprehension.
 
-Thanks for reading Rob Moore's Letters from a CTO! Subscribe for free to receive new posts and support my work.
-
 ## The New Engineering Stack
 
 The tools that excel in this paradigm:
