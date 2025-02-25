@@ -1,6 +1,6 @@
 import { defineTransformer } from "@nuxt/content";
 
-export const wordCount = defineTransformer({
+export default defineTransformer({
   name: "word-count",
   extensions: [".md"],
   transform(content) {
@@ -16,5 +16,3 @@ export const wordCount = defineTransformer({
     };
   },
 });
-
-export default wordCount;

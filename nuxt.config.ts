@@ -120,7 +120,6 @@ export default defineNuxtConfig({
         },
       },
     },
-    transformers: ["~/transformers/word-count"],
   },
   experimental: {
     componentIslands: true,
