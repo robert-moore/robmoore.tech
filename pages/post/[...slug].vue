@@ -54,7 +54,9 @@ if (post.value) {
   ]);
 }
 
-defineOgImageComponent("NuxtSeo");
+if (post.value?.ogImage) {
+  defineOgImage(post.value.ogImage);
+}
 </script>
 
 <template>

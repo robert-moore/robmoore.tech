@@ -6,6 +6,8 @@ showToc: true
 showHeaderNumbers: true
 tags:
   - AI
+ogImage:
+  component: PostOg
 ---
 
 Three years ago, we coded like cavemen.
