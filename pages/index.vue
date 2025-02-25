@@ -93,7 +93,7 @@ definePageMeta({
         </a>
 
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://linkedin.com/in/rob-moore"
           target="_blank"
           rel="me"
           class="group flex items-center gap-1.5 hover:text-primary-500 transition-colors"
@@ -110,7 +110,7 @@ definePageMeta({
         </a>
 
         <a
-          href="https://instagram.com/yourusername"
+          href="https://instagram.com/robmoo.re"
           target="_blank"
           rel="me"
           class="group flex items-center gap-1.5 hover:text-primary-500 transition-colors"

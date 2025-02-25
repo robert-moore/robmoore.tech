@@ -24,7 +24,7 @@
           </a>
 
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://linkedin.com/in/rob-moore"
             target="_blank"
             rel="me"
             class="group flex items-center gap-1.5 hover:text-gray-900 transition-colors"
@@ -38,7 +38,7 @@
           </a>
 
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/robert-moore"
             target="_blank"
             rel="me"
             class="group flex items-center gap-1.5 hover:text-gray-900 transition-colors"

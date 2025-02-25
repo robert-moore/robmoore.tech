@@ -159,7 +159,7 @@ definePageMeta({
           </li>
           <li>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/robert-moore"
               target="_blank"
               rel="me"
               class="group flex items-baseline gap-2 text-gray-600 hover:text-primary-500 transition-colors"
