@@ -23,6 +23,9 @@ export default defineNuxtConfig({
   // @nuxtjs/seo
   ogImage: {
     enabled: true,
+    componentOptions: {
+      global: true,
+    },
   },
   sitemap: {
     enabled: true,
