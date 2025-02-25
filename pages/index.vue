@@ -41,8 +41,6 @@ useHead({
 definePageMeta({
   layout: "default",
 });
-
-defineOgImageComponent("NuxtSeo");
 </script>
 
 <template>

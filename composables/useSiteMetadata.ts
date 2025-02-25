@@ -16,7 +16,7 @@ const DEFAULT_METADATA = {
   title: "Rob Moore",
   description:
     "Building products, writing about philosophy and technology, and visualizing sports data.",
-  image: "/images/default-social.jpg",
+  image: "/images/brand/default-og.jpg",
   type: "website" as const,
 };
 
@@ -27,7 +27,7 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
   const {
     title = DEFAULT_METADATA.title,
     description = DEFAULT_METADATA.description,
-    image,
+    image = DEFAULT_METADATA.image,
     path = route.path,
     type = DEFAULT_METADATA.type,
     publishedTime,
@@ -49,6 +49,7 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
     ogDescription: () => description,
     ogUrl: () => canonicalUrl.value,
     ogType: () => type,
+    ogImage: () => image,
 
     // Twitter Card
     twitterCard: "summary_large_image",
@@ -61,10 +62,6 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
       articlePublishedTime: () => publishedTime,
       articleModifiedTime: () => modifiedTime,
       articleTag: () => tags,
-    }),
-
-    ...(image && {
-      ogImage: () => image,
     }),
 
     // Additional meta
