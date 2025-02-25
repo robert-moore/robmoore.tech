@@ -101,6 +101,11 @@ module.exports = {
               color: textColors.primary,
             },
 
+            pre: {
+              backgroundColor: theme("colors.gray.50"),
+              fontSize: "0.775rem",
+            },
+
             // Headings
             h1: {
               fontFamily: theme("fontFamily.serif"),

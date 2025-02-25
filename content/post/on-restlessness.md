@@ -22,9 +22,7 @@ Now, I don’t think that trying things for a short time and moving on is necess
 
 So, how do we make the most of our time and find the right balance between exploring new projects and new ideas, and sticking with the ones we‘re already working on?
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7edb9e1-051b-44f5-b0d0-25b82ca408d2_2304x1024.png)
-
-![a ship at sea](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa7edb9e1-051b-44f5-b0d0-25b82ca408d2_2304x1024.png "a ship at sea")
+![a ship at sea](/images/posts/on-restlessness/on-restlessness-figure-1.png)
 
 ## Some Old Advice on Restlessness
 
@@ -48,9 +46,7 @@ So we have Epictetus, Seneca, and Socrates who share the opinion to prioritize s
 
 In my opinion, the advice on this dilemma is largely one-sided because our human bias will naturally take us in the opposite direction. It doesn’t take much discipline to jump to a new endeavor every week. We will naturally explore the things we find interesting to us. Where we need practical advise is on maintaining patience through the boring phases of our work. We need someone to tell us to stick with the things that don’t give us immediate rewards. Let’s dig into the neuroscience behind this.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1a0b5da0-69ec-4860-865f-4374532ccd9b_2304x1024.png)
-
-![a neuroscience research lab](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1a0b5da0-69ec-4860-865f-4374532ccd9b_2304x1024.png "a neuroscience research lab")
+![a neuroscience research lab](/images/posts/on-restlessness/some-old-advice-on-restlessness.png)
 
 ## Neuroscience on Restlessness
 
@@ -60,9 +56,7 @@ _Exploration vs exploitation_ is a problem that has been scientifically addresse
 
 **The scenario:** We have 3 versions of an ad and \$100 to spend running them on Facebook. We want to find out which ad drives the most clicks, but because of our limited budget, we also want to be running the one that is more likely to perform better (exploit) while we’re trying to figure it out (explore). For illustrations sake, let’s say we spend the first $20 evenly across all 3 ad variants, showing each one to 1,000 random FB accounts. We get the following results:
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3348b17-d090-4d5a-8125-f61bd938f2b4_1660x590.png)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3348b17-d090-4d5a-8125-f61bd938f2b4_1660x590.png)
+![multi-arm bandit problem](/images/posts/on-restlessness/multi-arm-bandit.png)
 
 Based on these results, it is more likely that Version A will deliver the best results if we spend the remaining $80 on a single ad. Our intuition tells us to stop running Version C, and focus on Version A with a minority budget still going to Version B. We do this because it _feels about right_. We are pattern recognizing machines. Our brains have been optimized to take a small, amount of data and make predictions. Unfortunately, we don’t have built in T-test functionality which verifies statistical significance. So we take the limited number of examples we have, and build the next best thing - intuition. It works well for most things, even if we can’t explain how it works. But, its shortcuts and heuristics have shortcomings.
 

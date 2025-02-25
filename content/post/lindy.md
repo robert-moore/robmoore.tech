@@ -1,12 +1,12 @@
 ---
 title: Lindy Coefficient
 description: A measure of the expected remaining lifespan of non-perishable entities
-date: 2025-02-09
+date: 2025-01-18
 showToc: true
 showSidenotes: true
 showHeaderNumbers: true
 tags:
-  - math
+  - mathematics
 ---
 
 The "Lindy Coefficient" is a proposed mathematical framework that extends and quantifies Lindy's Law.<SidenoteRef number="1">Lindy's Law, named after Lindy's delicatessen in New York, originated from the observation that the future life expectancy of television comedians was proportional to their past longevity. The concept has since been generalized to many non-perishable entities.</SidenoteRef> While Lindy's Law observes that non-perishable entities tend to have longer future lifespans the longer they've existed, the Lindy Coefficient provides a rigorous mathematical framework to measure and predict this relationship.

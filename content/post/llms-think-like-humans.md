@@ -16,9 +16,7 @@ When the transformer model was first published in _Attention is All You Need_ (2
 
 It's difficult to distribute credit precisely. While _Attention is All You Need_ will almost certainly go down as a seminal paper, the adoption of transformer models was also accompanied by ongoing increases in compute resources and a commitment to large models from OpenAI that was previously unseen. Increased model size and training data along with the transformer model is the combined straw that broke through the camel’s most recent hump. For me, I'm inclined to believe this is an instance of power increases. Take a look at the time required to break a password of length _n_.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6611f26-7d15-414e-963b-5124cbf7b80f_5894x2202.png)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6611f26-7d15-414e-963b-5124cbf7b80f_5894x2202.png)
+![a graph of the time required to break a password of length n](/images/posts/llms-think-like-humans/thinking-like-humans-exploring-gpt-4-applications-figure-1.png)
 
 See how quickly things gain traction and escalate seemingly out of nowhere. **Those powers really don’t matter, until they do. It’s quite possible that transformers + a 10x scale in model size and training data size is now driving us into the next echelon of machine learning models.** Change is no longer incremental.
 
@@ -26,9 +24,7 @@ See how quickly things gain traction and escalate seemingly out of nowhere. **Th
 
 As a software engineer, I’ve always been frustrated at how long it takes to go from a fully thought-out concept to a finished implementation. It simply takes too long to write down and wire up code between different components and architectures and systems, even when you have a very precise idea of what needs to be done.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f365794-9903-4852-b892-9bfee598ee18_620x492.png)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f365794-9903-4852-b892-9bfee598ee18_620x492.png)
+![a shot chart of Steph Curry](/images/posts/llms-think-like-humans/6-months-with-gpt-3.png)
 
 For instance, take the above shot chart which shows the most common shot locations for Steph Curry. Say I want to similarly create a defensive version of this shot chart, which shows the most common locations that Steph Curry defends shots.
 
@@ -40,15 +36,11 @@ For instance, take the above shot chart which shows the most common shot locatio
 
 The frustrating gap is this third step, going from knowing how software should be written, to actually writing it. **As long as this gap exists between ideation and execution, there will be a convergence of better developer tools and no-code tools.** Copilot by Github (Microsoft) is the latest in the area of developer tools. It is a code editor add-on which can predict and write code for you. And, like many new developments in AI, it is powered by a variation of Open AI's GPT-3 (Generative Pre-Trained Transformer), a massive 175 billion parameter transformer model for predicting and generating language.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b3f832a-358c-453d-881a-a97bf2571e31_1880x932.png)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b3f832a-358c-453d-881a-a97bf2571e31_1880x932.png)
+![a screenshot of Copilot](/images/posts/llms-think-like-humans/6-months-with-gpt-3-1.png)
 
 Working every day with Copilot for the last 6 months, it saves me somewhere between 5 and 20 hours of writing code per month out of the roughly 120 hours of coding work I do on a monthly basis. No small matter. In particular, it is helpful in filling out repetitive tasks, working with unknown APIs, and forming basic functions that I could noodle out but it would take 5 minutes.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F31d31808-9f5f-40f9-bf9e-e761785b1405_1593x650.png)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F31d31808-9f5f-40f9-bf9e-e761785b1405_1593x650.png)
+![a second screenshot of Copilot](/images/posts/llms-think-like-humans/6-months-with-gpt-3-2.png)
 
 Copilot takes on the challenge of reducing the time-to-implementation of step (iii) above. Of course, the architectural work is still left to the programmer. The difficult conceptual and contextual work of figuring out where in the broader context code should live remains, and how it should interact with external pieces is, for now, outside of the scope of Copilot.
 

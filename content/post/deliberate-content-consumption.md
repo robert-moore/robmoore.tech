@@ -22,9 +22,7 @@ We can all plainly see the effect that fast and convenient internet has had on t
 
 For now, let’s not talk about the wide-reaching societal impact this has. These are discussions well worth having, but I encourage you to be selfish here. For a while, drop the concerns of everyone and everywhere else and let’s focus on _making our world smaller_.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F364bedfe-40b6-41b4-9582-622322f869ab_1920x768.jpeg)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F364bedfe-40b6-41b4-9582-622322f869ab_1920x768.jpeg)
+![AI Imagined Twitter](/images/posts/deliberate-content-consumption/deliberate-content-consumption-figure-1.jpeg)
 
 ## Seneca’s Thoughts on Twitter
 
@@ -60,9 +58,7 @@ An (unknown) artist, in response to questioning about why he creates though his 
 
 > “I am content with few, content with one, content with none at all.”
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff053dda4-9f17-42b0-bbbe-ef30b3f11a35_1920x616.jpeg)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ff053dda4-9f17-42b0-bbbe-ef30b3f11a35_1920x616.jpeg)
+![AI imagined lab](/images/posts/deliberate-content-consumption/for-creators.jpeg)
 
 ## The Attention Span Advantage
 

@@ -8,9 +8,7 @@ tags:
   - practical philosophy
 ---
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F55591ad6-0c78-4ed5-a968-5fee821240ea_1920x768.jpeg)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F55591ad6-0c78-4ed5-a968-5fee821240ea_1920x768.jpeg)
+![an AI imagined MRI](/images/posts/origin-story/a-practical-philosophy-figure-1.jpeg)
 
 In the last three years I’ve had:
 
@@ -41,9 +39,7 @@ Marcus Aurelius and Seneca were my entry point into the uncannily insightful wor
 
 I laugh reading some of the lines from Seneca and Epictetus and Hume more than I ever have reading a fiction book. I get giddy with excitement when they better articulate the exact thought that’s been abstractly floating around in my head for years. When I’m reading these historic minds, I feel a sense of perspective and connection to centuries past. A connection I’ve never felt at museums looking at lifeless historic artifacts. In a world where things feel like they’re changing faster than ever, reading these minds struggle against the same problems can bring a deep sense of peace that our world is more the same than it is different.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F634811e2-dc95-4ec0-bbc7-558a8f03938c_2048x1024.jpeg)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F634811e2-dc95-4ec0-bbc7-558a8f03938c_2048x1024.jpeg)
+![An AI imagined mountain range](/images/posts/origin-story/a-practical-philosophy-figure-4.jpeg)
 
 ## The Why
 
@@ -85,9 +81,7 @@ Despite spending all day every day in our heads, we have little idea about the m
 
 To date, the biggest breakthroughs on how our brains work have come as the result of anomalies. When everything works as expected, we gain only morsels of information. Unfortunately, the results only become more interesting after malfunctions arise. The tragic case of Phineas Gage and his non-fatal brain injury told us more about the human brain than years of non-invasive experiments could. But, like Kepler mapping out planetary motion without knowing the underlying science of gravity, we can also learn about our minds at the every day scale through observation.
 
-[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1974be1f-4698-4048-be44-bef1d10a8501_1920x768.jpeg)
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F1974be1f-4698-4048-be44-bef1d10a8501_1920x768.jpeg)
+![AI imagined a brain](/images/posts/origin-story/neuroscience.jpeg)
 
 **Before Newton “discovered” gravity, Kepler created his three laws of planetary motion. Without knowing the why, he was able to predict the future through observation alone. Similarly, by introspecting our own thoughts and behavior, we can chart out general patterns and start to understand how we think more clearly - all before science uncovers the precise mechanisms of our brains.**
 

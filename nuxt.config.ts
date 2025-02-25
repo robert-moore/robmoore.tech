@@ -92,19 +92,14 @@ export default defineNuxtConfig({
       },
     },
     build: {
-      transformers: ["~/transformers/word-count"],
+      // transformers: ["~/transformers/word-count"],
       markdown: {
         toc: {
           depth: 3,
           searchDepth: 3,
         },
         highlight: {
-          theme: {
-            default: "github-light-default",
-            dark: "github-dark-default",
-            light: "github-light-default",
-          },
-          langs: ["javascript", "typescript", "php", "go", "bash", "html"],
+          langs: ["javascript", "typescript", "bash", "html", "css", "python"],
         },
         remarkPlugins: {
           "remark-math": {
