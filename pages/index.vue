@@ -1,17 +1,15 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { usePosts } from "~/composables/usePosts";
-import PostList from "~/components/Writing/PostList.vue";
-import StartupCard from "~/components/Home/StartupCard.vue";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/vue/24/outline";
 import { useSiteMetadata } from "~/composables/useSiteMetadata";
 import { defineWebSite, defineWebPage } from "nuxt-schema-org/schema";
-import { useSchemaOrg } from "#imports";
+import { useSchemaOrg, useHead } from "#imports";
 
 // Blog posts
-const { fetchPosts, groupByTags } = usePosts();
+const { fetchPosts } = usePosts();
 const { data: posts } = await fetchPosts();
-const recentPosts = computed(() => (posts.value ?? []).slice(0, 5));
+const recentPosts = computed(() => (posts.value ?? []).slice(0, 3));
 
 // SEO metadata
 useSiteMetadata({
@@ -21,12 +19,24 @@ useSiteMetadata({
 }); // Uses defaults for homepage
 
 useSchemaOrg([
+  defineWebSite({
+    name: "Rob Moore",
+  }),
   defineWebPage({
-    name: "Rob Moore - Software Engineer & Founder",
-    description:
-      "Building products, writing about philosophy and technology, and visualizing sports data.",
+    name: "Home",
   }),
 ]);
+
+useHead({
+  title: "Rob Moore",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Building thoughtful products at the intersection of philosophy, technology, and human behavior.",
+    },
+  ],
+});
 
 definePageMeta({
   layout: "default",
@@ -34,139 +44,268 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="min-h-screen max-w-3xl mx-auto px-6">
+  <div class="py-12 md:py-16 px-4 max-w-2xl mx-auto space-y-20">
     <!-- Hero Section -->
-    <header class="pt-20 pb-20">
+    <header class="space-y-6">
       <h1
-        class="hiddend font-serif text-3xl md:text-4xl font-medium leading-tight tracking-tight mb-8"
+        class="font-sans text:3xl md:text-4xl font-[700] relative inline-block tracking-tight"
       >
-        I'm
-        <a
-          class="text-primary-500 hover:text-primary-600 transition-colors"
-          href="https://twitter.com/robmoo_re"
-          target="_blank"
-          rel="me"
-          >@robmoore</a
-        >, a founder and software engineer focused on building great products.
+        Rob Moore
+        <span
+          class="absolute -top-1 -right-8 text-sm font-mono text-gray-500 rotate-12"
+        >
+          [rɒb mɔː]
+        </span>
       </h1>
 
-      <p class="text-lg text-gray-600 leading-relaxed mb-8">
-        I co-founded
-        <a
-          class="text-primary-500 hover:text-primary-600"
-          href="https://churnkey.co"
-          >Churnkey</a
-        >
-        and
-        <a
-          class="text-primary-500 hover:text-primary-600"
-          href="https://wavve.co"
-          >Wavve</a
-        >, write about
-        <a class="text-primary-500 hover:text-primary-600" href="/writing"
-          >philosophy and technology</a
-        >, and build
-        <a
-          class="text-primary-500 hover:text-primary-600"
-          href="https://perthirtysix.com"
-          >data visualizations for sports</a
-        >.
-      </p>
+      <div
+        class="space-y-4 font-normal text-base text-gray-800 dark:text-gray-200"
+      >
+        <p>
+          Code × consciousness. At the intersection of how we
+          <span class="font-medium italic">think</span> and what we
+          <span class="font-medium italic">create</span>.
+        </p>
+
+        <p class="text-sm">
+          Co-founder/CTO
+          <a
+            href="https://churnkey.co"
+            target="_blank"
+            class="no-fancy-underline font-medium border-b border-dashed border-gray-400 hover:text-gray-500 dark:hover:text-gray-400 transition duration-200 group inline-flex items-center"
+            >Churnkey</a
+          >. Previously
+          <a
+            href="https://wavve.co"
+            target="_blank"
+            class="no-fancy-underline font-medium border-b border-dashed border-gray-400 hover:text-gray-500 dark:hover:text-gray-400 transition duration-200 group inline-flex items-center"
+            >Wavve</a
+          >
+          (acquired).
+        </p>
+      </div>
 
       <!-- Social Links -->
-      <div class="flex items-center gap-6 text-gray-600">
+      <div class="flex flex-wrap gap-5 text-gray-600 dark:text-gray-400">
         <a
-          href="https://twitter.com/robmoo_re"
+          href="https://twitter.com/robjama"
           target="_blank"
           rel="me"
-          class="group flex items-center gap-1.5 hover:text-primary-500 transition-colors"
+          class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
         >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
             />
           </svg>
-          <span class="text-sm font-medium">Twitter</span>
+          <span class="text-xs font-medium">Twitter</span>
           <ArrowTopRightOnSquareIcon
-            class="w-3.5 h-3.5 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+            class="w-3 h-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
           />
         </a>
 
         <a
-          href="https://linkedin.com/in/rob-moore"
+          href="https://github.com/robMoore"
           target="_blank"
           rel="me"
-          class="group flex items-center gap-1.5 hover:text-primary-500 transition-colors"
+          class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
         >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"
+            />
+          </svg>
+          <span class="text-xs font-medium">GitHub</span>
+          <ArrowTopRightOnSquareIcon
+            class="w-3 h-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+          />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/robertjmoore/"
+          target="_blank"
+          rel="me"
+          class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
+        >
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
             <path
               d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
             />
           </svg>
-          <span class="text-sm font-medium">LinkedIn</span>
+          <span class="text-xs font-medium">LinkedIn</span>
           <ArrowTopRightOnSquareIcon
-            class="w-3.5 h-3.5 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
-          />
-        </a>
-
-        <a
-          href="https://instagram.com/robmoo.re"
-          target="_blank"
-          rel="me"
-          class="group flex items-center gap-1.5 hover:text-primary-500 transition-colors"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
-            />
-          </svg>
-          <span class="text-sm font-medium">Instagram</span>
-          <ArrowTopRightOnSquareIcon
-            class="w-3.5 h-3.5 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+            class="w-3 h-3 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
           />
         </a>
       </div>
     </header>
 
-    <!-- Companies Section -->
-    <section class="py-8">
-      <h2 class="text-2xl font-serif mb-10 border-b border-slate-100 py-2">
-        Companies & Projects
+    <!-- Projects Section -->
+    <section class="space-y-6">
+      <h2
+        class="text-sm font-mono text-gray-600 dark:text-gray-400 flex items-center"
+      >
+        <span class="mr-2 text-gray-300 dark:text-gray-600 font-normal">{</span>
+        VENTURES + PROJECTS
+        <span class="ml-2 text-gray-300 dark:text-gray-600 font-normal">}</span>
       </h2>
-      <div class="space-y-8">
-        <StartupCard
-          title="Churnkey"
-          description="Helping SaaS companies reduce churn through smart cancellation flows and retention campaigns."
-          url="https://churnkey.co"
-        />
-        <StartupCard
-          title="Wavve"
-          description="Enabling podcasters and creators to transform audio content into engaging social videos."
-          url="https://wavve.co"
-        />
-        <StartupCard
-          title="PerThirtySix"
-          description="Exploring sports data visualization and statistics, making complex data accessible."
-          url="https://perthirtysix.com"
-        />
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <!-- Churnkey -->
+        <div class="space-y-2 group">
+          <div class="font-mono text-xs text-gray-500 dark:text-gray-500">
+            RETENTION
+          </div>
+          <h3 class="font-sans text-base font-medium">
+            <a
+              href="https://churnkey.co"
+              target="_blank"
+              class="hover:text-gray-600 dark:hover:text-gray-300 transition duration-200 inline-flex items-center"
+            >
+              Churnkey
+              <ArrowTopRightOnSquareIcon
+                class="w-3 h-3 ml-1 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+              />
+            </a>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Customer success at scale to help companies build healthier
+            subscription businesses
+          </p>
+        </div>
+
+        <!-- Wavve -->
+        <div class="space-y-2 group">
+          <div class="font-mono text-xs text-gray-500 dark:text-gray-500">
+            AUDIO
+          </div>
+          <h3 class="font-sans text-base font-medium">
+            <a
+              href="https://wavve.co"
+              target="_blank"
+              class="hover:text-gray-600 dark:hover:text-gray-300 transition duration-200 inline-flex items-center"
+            >
+              Wavve
+              <ArrowTopRightOnSquareIcon
+                class="w-3 h-3 ml-1 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+              />
+            </a>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Audio visualization for podcasters. Acquired in 2021.
+          </p>
+        </div>
+
+        <!-- PerThirtySix -->
+        <div class="space-y-2 group">
+          <div class="font-mono text-xs text-gray-500 dark:text-gray-500">
+            DATA
+          </div>
+          <h3 class="font-sans text-base font-medium">
+            <a
+              href="https://perthirtysix.com"
+              target="_blank"
+              class="hover:text-gray-600 dark:hover:text-gray-300 transition duration-200 inline-flex items-center"
+            >
+              PerThirtySix
+              <ArrowTopRightOnSquareIcon
+                class="w-3 h-3 ml-1 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+              />
+            </a>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Advanced sports analytics and data visualization.
+          </p>
+        </div>
+
+        <!-- Practical Philosophy -->
+        <div class="space-y-2 group">
+          <div class="font-mono text-xs text-gray-500 dark:text-gray-500">
+            IDEAS
+          </div>
+          <h3 class="font-sans text-base font-medium">
+            <NuxtLink
+              to="/writing"
+              class="hover:text-gray-600 dark:hover:text-gray-300 transition duration-200"
+            >
+              Philosophy
+              <span
+                class="inline-block ml-1 text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                aria-hidden="true"
+                >→</span
+              >
+            </NuxtLink>
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Stoic principles applied to modern technology challenges.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- Writing Section -->
-    <section class="py-8">
-      <h2 class="text-2xl font-serif mb-10 border-b border-slate-100 py-2">
-        Writing
-      </h2>
-      <PostList :posts="recentPosts" :show-descriptions="true" />
-      <p class="mt-6">
-        <a href="/writing"> View all posts → </a>
-      </p>
+    <section class="space-y-6">
+      <div class="flex items-center justify-between">
+        <h2
+          class="text-sm font-mono text-gray-600 dark:text-gray-400 flex items-center"
+        >
+          <span class="mr-2 text-gray-300 dark:text-gray-600 font-normal"
+            >[</span
+          >
+          WRITING
+          <span class="ml-2 text-gray-300 dark:text-gray-600 font-normal"
+            >]</span
+          >
+        </h2>
+        <NuxtLink
+          to="/writing"
+          class="group text-xs font-mono hover:text-gray-700 dark:hover:text-gray-300 transition duration-200"
+        >
+          View All
+          <span
+            class="inline-block ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+            aria-hidden="true"
+            >→</span
+          >
+        </NuxtLink>
+      </div>
+
+      <div class="space-y-4">
+        <div v-for="post in recentPosts" :key="post.path" class="group">
+          <NuxtLink :to="post.path" class="block space-y-1">
+            <div class="text-xs font-mono text-gray-500 dark:text-gray-500">
+              {{
+                new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                })
+              }}
+            </div>
+            <h3
+              class="font-sans text-base font-medium group-hover:text-gray-600 dark:group-hover:text-gray-300 transition duration-200"
+            >
+              {{ post.title }}
+              <span
+                class="inline-block ml-1 text-gray-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                aria-hidden="true"
+                >→</span
+              >
+            </h3>
+          </NuxtLink>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-.grid {
-  --min-column-width: 280px;
+.group {
+  transition: all 0.2s ease;
+}
+
+/* Optimize animations */
+a,
+span {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 </style>
