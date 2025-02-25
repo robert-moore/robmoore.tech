@@ -10,7 +10,7 @@
           <img
             src="/icon.png"
             alt="Rob Moore"
-            class="w-6 h-6 filter grayscale contrast-125"
+            class="w-5 h-5 filter grayscale contrast-200"
           />
           Rob Moore
         </NuxtLink>
