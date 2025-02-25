@@ -53,10 +53,6 @@ if (post.value) {
     }),
   ]);
 }
-
-if (post.value?.ogImage) {
-  defineOgImage(post.value.ogImage);
-}
 </script>
 
 <template>
