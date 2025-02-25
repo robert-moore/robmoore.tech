@@ -169,8 +169,8 @@ definePageMeta({
             </a>
           </h3>
           <p class="text-gray-600 text-sm leading-relaxed">
-            Customer success at scale to help companies build healthier
-            subscription businesses
+            Automate customer retention at scale to help companies build
+            healthier subscription businesses.
           </p>
         </div>
 
