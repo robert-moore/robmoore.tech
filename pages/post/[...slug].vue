@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import Post from "~/components/Writing/Post.vue";
+import { defineArticle } from "nuxt-schema-org/schema";
+import { useSchemaOrg } from "#imports";
+import { useSiteMetadata } from "~/composables/useSiteMetadata";
+import { computed } from "vue";
+
 const route = useRoute();
 
 const { data: post } = await useAsyncData(`post-${route.path}`, () => {
@@ -9,6 +14,47 @@ const { data: post } = await useAsyncData(`post-${route.path}`, () => {
 definePageMeta({
   layout: "post",
 });
+
+// Only proceed with metadata if we have a post
+if (post.value) {
+  // Format dates for SEO
+  const publishDate = computed(() =>
+    post.value?.date ? new Date(post.value.date).toISOString() : undefined
+  );
+
+  const modifiedDate = computed(() =>
+    post.value?.modifiedDate
+      ? new Date(post.value.modifiedDate).toISOString()
+      : undefined
+  );
+
+  // Use the site metadata composable for SEO
+  useSiteMetadata({
+    title: post.value.title,
+    description: post.value.description,
+    image: post.value.image,
+    path: route.path,
+    type: "article",
+    publishedTime: publishDate.value,
+    modifiedTime: modifiedDate.value,
+    tags: post.value.tags,
+  });
+
+  // Use schema.org
+  useSchemaOrg([
+    defineArticle({
+      headline: post.value.title,
+      description: post.value.description,
+      image: post.value.image,
+      datePublished: publishDate.value,
+      dateModified: modifiedDate.value,
+      wordCount: post.value.wordCount,
+      keywords: post.value.tags,
+    }),
+  ]);
+}
+
+defineOgImageComponent("NuxtSeo");
 </script>
 
 <template>

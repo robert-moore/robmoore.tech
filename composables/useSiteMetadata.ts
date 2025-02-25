@@ -27,7 +27,7 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
   const {
     title = DEFAULT_METADATA.title,
     description = DEFAULT_METADATA.description,
-    image = DEFAULT_METADATA.image,
+    image,
     path = route.path,
     type = DEFAULT_METADATA.type,
     publishedTime,
@@ -47,7 +47,6 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
     ogTitle: () => fullTitle.value,
     description: () => description,
     ogDescription: () => description,
-    ogImage: () => image,
     ogUrl: () => canonicalUrl.value,
     ogType: () => type,
 
@@ -62,6 +61,10 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
       articlePublishedTime: () => publishedTime,
       articleModifiedTime: () => modifiedTime,
       articleTag: () => tags,
+    }),
+
+    ...(image && {
+      ogImage: () => image,
     }),
 
     // Additional meta

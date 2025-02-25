@@ -26,6 +26,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@nuxt/devtools": "^2.1.0",
     "autoprefixer": "^10.4.20",
     "sass": "^1.85.0"
   },

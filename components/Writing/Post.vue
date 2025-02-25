@@ -128,10 +128,6 @@
 import TableOfContents from "./TableOfContents.vue";
 import { onMounted, ref, onUnmounted, provide, computed } from "vue";
 import "./post.css";
-import { useRouter } from "#app";
-import { defineArticle } from "nuxt-schema-org/schema";
-import { useSchemaOrg } from "#imports";
-import { useSiteMetadata } from "~/composables/useSiteMetadata";
 
 interface Props {
   title: string;
@@ -166,37 +162,6 @@ const showModifiedDate = computed(() => {
   const published = new Date(props.date);
   return modified > published;
 });
-
-// Compute canonical URL
-const route = useRoute();
-const canonicalUrl = computed(() => {
-  const baseUrl = "https://robmoore.tech";
-  return `${baseUrl}${route.path}`;
-});
-
-// Use the site metadata composable for SEO
-useSiteMetadata({
-  title: props.title,
-  description: props.description,
-  image: props.image,
-  type: "article",
-  publishedTime: publishDate.value,
-  modifiedTime: modifiedDate.value,
-  tags: props.tags,
-});
-
-// Use schema.org
-useSchemaOrg([
-  defineArticle({
-    headline: props.title,
-    description: props.description,
-    image: props.image,
-    datePublished: publishDate.value,
-    dateModified: modifiedDate.value,
-    wordCount: props.wordCount,
-    keywords: props.tags,
-  }),
-]);
 
 // Format dates for display
 function formatDate(date: string) {

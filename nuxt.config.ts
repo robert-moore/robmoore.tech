@@ -7,7 +7,13 @@ import {
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/seo", "@nuxtjs/tailwindcss", "@nuxt/content", "@nuxt/image"],
+  modules: [
+    "@nuxt/devtools",
+    "@nuxtjs/seo",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/content",
+    "@nuxt/image",
+  ],
   css: [
     "katex/dist/katex.min.css",
     "~/assets/css/fonts.css",
@@ -16,7 +22,7 @@ export default defineNuxtConfig({
 
   // @nuxtjs/seo
   ogImage: {
-    enabled: false,
+    enabled: true,
   },
   sitemap: {
     enabled: true,
