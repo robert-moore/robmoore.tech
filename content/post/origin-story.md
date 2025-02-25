@@ -6,9 +6,9 @@ showToc: true
 showHeaderNumbers: true
 tags:
   - practical philosophy
+ogImage:
+  component: PostOg
 ---
-
-:OgImageScreenshot
 
 ![an AI imagined MRI](/images/posts/origin-story/a-practical-philosophy-figure-1.jpeg)
 

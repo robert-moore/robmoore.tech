@@ -30,6 +30,7 @@ const components = ref<ComponentDisplay[]>([
     componentName: "PostOg",
     props: {
       title: "Example Post Title",
+      isPreview: true,
     },
     description: "Open Graph image for blog posts",
     dimensions: {
@@ -73,10 +74,12 @@ function getDimensionsDisplay(component: ComponentDisplay): string {
 // Generate formatted code parts for syntax highlighting
 const codeExampleParts = computed(() => {
   const componentTag = selectedComponent.value.componentName;
-  const props = getPropEntries().map(([key, value]) => ({
-    key,
-    value: String(value),
-  }));
+  const props = getPropEntries()
+    .filter(([key]) => key !== "isPreview") // Filter out isPreview prop from code example
+    .map(([key, value]) => ({
+      key,
+      value: String(value),
+    }));
 
   return {
     componentTag,
