@@ -14,7 +14,11 @@ const { data: posts } = await fetchPosts();
 const recentPosts = computed(() => (posts.value ?? []).slice(0, 5));
 
 // SEO metadata
-useSiteMetadata(); // Uses defaults for homepage
+useSiteMetadata({
+  title: "Rob Moore - Software Engineer & Founder",
+  description:
+    "Building products, writing about philosophy and technology, and visualizing sports data.",
+}); // Uses defaults for homepage
 
 useSchemaOrg([
   defineWebPage({

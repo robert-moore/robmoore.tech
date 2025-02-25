@@ -45,11 +45,6 @@ export default defineNuxtConfig({
         "https://linkedin.com/in/rob-moore",
       ],
     }),
-    website: defineWebSite({
-      name: "Rob Moore",
-      description:
-        "Building products, writing about philosophy and technology, and visualizing sports data.",
-    }),
   },
   linkChecker: {
     enabled: true,
@@ -66,7 +61,27 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap",
         },
+        { rel: "icon", type: "image/x-icon", href: "/favicon/favicon.ico" },
+        {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "/favicon/apple-touch-icon.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/favicon/favicon-32x32.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: "/favicon/favicon-16x16.png",
+        },
+        { rel: "manifest", href: "/favicon/site.webmanifest" },
       ],
+      meta: [{ name: "theme-color", content: "#ffffff" }],
     },
   },
   content: {
@@ -77,6 +92,7 @@ export default defineNuxtConfig({
       },
     },
     build: {
+      transformers: ["~/transformers/word-count"],
       markdown: {
         toc: {
           depth: 3,
@@ -104,7 +120,7 @@ export default defineNuxtConfig({
         },
       },
     },
-    transformers: ["~/server/transformers/word-count"],
+    transformers: ["~/transformers/word-count"],
   },
   experimental: {
     componentIslands: true,
