@@ -6,8 +6,6 @@ showToc: true
 showHeaderNumbers: false
 tags:
   - practical philosophy
-  ogImage:
-    component: PostOg
 ---
 
 When I was 12, I decided I would learn how to play golf. So the next time my mom went to Walmart, I tagged along and bought a $12 pitching wedge and an 8 pack of golf whiffle balls. Given that no one else in my family played golf, learning the sport was going to be a self-taught adventure. **This being 2005, I did what all curious learners with dial-up internet did at the time. I opened a handful of tutorial videos in separate browser tabs and then promptly went to bed, waiting overnight for them to load.**

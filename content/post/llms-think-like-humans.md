@@ -6,8 +6,6 @@ showToc: true
 showHeaderNumbers: true
 tags:
   - AI
-ogImage:
-  component: PostOg
 ---
 
 First BERT. Then GPT-3, DALL-E, Stable Diffusion, Midjourney - all the latest in the world of AI, and all the result of an advancement in machine learning (ML) modeling called _transformers_. This breakthrough technique adds an _attention_ mechanism to neural networks, a key component with next generation text and image generation with AI. In layman's terms, the _attention_ mechanism within a machine learning model tells the rest of the neural net which part of an input it should focus on during image or text generation. For instance, given an English to French translation task with the input “My bike is shiny and red”, the attention will progress throughout the translation process, focusing on the different key parts of the English sentence as it creates the French text. Halfway through the translation, the model may have output “mon vélo est …”, and then the attention mechanism would likely tell the neural net to focus on _shiny_ for the next output word (with some focus on the surrounding words like _bike_ and _is_). While this is a contrived example, Midjourney and Stable Diffusion use an analogous attention mechanism for generating images with complex prompts, iterating through each part of the prompt and ensuring it gets included in the generated image.
