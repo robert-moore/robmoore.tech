@@ -7,11 +7,7 @@
           to="/"
           class="no-underline font-sans text-lg font-medium tracking-tight text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-2"
         >
-          <img
-            src="/icon.png"
-            alt="Rob Moore"
-            class="w-5 h-5 filter grayscale contrast-200"
-          />
+          <img src="/icon.png" alt="Rob Moore" class="w-5 h-5 filter" />
           Rob Moore
         </NuxtLink>
 
