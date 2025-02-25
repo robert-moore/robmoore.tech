@@ -92,51 +92,51 @@ const imageLoaded = (event: Event) => {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto px-6 container">
-    <div class="pt-12 text-center">
-      <h1 class="font-sans text-4xl font-semibold text-gray-900 mb-6">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="pt-12 pb-8">
+      <h1 class="font-sans text-2xl font-medium text-gray-900 mb-2">
         Data Visualization
       </h1>
-      <p class="text-lg text-gray-600 leading-relaxed mb-20">
+      <p class="text-lg text-gray-600 leading-relaxed mb-12">
         Exploring complex datasets through interactive and static
         visualizations.
       </p>
     </div>
 
-    <div class="space-y-24">
-      <article
-        v-for="project in projects"
-        :key="project.title"
-        class="group relative"
-      >
-        <div class="flex items-center gap-12">
-          <div class="w-7/12">
-            <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+    <div class="space-y-16">
+      <article v-for="project in projects" :key="project.title" class="group">
+        <div class="flex items-start gap-8">
+          <div class="w-1/2">
+            <div class="bg-gray-50 rounded-lg overflow-hidden">
               <NuxtImg
                 :src="project.image"
                 :alt="project.title"
-                class="object-contain"
+                class="w-full h-auto"
                 loading="lazy"
               />
             </div>
           </div>
 
-          <div class="w-5/12 space-y-4">
-            <h2 class="font-sans text-2xl font-medium text-gray-800">
+          <div class="w-1/2 space-y-3">
+            <h2
+              class="font-sans text-base font-medium text-gray-900 group-hover:text-gray-600 transition-colors"
+            >
               {{ project.title }}
             </h2>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 text-sm leading-relaxed">
               {{ project.description }}
             </p>
-            <div class="pt-6">
+            <div class="pt-3">
               <a
                 :href="project.link"
                 target="_blank"
                 rel="noopener"
-                class="group inline-flex items-center gap-2 text-primary-500 font-medium hover:text-primary-600 transition-colors"
+                class="group inline-flex items-center gap-1.5 text-gray-600 hover:text-primary-500 transition-colors"
               >
-                <span>{{ project.linkText }}</span>
-                <ArrowTopRightOnSquareIcon class="w-4 h-4" />
+                <span class="text-sm font-medium">{{ project.linkText }}</span>
+                <ArrowTopRightOnSquareIcon
+                  class="w-3.5 h-3.5 opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all"
+                />
               </a>
             </div>
           </div>
@@ -147,19 +147,7 @@ const imageLoaded = (event: Event) => {
 </template>
 
 <style scoped>
-.aspect-w-16 {
-  position: relative;
-  padding-bottom: 56.25%;
-}
-
-.aspect-w-16 > * {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  object-fit: contain;
+.group {
+  transition: all 0.2s ease;
 }
 </style>
