@@ -32,6 +32,10 @@ useSchemaOrg([
     name: "Rob Moore",
   }),
 ]);
+
+useSeoMeta({
+  ogImage: "/images/brand/default-og.png",
+});
 </script>
 
 <template>
