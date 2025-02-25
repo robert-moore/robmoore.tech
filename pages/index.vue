@@ -48,11 +48,11 @@ definePageMeta({
     <!-- Hero Section -->
     <header class="space-y-6">
       <h1
-        class="font-sans text:3xl md:text-4xl font-[700] relative inline-block tracking-tight"
+        class="font-sans text-3xl md:text-4xl font-[700] relative inline-block tracking-tight"
       >
         Rob Moore
         <span
-          class="absolute -top-1 -right-8 text-sm font-mono text-gray-500 rotate-12"
+          class="hidden md:inline-block absolute -top-1 -right-8 text-sm font-mono text-gray-500 rotate-12"
         >
           [rɒb mɔː]
         </span>
