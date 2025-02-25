@@ -15,7 +15,7 @@
         class="hidden xl:block"
         aria-label="Table of Contents"
       >
-        <div class="sticky top-2 mt-[9.5rem]">
+        <div class="sticky top-4 mt-[9rem]">
           <TableOfContents
             :toc="toc"
             :title="title"
