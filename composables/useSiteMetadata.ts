@@ -16,7 +16,7 @@ const DEFAULT_METADATA = {
   title: "Rob Moore",
   description:
     "Building products, writing about philosophy and technology, and visualizing sports data.",
-  image: "/images/brand/default-og.jpg",
+  image: "/images/brand/default-og.png",
   type: "website" as const,
 };
 
