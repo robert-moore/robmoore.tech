@@ -5,8 +5,13 @@
         <!-- Site name - modern sans-serif -->
         <NuxtLink
           to="/"
-          class="no-underline font-sans text-lg font-medium tracking-tight text-gray-900 hover:text-gray-600 transition-colors"
+          class="no-underline font-sans text-lg font-medium tracking-tight text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-2"
         >
+          <img
+            src="/icon.png"
+            alt="Rob Moore"
+            class="w-6 h-6 filter grayscale contrast-125"
+          />
           Rob Moore
         </NuxtLink>
 
