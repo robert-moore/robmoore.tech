@@ -19,6 +19,9 @@ export default defineNuxtConfig({
     "~/assets/css/fonts.css",
     "~/assets/css/global.scss",
   ],
+  image: {
+    quality: 80,
+  },
 
   // @nuxtjs/seo
   ogImage: {
