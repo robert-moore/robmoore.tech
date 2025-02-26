@@ -5,6 +5,11 @@ import {
 } from "nuxt-schema-org/schema";
 
 export default defineNuxtConfig({
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false,
+    },
+  },
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
   modules: [
