@@ -39,7 +39,7 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
   const fullTitle = computed(() =>
     title === DEFAULT_METADATA.title
       ? title
-      : `${title} - ${DEFAULT_METADATA.title}`
+      : `${title} | ${DEFAULT_METADATA.title}`
   );
 
   useSeoMeta({
@@ -49,7 +49,7 @@ export function useSiteMetadata(options: SiteMetadataOptions = {}) {
     ogDescription: () => description,
     ogUrl: () => canonicalUrl.value,
     ogType: () => type,
-    ogImage: () => image,
+    ogImage: () => image || DEFAULT_METADATA.image,
 
     // Twitter Card
     twitterCard: "summary_large_image",
