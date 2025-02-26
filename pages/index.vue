@@ -88,7 +88,7 @@ definePageMeta({
       <!-- Social Links -->
       <div class="flex flex-wrap gap-5 text-gray-600 dark:text-gray-400">
         <a
-          href="https://twitter.com/robjama"
+          href="https://twitter.com/robmoo_re"
           target="_blank"
           rel="me"
           class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
@@ -105,7 +105,7 @@ definePageMeta({
         </a>
 
         <a
-          href="https://github.com/robMoore"
+          href="https://github.com/robert-moore"
           target="_blank"
           rel="me"
           class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
@@ -122,7 +122,7 @@ definePageMeta({
         </a>
 
         <a
-          href="https://www.linkedin.com/in/robertjmoore/"
+          href="https://www.linkedin.com/in/rob-moore/"
           target="_blank"
           rel="me"
           class="group flex items-center gap-1.5 hover:text-gray-900 dark:hover:text-gray-300 transition-colors"
